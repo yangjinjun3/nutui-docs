@@ -6,7 +6,7 @@
       <div class="content-left">
         <div class="content-title"> NutUI </div>
         <div class="content-smile"> </div>
-        <div class="content-subTitle">京东风格的轻量级移动端 Vue 组件库</div>
+        <div class="content-subTitle">京东风格的轻量级移动端 Vue、React 组件库</div>
         <div class="content-button">
           <div class="leftButton" @click="toIntro">
             <div class="leftButtonText">开始使用</div>
@@ -165,11 +165,11 @@
 import { defineComponent, onMounted, reactive, toRefs, computed, ref } from 'vue';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
-import router from '../docs_vue/router';
 import { RefData } from '@/assets/util/ref';
 import { ApiService } from '@/service/ApiService';
 import 'swiper/swiper.min.css';
 import Swiper from 'swiper/swiper-bundle.min.js';
+import { useRouter } from 'vue-router';
 export default defineComponent({
   name: 'main',
   components: {
@@ -177,6 +177,7 @@ export default defineComponent({
     [Footer.name]: Footer
   },
   setup() {
+    const router = useRouter();
     const data = reactive({
       // theme: 'white',
       articleList: new Array(),
@@ -261,7 +262,7 @@ export default defineComponent({
       window.open('//jelly.jd.com/article/' + id);
     };
     function toIntro() {
-      router.push({ path: '/intro' });
+      router.push({ name: 'intro' });
     }
     const toDetail = () => {
       window.open('/cat');
