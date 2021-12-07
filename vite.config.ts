@@ -11,7 +11,7 @@ export default defineConfig({
   server: {
     port: 2021,
     host: '0.0.0.0',
-    open: '/3x/index.vue.html',
+    open: '/3x/index.html',
     proxy: {
       '/devServer': {
         target: 'https://nutui.jd.com',
@@ -69,7 +69,7 @@ export default defineConfig({
     cssCodeSplit: true,
     rollupOptions: {
       input: {
-        vue: resolve(__dirname, 'index.vue.html')
+        vue: resolve(__dirname, 'index.html')
       },
       output: {
         entryFileNames: `${config.version}/[name].js`,

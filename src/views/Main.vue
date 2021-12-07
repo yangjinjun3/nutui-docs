@@ -1,5 +1,8 @@
 <template>
-  <div class="v3-banner" :class="{ active: false }">NutUI 现已发布 Vue3.x 版本，带来更强大的功能和出色的体验</div>
+  <div class="v3-banner" :class="{ active: true }">
+    NutUI 正在参与 OSC 2021 年度中国开源项目评选（您的鼓励是我们坚持不懈的源动力)，请为我们投上宝贵的一票吧。
+    <a href="https://www.oschina.net/project/top_cn_2021/?id=65&fr=nutui" target="_blank">去投票</a>
+  </div>
   <doc-header></doc-header>
   <div class="doc-content" :class="themeName()">
     <div class="doc-content-index">
@@ -290,9 +293,13 @@ export default defineComponent({
   &.active {
     top: $doc-header-height;
   }
+  > a {
+    color: #fff;
+    font-weight: bold;
+  }
   font-size: 14px;
   width: 100%;
-  z-index: 1;
+  z-index: 999;
   text-align: center;
   padding: 10px 60px;
   color: #fff;
