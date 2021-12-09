@@ -22,14 +22,17 @@
 
 <p align="center">
     <a href="https://www.oschina.net/project/top_cn_2021/?id=65&fr=nutui">
-        <img src="https://img11.360buyimg.com/imagetools/jfs/t1/139357/25/22692/81953/61b1bd11E7615bca2/f6eec2f25c6b8914.jpg" width="600" alt="license"/>
+        <img src="https://img11.360buyimg.com/imagetools/jfs/t1/218918/8/7089/184776/61b1f1b3Ebf969f9a/8c298858c4186424.jpg" width="600" alt="license"/>
     </a>
 </p>
+
+> Nut[nʌt]，源自电影《冰河世纪》里松鼠 Scrat "执迷不悟"，一生追求，即便引发大灾难也绝不松手的坚果。
 
 ---
 
 
 ##  特性
+
 
 * 🚀 70+ 高质量组件（3.0 持续开发中）,覆盖移动端主流场景
 * 💪 支持小程序开发
@@ -42,6 +45,8 @@
 * 🍭 单元测试覆盖（3.0 开发中）,保障稳定性
 * 📖 提供 Sketch 设计资源
 
+<br/>
+
 ## 示例 H5 & 小程序
 
 <p>
@@ -49,20 +54,23 @@
    <img src="https://storage.360buyimg.com/jdc-article/gh_f2231eb941be_258.jpg" style="margin-left:40px" width="100" alt="NutUI" />  
 </p>
 
-## 版本说明 & 支持环境
+<br/>
+
+## 版本说明 
 
 > @nutui/nutui@next 和 @nutui/nutui-taro 属于并行版本，存在部分的差异化，版本号始终保持一致
 
 > 如果想要兼容低版本，请使用 @nutui/nutui
 
-* @nutui/nutui  基于 Vue2 视觉风格 JD APP 7.0 规范 ，只能开发 h5；支持现代浏览器以及 Android >= 4.0、iOS >= 8.0
+* @nutui/nutui  基于 Vue2 视觉风格 JD APP 7.0 规范 ，只能开发 h5；兼容 Android >= 4.0、iOS >= 8.0
 
-* @nutui/nutui-jdl 基于 Vue2 视觉风格 JDL 规范 ，只能开发 h5；支持现代浏览器以及 Android >= 4.0、iOS >= 8.0
+* @nutui/nutui-jdl 基于 Vue2 视觉风格 JDL 规范 ，只能开发 h5；兼容 Android >= 4.0、iOS >= 8.0
 
-* @nutui/nutui@next 基于 Vue3 视觉风格 JD APP 10.0规范 ，只能开发 h5；支持现代浏览器以及 Chrome >= 51、iOS >= 10.0（与 Vue3 一致）
+* @nutui/nutui@next 基于 Vue3 视觉风格 JD APP 10.0规范 ，只能开发 h5；兼容 Chrome >= 51、iOS >= 10.0（与 Vue3 一致）
 
-* @nutui/nutui-taro 基于 Vue3 视觉风格 JD APP 10.0规范 ，必须基于 Taro + Vue3 框架 进行开发多端（多端指一套代码 部署多端环境 微信小程序 h5 等第三方小程序）；支持现代浏览器以及 Chrome >= 51、iOS >= 10.0（与 Vue3 一致）
+* @nutui/nutui-taro 基于 Vue3 视觉风格 JD APP 10.0规范 ，必须基于 Taro + Vue3 框架 进行开发多端（多端指一套代码 部署多端环境 微信小程序 h5 等第三方小程序）
 
+<br/>
 
 ## 构建版本
 
@@ -72,24 +80,26 @@
 
 * umd **nutui.umd.js**
 
+<br/>
 
 ## 使用案例
 
 NutUI 已经投入了我们的生产环境中使用，业界也在广泛地使用 NutUI 开发多端应用。
 
 <img src="https://raw.githubusercontent.com/jdf2e/nutui-user-cases/master/user-cases.jpg" width="800" alt="NutUI" />
-
 <p>
-    <a href="https://github.com/jdf2e/nutui-user-cases">
+    <a href="https://nutui.jd.com/#/case">
        查看等多的案例，请点击
     </a>
 </p>
 
 <p>
-    <a href="https://github.com/jdf2e/nutui-user-cases/edit/master/index.js">
+    <a href="https://get.jd.com/#/survey/index?id=4217247740034539">
        我们正在征集更多优秀案例，欢迎点击提交
     </a>
 </p>
+
+<br/>
 
 ## 链接
 
@@ -116,11 +126,16 @@ NutUI 已经投入了我们的生产环境中使用，业界也在广泛地使�
     </li>
 </ul>
 
-## 更多反馈途径
+<br/>
 
-| Github Issue | 微信群 |京东内部咚咚群 |
-| --- | --- |--- |
-| [jdf2e/nutui/issues](https://github.com/jdf2e/nutui/issues) | <img src="https://nutui.jd.com/3x/3.1.12/vx-code1.png" width="60" /> 关注后回复「NutUI」 | [82957939](timline://chat/?topin=82957939&type=2)|
+## 开发交流
+
+| 群主体| 微信群 | |京东内部咚咚群 |
+| --- | --- |--- |--- |
+| NutUI | <img src="https://nutui.jd.com/3x/3.1.12/vx-code1.png" width="60" /> |关注后回复「NutUI」 | [82957939](timline://chat/?topin=82957939&type=2)|
+| NutUI x Taro | <img src="https://storage.360buyimg.com/taro-jd-com/static/contact_taro_nutui_qr.png" width="60" /> |关注后回复「NutUI x Taro」 | 
+
+<br/>
 
 ## 贡献者们
 
@@ -130,12 +145,39 @@ NutUI 已经投入了我们的生产环境中使用，业界也在广泛地使�
   <img src="https://opencollective.com/nutui/contributors.svg?width=890&button=false" alt="contributors">
 </a>
 
+<br/>
+<br/>
+
+## 开发计划
+
+<p>
+    <a href="https://github.com/jdf2e/nutui/projects/1">
+       projects
+    </a>
+</p>
+
+<br/>
+
+## 更新日志
+
+本项目遵从 [Contributing](https://nutui.jd.com/#/contributing) ,更新日志请查阅 [Releases](https://github.com/jdf2e/nutui/releases)
+
+<br/>
+
+## 学习资源
+
+
+[知乎专栏](https://www.zhihu.com/column/c_1263837684834889728)
+
+<br/>
+
 ## 参与共建
 
 请参考 [贡献指南](https://nutui.jd.com/#/contributing)。
 
 我们非常欢迎你给我们提 [PR](https://github.com/jdf2e/nutui/pulls) ,参与共建。当然关于 NutUI 建设的方方面面，我们都欢迎和感谢你给我们提供好的建议和想法。
 
+<br/>
 
 ## 开源协议
 
