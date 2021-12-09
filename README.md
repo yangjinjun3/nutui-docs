@@ -1,11 +1,11 @@
 
 <p align="center">
-    <img alt="logo" src="https://img11.360buyimg.com/imagetools/jfs/t1/211965/25/7152/22022/61b16785E433119bb/aa41d7a9f7e823f3.png" width="387" height="162" style="margin-bottom: 10px;">
+    <img alt="logo" src="https://img11.360buyimg.com/imagetools/jfs/t1/211965/25/7152/22022/61b16785E433119bb/aa41d7a9f7e823f3.png" width="150" style="margin-bottom: 10px;">
 </p>
 
 <p align="center">京东风格的轻量级移动端 Vue2、Vue3 组件库</p>
 
-<p align="center">（支持多端小程序开发）</p>
+<p align="center">（支持一套代码生成 H5 和小程序）</p>
 
 <p align="center">
     <img src="https://img.shields.io/npm/v/@nutui/nutui.svg" alt="npm version" />
@@ -14,6 +14,17 @@
     <img src="https://img.shields.io/npm/l/@nutui/nutui.svg" alt="license"/>
 </p>
 
+<!-- <p align="center">
+    <a href="https://www.oschina.net/project/top_cn_2021/?id=65&fr=nutui" style="width:600px;height:60px;background:#f00;color:#fff;padding:5px;">
+        NutUI 正在参加《2021 年度 OSC 中国开源项目》评选，请为我们投上宝贵的一票吧。 去投票💪
+    </a>
+</p> -->
+
+<p align="center">
+    <a href="https://www.oschina.net/project/top_cn_2021/?id=65&fr=nutui">
+        <img src="https://img11.360buyimg.com/imagetools/jfs/t1/139357/25/22692/81953/61b1bd11E7615bca2/f6eec2f25c6b8914.jpg" width="600" alt="license"/>
+    </a>
+</p>
 
 ---
 
