@@ -19,11 +19,19 @@
 * 具备良好的服务意识、责任心及学习能力、优秀的团队沟通与协作能力。
 
 
+### 简历投递：
+
+<a href="mailto:yfzhoutao@jd.com">yfzhoutao@jd.com</a> 
+
+
 ### 职位诱惑：
 * 工作地点：北京亦庄京东集团总部。公司有免费班车，班车点基本覆盖全北京，距离不是距离
 * 公司福利：5层食堂、超大面积免费健身房(器械、跑步机、健身教练)、年假、带薪病假、大楼各种羊毛薅、各种内购内销、饮料零食…
 
 
-### 简历投递：
+<a target="_blank" href="https://storage.360buyimg.com/nutui-static/image/share.png" ><img width="100%" src="https://storage.360buyimg.com/nutui-static/image/share.png"></a>
 
-<a href="mailto:yfzhoutao@jd.com">yfzhoutao@jd.com</a> 
+### 
+
+<a target="_blank" href="https://storage.360buyimg.com/nutui-static/image/share2.png" ><img width="100%" src="https://storage.360buyimg.com/nutui-static/image/share2.png"></a>
+

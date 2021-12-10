@@ -13,9 +13,7 @@
       </div>
       <div class="notice-main-content">
         <div class="notice-main-title">常见问题</div>
-        <div class="notice-sub-title"
-          >以下为一些 NutUI 常见的问题和官方答复，在提问之前可以看下是否为类似的问题,可以直接点击链接查看文档</div
-        >
+        <div class="notice-sub-title">以下为一些 NutUI 常见的问题和官方答复，在提问之前可以看下是否为类似的问题</div>
         <div class="notice-main-line"></div>
         <div v-for="(item, index) in list" :key="index" class="notice-main-item" @click="link(item)">
           <div class="article-title">{{ item.title }} </div>
