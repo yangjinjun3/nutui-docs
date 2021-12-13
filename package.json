@@ -35,7 +35,7 @@
     "dev:react": "tsc && vite --force --config vite.config.react.ts",
     "build:react": "vite build --config vite.config.react.ts",
     "build:oss:react": "vite build --base=/nutui/react/",
-    "build:gh-pages": "vite build --base=/nutui-docs/",
+    "build:gh-pages": "vite build --base=/nutui-docs/3x/",
     "build:gh-pages:react": "vite build --config vite.config.react.ts --base=/nutui-docs/react/",
     "upload": "npm run build:oss && npm run  build:oss:react && node ./jd/upload.js",
     "serve": "vite preview",

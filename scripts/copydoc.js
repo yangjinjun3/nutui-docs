@@ -1,6 +1,6 @@
 const computerBase = '/Users/zhuzhida/Documents/github/';
-const vueBaseUrl = `${computerBase}nutui-next/src`;
-const reactBaseUrl = `${computerBase}nutui-react/src`;
+const vueBaseUrl = `${computerBase}nutui-next`;
+const reactBaseUrl = `${computerBase}nutui-react`;
 const fse = require('fs-extra');
 const copyFile = (from, to) => {
   fse
@@ -13,19 +13,34 @@ const copyFile = (from, to) => {
     });
 };
 const copy = async (fromGit, type) => {
-  let configPath = `${fromGit}/config.json`;
+  let configPath = `${fromGit}/src/config.json`;
+  let configPkgPath = `${fromGit}/package.json`;
+  let nutuiDocsConfigPath = `${computerBase}nutui-docs/src/docs_${type}/config.json`;
+
   const exists = await fse.pathExists(configPath);
   if (exists) {
-    const configObj = await fse.readJson(configPath);
-    configObj.nav.forEach(({ packages }) => {
+    const fromConfig = await fse.readJson(configPath);
+    const fromPkgConfig = await fse.readJson(configPkgPath);
+    const docsConfig = await fse.readJson(nutuiDocsConfigPath);
+    docsConfig.version = fromPkgConfig.version;
+    docsConfig.nav = fromConfig.nav;
+    docsConfig.docs = fromConfig.docs;
+    fse
+      .writeJson(nutuiDocsConfigPath, docsConfig, {
+        spaces: 2
+      })
+      .then(() => {
+        console.log(`${docsConfig.version} success!`);
+      });
+    fromConfig.nav.forEach(({ packages }) => {
       packages.forEach((item) => {
         if (item.show) {
           let cmpName = item.name.toLowerCase();
-          let docpath = `${fromGit}/packages/__VUE/${cmpName}/doc.md`;
+          let docpath = `${fromGit}/src/packages/__VUE/${cmpName}/doc.md`;
           if (type == 'react') {
-            docpath = `${fromGit}/packages/${cmpName}/doc.md`;
+            docpath = `${fromGit}/src/packages/${cmpName}/doc.md`;
           }
-          let doctaropath = `${fromGit}/packages/__VUE/${cmpName}/doc.taro.md`;
+          let doctaropath = `${fromGit}/src/packages/__VUE/${cmpName}/doc.taro.md`;
           fse.readFile(docpath, (err, data) => {
             if (err) {
             } else {
