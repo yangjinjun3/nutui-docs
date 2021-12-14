@@ -75,7 +75,7 @@
         </div>
       </div>
     </div>
-    <p class="doc-footer-desc">2021 京东零售 - 基础业务体验部.&nbsp;All Rights Reserved.</p>
+    <p class="doc-footer-desc">2021 京东零售 - 平台业务中心 - 平台产品部 - 基础业务体验部.&nbsp;All Rights Reserved.</p>
   </div>
 </template>
 <script lang="ts">
