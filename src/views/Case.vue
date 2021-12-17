@@ -12,9 +12,24 @@
       <h4 class="sub-title">上传案例地址</h4>
       <p class="sub-desc">
         请<a class="download" target="_blank" href="https://get.jd.com/#/survey/index?id=4217247740034539"> 点击上传 </a
-        >或微信扫描下方二维码。<br />
+        >或微信扫描下方二维码。
+        <br />
         <img class="sub-ercode" src="@/assets/images/case-ercode.png" />
       </p>
+      <p class="sub-desc"
+        >我们将从所有案例中挑出一个优秀案例（每两月），送出一个<a
+          target="_blank"
+          class="download"
+          href="https://img12.360buyimg.com/imagetools/jfs/t1/170596/37/27410/2643716/61b72009Ec4332f11/f7ba0a1f661effac.jpg"
+          >小礼品。</a
+        >
+      </p>
+      <img
+        class="sub-gifs"
+        src="https://img12.360buyimg.com/imagetools/jfs/t1/170596/37/27410/2643716/61b72009Ec4332f11/f7ba0a1f661effac.jpg"
+        alt=""
+        srcset=""
+      />
     </div>
     <div class="resource-block">
       <div class="no-data" v-if="caseList.length === 0">
@@ -183,6 +198,11 @@ $mainRed: #fa685d;
         margin-top: 40px;
       }
     }
+    .sub-gifs {
+      width: 200px;
+      height: auto;
+      box-shadow: 0 2px 4px 1px rgb(40 120 255 / 8%), 0 0 6px 1px rgb(0 0 0 / 8%);
+    }
     .sub-red {
       color: #fa2c19;
     }
@@ -244,6 +264,7 @@ $mainRed: #fa685d;
       height: 390px;
       margin-bottom: 20px;
       border-radius: 5px;
+      box-shadow: 0 2px 4px 1px rgb(40 120 255 / 8%), 0 0 6px 1px rgb(0 0 0 / 8%);
     }
   }
   &-title {
