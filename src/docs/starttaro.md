@@ -56,6 +56,37 @@ taro init myApp
 
 <img src="https://storage.360buyimg.com/jdc-article/taro.jpg" />
 
+> 注意：如果非模板方式，单独安装的 nutui-taro npm 包，需要按以下步骤进行配置
+
+### 配置 taro 插件 @tarojs/plugin-html
+
+1. 首先下载 [@tarojs/plugin-html](https://taro-docs.jd.com/taro/docs/use-h5/)
+``` bash
+yarn add @tarojs/plugin-html
+```
+2. 在项目中配置
+``` javascript
+// config/index.js
+config = {
+  // ...
+  plugins: ['@tarojs/plugin-html']
+}
+```
+3. 配置 nutui 375尺寸
+``` javascript
+// config/index.js
+config = {
+  // ...
+  designWidth: 375,
+  deviceRatio: {
+    640: 2.34 / 2,
+    750: 1,
+    828: 1.81 / 2,
+    375: 2 / 1
+  }
+}
+```
+
 ### NPM 使用示例
 
 > 注意：这种方式将会导入所有组件，打包文件大小会很大
