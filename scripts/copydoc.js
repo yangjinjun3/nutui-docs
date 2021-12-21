@@ -25,6 +25,7 @@ const copy = async (fromGit, type) => {
     docsConfig.version = fromPkgConfig.version;
     docsConfig.nav = fromConfig.nav;
     docsConfig.docs = fromConfig.docs;
+    console.log(fromConfig.docs);
     fse
       .writeJson(nutuiDocsConfigPath, docsConfig, {
         spaces: 2

@@ -5,17 +5,17 @@
     "name": "指南",
     "packages": [
       {
-        "name": "intro",
+        "name": "intro-react",
         "cName": "介绍",
         "show": true
       },
       {
-        "name": "start",
+        "name": "start-react",
         "cName": "快速上手",
         "show": true
       },
       {
-        "name": "theme",
+        "name": "theme-react",
         "cName": "主题定制",
         "show": true
       },
@@ -30,7 +30,7 @@
         "show": true
       },
       {
-        "name": "https://github.com/jdf2e/nutui/releases",
+        "name": "https://github.com/jdf2e/nutui-react/releases",
         "cName": "更新日志",
         "show": true,
         "isLink": true
@@ -236,7 +236,7 @@
           "version": "1.0.0",
           "name": "CircleProgress",
           "type": "component",
-          "cName": "进度条",
+          "cName": "环形进度条",
           "desc": "展示操作或任务的当前进度。",
           "sort": 7,
           "show": true,
@@ -352,7 +352,7 @@
           "version": "1.0.0",
           "name": "Pagination",
           "type": "component",
-          "cName": "分页组件",
+          "cName": "分页",
           "desc": "当数据量较多时，采用分页的形式分隔长列表。",
           "sort": 6,
           "show": true,
