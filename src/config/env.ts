@@ -14,7 +14,7 @@ const config: EnvConfig = {
   baseUrl: '',
   isPrd: true // 是否为线上
 };
-switch (import.meta.env.MODE) {
+switch ((import.meta as any).env.MODE) {
   case 'development':
     /*
      * 开发环境    => npm run dev

@@ -11,7 +11,7 @@ const pagesRouter: Array<RouteRecordRaw> = [];
 
 /** vite */
 
-const modulesPage = import.meta.glob('/src/docs_react/docs/**/doc.md');
+const modulesPage = (import.meta as any).glob('/src/docs_react/docs/**/doc.md');
 for (const path in modulesPage) {
   let name = (/docs_react\/docs\/(.*)\/doc.md/.exec(path) as any[])[1];
   pagesRouter.push({
@@ -22,7 +22,7 @@ for (const path in modulesPage) {
 }
 
 /** vite */
-const modulesDocs = import.meta.glob('/src/docs/*.md');
+const modulesDocs = (import.meta as any).glob('/src/docs/*.md');
 for (const path in modulesDocs) {
   let name = (/docs\/(.*).md/.exec(path) as any[])[1];
   pagesRouter.push({

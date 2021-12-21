@@ -5,17 +5,17 @@
     "name": "指南",
     "packages": [
       {
-        "name": "intro-react",
+        "name": "intro",
         "cName": "介绍",
         "show": true
       },
       {
-        "name": "start-react",
+        "name": "start",
         "cName": "快速上手",
         "show": true
       },
       {
-        "name": "theme-react",
+        "name": "theme",
         "cName": "主题定制",
         "show": true
       },
@@ -30,13 +30,7 @@
         "show": true
       },
       {
-        "name": "contributing",
-        "cName": "贡献指南",
-        "path": "#/contributing",
-        "show": true
-      },
-      {
-        "name": "https://github.com/jdf2e/nutui-react/releases",
+        "name": "https://github.com/jdf2e/nutui/releases",
         "cName": "更新日志",
         "show": true,
         "isLink": true
@@ -139,7 +133,7 @@
           "cName": "行",
           "desc": "布局组件中的行",
           "sort": 2,
-          "show": true,
+          "show": false,
           "author": "yushuang24"
         },
         {
@@ -149,7 +143,7 @@
           "cName": "列",
           "desc": "布局组件中的列",
           "sort": 3,
-          "show": true,
+          "show": false,
           "author": "yushuang24"
         }
       ]
@@ -228,14 +222,15 @@
           "author": "swag~jun"
         },
         {
-          "version": "1.0.0",
-          "name": "Notify",
+          "version": "3.0.0",
+          "name": "Step",
+          "sort": 17,
+          "cName": "步骤条子组件",
           "type": "component",
-          "cName": "消息通知",
-          "desc": "在页面顶部展示消息提示",
-          "sort": 8,
           "show": false,
-          "author": "vickyYE"
+          "exportEmpty": true,
+          "desc": "步骤条子组件",
+          "author": "swag~jun"
         },
         {
           "version": "1.0.0",
@@ -256,6 +251,36 @@
           "show": true,
           "desc": "弹出层容器，用于展示弹窗、信息提示等内容，支持多个弹出层叠加展示",
           "author": "szg2008"
+        },
+        {
+          "version": "1.0.0",
+          "name": "ActionSheet",
+          "type": "component",
+          "cName": "动作面板",
+          "desc": "从底部弹出的动作菜单面板。",
+          "sort": 11,
+          "show": true,
+          "author": "dsj"
+        },
+        {
+          "version": "1.0.0",
+          "name": "NoticeBar",
+          "type": "component",
+          "cName": "通告栏",
+          "desc": "用于循环播放展示一组消息通知。",
+          "sort": 11,
+          "show": true,
+          "author": "vickyYe"
+        },
+        {
+          "version": "1.0.0",
+          "name": "Notify",
+          "type": "component",
+          "cName": "消息通知",
+          "desc": "在页面顶部展示消息提示",
+          "sort": 11,
+          "show": true,
+          "author": "vickyYE"
         }
       ]
     },
@@ -280,6 +305,17 @@
           "desc": "底部导航常用场景",
           "sort": 2,
           "show": true,
+          "author": "dsj"
+        },
+        {
+          "version": "1.0.0",
+          "name": "TabbarItem",
+          "sort": 2,
+          "cName": "标签栏子组件",
+          "type": "component",
+          "show": false,
+          "exportEmpty": true,
+          "desc": "标签栏子组件",
           "author": "dsj"
         },
         {
@@ -311,6 +347,16 @@
           "sort": 5,
           "show": true,
           "author": "Ymm0008"
+        },
+        {
+          "version": "1.0.0",
+          "name": "Pagination",
+          "type": "component",
+          "cName": "分页组件",
+          "desc": "当数据量较多时，采用分页的形式分隔长列表。",
+          "sort": 6,
+          "show": true,
+          "author": "lkjh3214"
         }
       ]
     },
@@ -359,12 +405,23 @@
         },
         {
           "version": "1.0.0",
-          "name": "CheckBox",
+          "name": "Checkbox",
           "type": "component",
           "cName": "复选按钮",
           "desc": "多选按钮用于选择。",
           "sort": 4,
           "show": true,
+          "author": "oasis"
+        },
+        {
+          "version": "1.0.0",
+          "name": "CheckboxGroup",
+          "type": "component",
+          "cName": "多选按钮组",
+          "desc": "多选按钮组",
+          "sort": 11,
+          "show": false,
+          "exportEmpty": true,
           "author": "oasis"
         },
         {
@@ -389,16 +446,6 @@
         },
         {
           "version": "1.0.0",
-          "name": "Popover",
-          "type": "component",
-          "cName": "气泡弹出框",
-          "desc": "点击或在元素上悬停鼠标，弹出气泡卡片浮层。",
-          "sort": 4,
-          "show": true,
-          "author": "lzz"
-        },
-        {
-          "version": "1.0.0",
           "name": "AnimatingNumbers",
           "type": "component",
           "cName": "数字动画",
@@ -406,6 +453,27 @@
           "sort": 7,
           "show": true,
           "author": "songsong"
+        },
+        {
+          "version": "1.0.0",
+          "name": "Radio",
+          "type": "component",
+          "cName": "单选按钮",
+          "desc": "用于在一组备选项中进行单选",
+          "sort": 6,
+          "show": true,
+          "author": "oasis"
+        },
+        {
+          "version": "1.0.0",
+          "name": "RadioGroup",
+          "type": "component",
+          "cName": "单选按钮组",
+          "desc": "单选按钮组",
+          "sort": 10,
+          "exportEmpty": true,
+          "show": false,
+          "author": "oasis"
         }
       ]
     },
@@ -431,6 +499,16 @@
           "sort": 2,
           "show": true,
           "author": "swag~jun"
+        },
+        {
+          "version": "1.0.0",
+          "name": "Address",
+          "type": "component",
+          "cName": "地址组件",
+          "desc": "地址组件",
+          "sort": 3,
+          "show": true,
+          "author": "yangxiaolu"
         }
       ]
     }

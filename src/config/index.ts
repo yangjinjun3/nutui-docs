@@ -71,7 +71,7 @@ const site_config = {
 import vueConfig from '../docs_vue/config.json';
 import reactConfig from '../docs_react/config.json';
 let config: any = {};
-if (import.meta.env.BASE_URL.includes('react')) {
+if ((import.meta as any).env.BASE_URL.includes('react')) {
   config = reactConfig;
 } else {
   config = vueConfig;

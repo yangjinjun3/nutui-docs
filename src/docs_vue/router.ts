@@ -11,7 +11,7 @@ const pagesRouter: Array<RouteRecordRaw> = [];
 
 /** vite */
 
-const modulesPage = import.meta.glob('/src/docs_vue/docs/**/doc.md');
+const modulesPage = (import.meta as any).glob('/src/docs_vue/docs/**/doc.md');
 for (const path in modulesPage) {
   let name = (/docs_vue\/docs\/(.*)\/doc.md/.exec(path) as any[])[1];
   pagesRouter.push({
@@ -22,7 +22,7 @@ for (const path in modulesPage) {
 }
 
 /** vite-taro **/
-const modulesPageTaro = import.meta.glob('/src/docs_vue/docs/**/*.taro.md');
+const modulesPageTaro = (import.meta as any).glob('/src/docs_vue/docs/**/*.taro.md');
 for (const path in modulesPageTaro) {
   let name = (/docs_vue\/docs\/(.*)\/doc.taro.md/.exec(path) as any[])[1];
   pagesRouter.push({
@@ -33,7 +33,7 @@ for (const path in modulesPageTaro) {
 }
 
 /** vite */
-const modulesDocs = import.meta.glob('/src/docs/*.md');
+const modulesDocs = (import.meta as any).glob('/src/docs/*.md');
 for (const path in modulesDocs) {
   let name = (/docs\/(.*).md/.exec(path) as any[])[1];
   pagesRouter.push({
