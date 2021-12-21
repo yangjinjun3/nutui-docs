@@ -1,8 +1,8 @@
 <template>
-  <div class="v3-banner" :class="{ active: true }">
+  <!-- <div class="v3-banner" :class="{ active: true }">
     NutUI 正在参与 OSC 2021 年度中国开源项目评选（您的鼓励是我们坚持不懈的源动力)，请为我们投上宝贵的一票吧。
     <a href="https://www.oschina.net/project/top_cn_2021/?id=65&fr=nutui" target="_blank">去投票</a>
-  </div>
+  </div> -->
   <div class="doc-header" :class="themeName()">
     <div class="header-logo">
       <a class="logo-link" href="#" @click="toHome"></a>
@@ -154,7 +154,7 @@ export default defineComponent({
   &-header {
     position: fixed;
     z-index: 2;
-    top: 38px;
+    top: 0px;
     left: 0;
     right: 0;
     min-width: 1300px;
