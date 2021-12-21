@@ -25,7 +25,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, reactive, toRefs, computed } from 'vue';
-import { demoUrl, nav } from '@/config/index';
+import { demoUrl, language, nav } from '@/config/index';
 import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute, useRouter } from 'vue-router';
 import Header from '@/components/Header.vue';
 import Nav from '@/components/Nav.vue';
@@ -78,7 +78,7 @@ export default defineComponent({
     };
 
     const isShow = () => {
-      return !excludeTaro.includes(route.path);
+      return !excludeTaro.includes(route.path) && language == 'vue';
     };
 
     const isShowTaroDoc = computed(() => {

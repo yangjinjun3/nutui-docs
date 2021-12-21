@@ -71,11 +71,14 @@ const site_config = {
 import vueConfig from '../docs_vue/config.json';
 import reactConfig from '../docs_react/config.json';
 let config: any = {};
+let language: string = '';
 if ((import.meta as any).env.BASE_URL.includes('react')) {
   config = reactConfig;
+  language = 'react';
 } else {
   config = vueConfig;
+  language = 'vue';
 }
 let { nav, docs, version, demoUrl } = config;
 const { versions, header } = site_config;
-export { nav, versions, header, docs, version, demoUrl };
+export { nav, versions, header, docs, version, demoUrl, language };
