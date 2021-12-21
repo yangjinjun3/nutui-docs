@@ -25,8 +25,8 @@ NutUI 是京东风格的 React 移动端组件库，开发和服务于移动Web�
 
 ## 示例 H5 & 小程序
 
-<img src="https://img12.360buyimg.com/imagetools/jfs/t1/202336/18/18586/7437/61b832ccE0b13d53d/18605da7232a5a0e.png" width="200" alt="NutUI" />
-<img src="https://storage.360buyimg.com/jdc-article/gh_f2231eb941be_258.jpg" width="200" alt="NutUI" />
+<img src="https://img12.360buyimg.com/imagetools/jfs/t1/202336/18/18586/7437/61b832ccE0b13d53d/18605da7232a5a0e.png" width="200" alt="NutUI-React" />
+<img src="https://storage.360buyimg.com/jdc-article/gh_f2231eb941be_258.jpg" width="200" alt="NutUI-React" />
 
 ## 版本说明
 

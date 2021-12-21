@@ -38,50 +38,103 @@ ReactDOM.render(
 NutUI React 默认支持基于 ES modules 的 tree shaking，对于 JS 部分，直接引入 import { Button }
 from '@nutui/nutui-react' 就会有按需加载的效果。因此仅样式不是按需导入的，因此只需按需导入样式即可。
 
-#### WebPack 构建工具
+#### Vite 构建工具 通过 vite-plugin 使用按需加载
 
-``` javascript
-module:{
-  rules: [
-    {
-      loader: "babel-loader",
-      options: {
-        presets: [
-          "@babel/preset-env",
-          "@babel/preset-react",
-          "@babel/preset-typescript",
-        ],
-        plugins: [
-          [
-            "import",
-            {
-              libraryName: "@test/nutui-react",
-              libraryDirectory: "dist/packages/_es",
-              style: (file) => {
-                return file.replace("_es/", "").toLowerCase() + "/index.scss";
-              },
-              camel2DashComponentName: false,
-            },
-            "nutui-react",
-          ],
-        ],
+由于 vite 本身已按需导入了组件库，因此仅样式不是按需导入的，因此只需按需导入样式即可。
+
+Vite 构建工具，使用 vite-plugin-style-import 实现按需引入。
+
+#### 安装插件
+
+`npm install vite-plugin-style-import --save-dev`
+
+在 vite.config 中添加配置：
+
+```typescript
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import styleImport from "vite-plugin-style-import";
+// https://vitejs.dev/config/
+export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // 配置 nutui 全局 scss 变量
+        additionalData: `@import "@test/nutui-react/dist/styles/variables.scss";`,
       },
     },
-    {
-      test: /\.s?css$/i,
-      use: [
-        "style-loader",
-        "css-loader",
+  },
+  plugins: [
+    react(),
+    styleImport({
+      libs: [
         {
-          loader: "sass-loader",
-          options: {
-            additionalData: `@import "@test/nutui-react/dist/styles/variables.scss";`,
+          libraryName: "@test/nutui-react",
+          libraryNameChangeCase: "pascalCase",
+          resolveStyle: (name) => {
+            return `@test/nutui-react/dist/packages/${name.toLowerCase()}/${name.toLowerCase()}.scss`;
           },
         },
       ],
-    },
-  ];
-}
+    }),
+  ],
+});
+
+```
+
+#### WebPack 构建工具
+
+``` javascript
+module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                "@babel/preset-env",
+                "@babel/preset-react",
+                "@babel/preset-typescript",
+              ],
+              plugins: [
+                [
+                  "import",
+                  {
+                    libraryName: "@test/nutui-react",
+                    libraryDirectory: "dist/esm",
+                    style: (file) => {
+                      const fileName = file.match(/\/(\w+)$/)[0];
+                      return `${file
+                        .replace("esm", "packages")
+                        .toLowerCase()}${fileName.toLowerCase()}.scss`;
+                    },
+                    camel2DashComponentName: false,
+                  },
+                  "nutui-react",
+                ],
+              ],
+            },
+          },
+        ],
+        exclude: "/node_modules/",
+      },
+      {
+        test: /\.(s[ac]|c)ss$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              additionalData: `@import "@test/nutui-react/dist/styles/variables.scss";`,
+            },
+          },
+        ],
+      },
+    ],
+  },
 
 ```
 
