@@ -41,12 +41,34 @@
         <div>
           <div class="tab-bd">
             <div class="design-item" v-for="(item, i) in caseList" :key="i">
-              <img class="img-design" :src="item.cover_image.split(',')[0]" />
+              <img
+                class="img-design"
+                :src="item.cover_image.split(',')[0]"
+                @click="showDesignImgFun(item.cover_image.split(','))"
+              />
               <p class="design-title" v-hover>{{ item.product_name }}</p>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div
+    class="resource-design-item-swiper"
+    v-if="showDesignItemImg && showDesignItemArray.length > 0"
+    @click="closeSwiper"
+  >
+    <div class="resource-design-item-swiper-main">
+      <div class="resource-design-item-swiper-main-lefticon" @click.stop="onLeft"></div>
+      <div class="resource-design-item-swiper-main__list">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="(item, index) in showDesignItemArray" :key="index">
+            <img :src="item" />
+          </div>
+        </div>
+      </div>
+      <div class="resource-design-item-swiper-main-righticon" @click.stop="onRight"></div>
     </div>
   </div>
   <doc-footer></doc-footer>
@@ -57,6 +79,7 @@ import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute } from 'vue-rout
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
+import Swiper from 'swiper/swiper-bundle.min.js';
 import { ApiService } from '@/service/ApiService';
 export default defineComponent({
   name: 'doc',
@@ -84,8 +107,11 @@ export default defineComponent({
         // }
       ],
       activeIndex: 0,
-      showNutuiCat: false
+      showNutuiCat: false,
+      showDesignItemImg: false,
+      showDesignItemArray: []
     });
+    let caseSwiper: any = null;
     const watchDemoUrl = (router: RouteLocationNormalized) => {
       RefData.getInstance().currentRoute.value = router.name as string;
     };
@@ -131,10 +157,36 @@ export default defineComponent({
     const toLink = (id: number) => {
       window.open('//jelly.jd.com/article/' + id);
     };
+    const onLeft = () => {
+      caseSwiper.slidePrev();
+    };
+
+    const onRight = () => {
+      caseSwiper.slideNext();
+    };
+    const showDesignImgFun = (item: []) => {
+      data.showDesignItemArray = [].concat(item);
+      data.showDesignItemImg = true;
+      setTimeout(() => {
+        caseSwiper = new Swiper('.resource-design-item-swiper-main__list', {
+          direction: 'horizontal',
+          loop: true,
+          on: {}
+        });
+      }, 500);
+    };
+
+    const closeSwiper = () => {
+      data.showDesignItemImg = false;
+    };
     return {
       ...toRefs(data),
       clickTab,
-      toLink
+      toLink,
+      onLeft,
+      onRight,
+      showDesignImgFun,
+      closeSwiper
     };
   }
 });
@@ -205,6 +257,70 @@ $mainRed: #fa685d;
     }
     .sub-red {
       color: #fa2c19;
+    }
+  }
+
+  &-design-item-swiper {
+    position: fixed;
+    // top: 64px;
+    z-index: 9999;
+    width: 100%;
+    min-width: 1300px;
+    height: calc(100% - 64px);
+    background: rgba(0, 0, 0, 0.9);
+
+    &-main {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &-lefticon {
+        margin-left: 50px;
+        width: 50px;
+        height: 50px;
+        background-image: url('@/assets/images/right-arrow.png');
+        transform: rotate(180deg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+        &:hover {
+          transform: rotate(0);
+          background-image: url('@/assets/images/left-arrow.png');
+        }
+      }
+      &-righticon {
+        margin-right: 50px;
+        width: 50px;
+        height: 50px;
+        background-image: url('@/assets/images/right-arrow.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+        z-index: 1;
+        &:hover {
+          transform: rotate(180deg);
+          background-image: url('@/assets/images/left-arrow.png');
+        }
+      }
+      &__list {
+        flex: 1;
+        overflow: hidden;
+        height: 100%;
+      }
+      .swiper-wrapper {
+        display: flex;
+        .swiper-slide {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          > img {
+            width: auto;
+            max-height: 100%;
+          }
+        }
+      }
     }
   }
 }

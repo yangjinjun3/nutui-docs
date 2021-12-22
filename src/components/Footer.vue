@@ -6,9 +6,8 @@
       </div>
       <div class="doc-footer-list">
         <h4 class="doc-footer-title">相关产品</h4>
-        <div class="doc-footer-item"><a class="sub-link" target="_blank" href="https://vuejs.org" v-hover>Vue</a> </div>
         <div class="doc-footer-item"
-          ><a class="sub-link" target="_blank" href="https://vitejs.dev" v-hover>Vite</a>
+          ><a class="sub-link" target="_blank" href="http://deco.jd.com/" v-hover>Deco</a>
         </div>
         <div class="doc-footer-item"
           ><a class="sub-link" target="_blank" href="https://relay.jd.com" v-hover>Relay</a>
@@ -19,6 +18,9 @@
         <div class="doc-footer-item"
           ><a class="sub-link" target="_blank" href="https://ling.jd.com/jdw" v-hover>羚珑</a>
         </div>
+        <div class="doc-footer-item"
+          ><a class="sub-link" target="_blank" href="https://legao.jd.com/" v-hover>Legao</a></div
+        >
       </div>
       <div class="doc-footer-list">
         <h4 class="doc-footer-title">社区</h4>
@@ -46,16 +48,32 @@
             <p class="vx-desc">回复<span class="vx-red">NutUI</span>即刻进群</p>
           </div>
         </div>
-
-        <div class="doc-footer-item"><a class="sub-link" href="#/notice" target="_blank" v-hover>常见问题</a></div>
+      </div>
+      <div class="doc-footer-list">
+        <h4 class="doc-footer-title">帮助</h4>
+        <div class="doc-footer-item"
+          ><a class="sub-link" href=" https://github.com/jdf2e/nutui/releases" v-hover>更新日志</a></div
+        >
+        <div class="doc-footer-item"><a class="sub-link" target="_blank" href="#/notice" v-hover>常见问题</a></div>
+        <div class="doc-footer-item"
+          ><a class="sub-link" target="_blank" href="#/contributing" v-hover>贡献指南</a></div
+        >
+        <div class="doc-footer-item"
+          ><a class="sub-link" target="_blank" href="https://github.com/jdf2e/nutui/issues" v-hover>报告 Bug</a></div
+        >
+        <div class="doc-footer-item"
+          ><a class="sub-link" target="_blank" href="https://github.com/jdf2e/nutui/discussions" v-hover>讨论区</a></div
+        >
+        <div class="doc-footer-item"
+          ><a class="sub-link" target="_blank" href="https://github.com/jdf2e/nutui/projects/1" v-hover
+            >开发计划</a
+          ></div
+        >
       </div>
       <div class="doc-footer-list">
         <h4 class="doc-footer-title">关于我们</h4>
         <div class="doc-footer-item"><a class="sub-link" href="#/joinus" v-hover>加入我们</a></div>
         <div class="doc-footer-item"><a class="sub-link" href="mailto:nutui@jd.com" v-hover>联系我们</a></div>
-        <div class="doc-footer-item"
-          ><a class="sub-link" target="_blank" href="https://github.com/jdf2e/nutui/issues" v-hover>意见反馈</a></div
-        >
         <div class="doc-footer-item"
           ><a class="sub-link" target="_blank" href="https://fe.jd.com" v-hover>京东前端</a></div
         >
@@ -75,7 +93,7 @@
         </div>
       </div>
     </div>
-    <p class="doc-footer-desc">2021 京东零售 - 平台产品部 - 基础业务体验部.&nbsp;All Rights Reserved.</p>
+    <!-- <p class="doc-footer-desc">2021 京东零售 - 平台产品部 - 基础业务体验部.&nbsp;All Rights Reserved.</p> -->
   </div>
 </template>
 <script lang="ts">
