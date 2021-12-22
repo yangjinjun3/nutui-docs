@@ -14,10 +14,6 @@ npm i @nutui/nutui-react
 
 ### NPM 使用示例
 
-#### 按需加载组件
-
-> 注意：NutUI React 默认支持基于 ES modules 的 tree shaking，对于 JS 部分，直接引入 import { Button } from '@nutui/nutui-react' 就会有按需加载的效果。
-
 ```javascript
 import * as React from "react";
 import * as ReactDOM from "react-dom";
