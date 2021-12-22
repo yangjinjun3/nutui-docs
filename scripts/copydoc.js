@@ -1,5 +1,5 @@
-const computerBase = '/Users/wangbei6/Desktop/jdc_fe_future/';
-const vueBaseUrl = `${computerBase}nutui-next`;
+const computerBase = '/Users/suzigang/Downloads/project/nutui3.0/';
+const vueBaseUrl = `${computerBase}nutui`;
 const reactBaseUrl = `${computerBase}nutui-react`;
 const fse = require('fs-extra');
 const copyFile = (from, to) => {
@@ -59,5 +59,5 @@ const copy = async (fromGit, type) => {
     });
   }
 };
-copy(reactBaseUrl, 'react');
-// copy(vueBaseUrl, 'vue');
+// copy(reactBaseUrl, 'react');
+copy(vueBaseUrl, 'vue');
