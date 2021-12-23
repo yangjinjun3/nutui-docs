@@ -46,7 +46,9 @@
                 :src="item.cover_image.split(',')[0]"
                 @click="showDesignImgFun(item.cover_image.split(','))"
               />
-              <p class="design-title" v-hover>{{ item.product_name }}</p>
+              <p class="design-title" v-hover @click="showDesignImgFun(item.cover_image.split(','))">{{
+                item.product_name
+              }}</p>
             </div>
           </div>
         </div>
@@ -181,7 +183,8 @@ export default defineComponent({
         setTimeout(() => {
           caseSwiper = new Swiper('.resource-design-item-swiper-main__list', {
             direction: 'horizontal',
-            loop: true
+            loop: true,
+            touchRatio: 0
           });
         }, 500);
       }
