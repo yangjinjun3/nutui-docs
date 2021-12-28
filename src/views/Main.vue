@@ -5,7 +5,9 @@
       <div class="content-left">
         <div class="content-title"> NutUI </div>
         <div class="content-smile"> </div>
-        <div class="content-subTitle">京东风格的轻量级移动端 Vue、React 组件库</div>
+        <div class="content-subTitle"
+          >京东风格的轻量级移动端 {{ language.replace(/^\S/, (s) => s.toUpperCase()) }} 组件库</div
+        >
         <div class="content-button">
           <div class="leftButton" @click="toIntro">
             <div class="leftButtonText">开始使用</div>
@@ -20,7 +22,7 @@
           </div>
           <iframe
             style="margin-left: 20px"
-            src="https://ghbtns.com/github-btn.html?user=jdf2e&repo=nutui&type=star&count=true&size=large"
+            :src="homePage.gitstar"
             frameborder="0"
             scrolling="0"
             width="170"
@@ -30,40 +32,20 @@
         </div>
       </div>
     </div>
-    <div class="doc-content-features">
+    <div class="doc-content-features" v-if="homePage.platform.length">
       <div class="doc-content-hd">
         <h4 class="doc-content-title">平台特色</h4>
       </div>
       <ul class="features-list">
-        <li class="features-item">
-          <img src="@/assets/images/img-home-features1.png" />
-          <p class="features-title">京东风格</p>
-          <p class="features-desc">遵循京东 App 10.0 设计规范</p>
+        <li class="features-item" :key="index" v-for="(item, index) in homePage.platform">
+          <img :src="item.url" />
+          <p class="features-title">{{ item.title }}</p>
+          <p class="features-desc">{{ item.desc }}</p>
         </li>
-        <li class="features-item">
-          <img src="@/assets/images/img-home-features3.png" />
-          <p class="features-title">前沿技术</p>
-          <p class="features-desc">Vue3 Vite 2.x TypeScript</p>
-        </li>
-        <li class="features-item">
-          <img src="@/assets/images/img-home-features5.png" />
-          <p class="features-title">适配多端</p>
-          <p class="features-desc a-l">基于 Taro 轻松开发多端小程序</p>
-        </li>
-        <li class="features-item">
-          <img src="@/assets/images/img-home-features2.png" />
-          <p class="features-title">组件丰富</p>
-          <p class="features-desc a-l">70+ 组件，覆盖多数业务场景</p>
-        </li>
-        <!-- <li class="features-item">
-          <img src="@/assets/images/img-home-features4.png" />
-          <p class="features-title">贴心通道</p>
-          <p class="features-desc">社区维护 高效服务<br />技术支持 经验沉淀</p>
-        </li> -->
       </ul>
     </div>
     <!-- taro楼层 -->
-    <div class="doc-content-taro">
+    <div class="doc-content-taro" v-if="homePage.taroShow">
       <div class="doc-content-hd">
         <h4 class="doc-content-title">一处代码 多端运行</h4>
       </div>
@@ -169,6 +151,7 @@ import { ApiService } from '@/service/ApiService';
 import 'swiper/swiper.min.css';
 import Swiper from 'swiper/swiper-bundle.min.js';
 import { useRouter } from 'vue-router';
+import { language, homePage } from '@/config/index';
 export default defineComponent({
   name: 'main',
   components: {
@@ -273,6 +256,8 @@ export default defineComponent({
       themeNameValue,
       toLink,
       onLeft,
+      language,
+      homePage,
       onRight,
       toDetail,
       goAwait,

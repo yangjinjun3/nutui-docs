@@ -19,7 +19,7 @@ const site_config = {
     },
     {
       name: 'nutui-react',
-      link: 'https://nutui.jd.com/react/#/'
+      link: 'https://nutui.jd.com/react'
     }
     // {
     //   name: 'nutui-cat',
@@ -70,15 +70,66 @@ const site_config = {
 };
 import vueConfig from '../docs_vue/config.json';
 import reactConfig from '../docs_react/config.json';
+
+import homefeatures1 from '@/assets/images/img-home-features1.png';
+import homefeatures2 from '@/assets/images/img-home-features2.png';
+import homefeatures3 from '@/assets/images/img-home-features3.png';
+import homefeatures4 from '@/assets/images/img-home-features4.png';
+import homefeatures5 from '@/assets/images/img-home-features5.png';
+
 let config: any = {};
 let language: string = '';
 if ((import.meta as any).env.BASE_URL.includes('react')) {
-  config = reactConfig;
+  config = {
+    ...reactConfig,
+    homePage: {
+      gitstar: 'https://ghbtns.com/github-btn.html?user=jdf2e&repo=nutui-react&type=star&count=true&size=large',
+      platform: [],
+      // 是否展示taro楼层
+      taroShow: false
+    }
+  };
   language = 'react';
 } else {
-  config = vueConfig;
+  config = {
+    ...vueConfig,
+    homePage: {
+      gitstar: 'https://ghbtns.com/github-btn.html?user=jdf2e&repo=nutui&type=star&count=true&size=large',
+      // 平台资源楼层
+      platform: [
+        {
+          title: '京东风格',
+          desc: '遵循京东 App 10.0 设计规范',
+          url: homefeatures1
+        },
+        {
+          title: '前沿技术',
+          desc: 'Vue3 Vite 2.x TypeScript',
+          url: homefeatures3
+        },
+        {
+          title: '适配多端',
+          desc: '基于 Taro 轻松开发多端小程序',
+          url: homefeatures5
+        },
+        {
+          title: '组件丰富',
+          desc: '70+ 组件，覆盖多数业务场景',
+          url: homefeatures2
+        }
+        // {
+        //   title: '贴心通道',
+        //   desc: '社区维护 高效服务<br />技术支持 经验沉淀',
+        //   url: homefeatures4,
+        // },
+      ],
+      // 是否展示taro楼层
+      taroShow: true
+    }
+  };
   language = 'vue';
 }
-let { nav, docs, version, demoUrl } = config;
+let { nav, docs, version, demoUrl, homePage } = config;
 const { versions, header } = site_config;
-export { nav, versions, header, docs, version, demoUrl, language };
+console.log(nav);
+export { nav, versions, header, docs, version, demoUrl, language, homePage };
