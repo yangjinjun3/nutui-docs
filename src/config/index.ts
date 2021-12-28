@@ -19,16 +19,16 @@ const site_config = {
     },
     {
       name: 'nutui-react',
-      link: 'https://github.com/jdf2e/nutui-react'
-    },
-    {
-      name: 'nutui-cat',
-      link: 'https://github.com/jdf2e/nutui-cat'
-    },
-    {
-      name: 'nutui-bingo',
-      link: 'https://github.com/jdf2e/nutui-bingo'
+      link: 'https://nutui.jd.com/react/#/'
     }
+    // {
+    //   name: 'nutui-cat',
+    //   link: 'https://github.com/jdf2e/nutui-cat'
+    // },
+    // {
+    //   name: 'nutui-bingo',
+    //   link: 'https://github.com/jdf2e/nutui-bingo'
+    // }
   ],
   header: [
     {
