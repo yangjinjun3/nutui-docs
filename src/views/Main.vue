@@ -17,7 +17,7 @@
 
             <div class="qrcodepart">
               <div class="qrcode-text"> 请使用手机扫码体验 </div>
-              <div class="qrcode"> </div>
+              <div :class="['qrcode', `qrcode-${language.toLowerCase()}`]"> </div>
             </div>
           </div>
           <iframe
@@ -40,7 +40,7 @@
         <li class="features-item" :key="index" v-for="(item, index) in homePage.platform">
           <img :src="item.url" />
           <p class="features-title">{{ item.title }}</p>
-          <p class="features-desc">{{ item.desc }}</p>
+          <p class="features-desc" v-html="item.desc"></p>
         </li>
       </ul>
     </div>
@@ -62,7 +62,7 @@
     </div>
 
     <!-- nutui-cat / nutui-营销 -->
-    <div class="doc-content-catmarketing">
+    <div class="doc-content-catmarketing" v-if="homePage.bizComponent.length">
       <div class="doc-content-hd">
         <h4 class="doc-content-title">业务组件</h4>
       </div>
@@ -75,10 +75,11 @@
             <div class="cat-content-right-title">
               <img src="@/assets/images/cat-title.png" alt="" />
             </div>
-            <p class="cat-content-right-desc">基于 NutUI 的大促组件</p>
+            <p class="cat-content-right-desc">{{ homePage.bizComponent[0].desc }}</p>
             <div class="cat-content-right-godetail" @click="toDetail">查看详情</div>
           </div>
         </div>
+
         <div class="marketing-content">
           <div class="marketing-content-left">
             <img src="@/assets/images/marketing-back.png" alt="" />
@@ -87,7 +88,7 @@
             <div class="marketing-content-right-title">
               <img src="@/assets/images/marketing-title.png" alt="" />
             </div>
-            <p class="marketing-content-right-desc">基于 NutUI 的抽奖组件</p>
+            <p class="marketing-content-right-desc">{{ homePage.bizComponent[1].desc }}</p>
             <div class="marketing-content-right-godetail" @click="goAwait">敬请期待</div>
           </div>
           <div class="marketing-content-mask" v-if="showAwait" @click="hideAwait"> 正在建设中，敬请期待~ </div>
@@ -95,10 +96,10 @@
       </div>
     </div>
 
-    <div class="doc-content-cases" v-if="casesImages.length">
+    <div class="doc-content-cases" v-if="homePage.cases.show && casesImages.length">
       <div class="doc-content-hd">
         <h4 class="doc-content-title">应用案例</h4>
-        <a class="sub-more" href="#/case">More</a>
+        <a class="sub-more" :href="homePage.cases.moreRouter" v-if="homePage.cases.moreRouter">More</a>
       </div>
       <div class="doc-content-cases-content">
         <div class="doc-content-cases-content__main">
@@ -127,10 +128,10 @@
         </div>
       </div>
     </div>
-    <div class="doc-content-more" v-if="articleList.length">
+    <div class="doc-content-more" v-if="homePage.article.show && articleList.length">
       <div class="doc-content-hd">
         <h4 class="doc-content-title">学习资源</h4>
-        <a class="sub-more" href="#/resource">More</a>
+        <a class="sub-more" :href="homePage.article.moreRouter" v-if="homePage.article.moreRouter">More</a>
       </div>
       <ul class="more-list">
         <li class="more-item" v-for="item in articleList.slice(0, 4)" :key="item.id" @click="toLink(item.id)">
@@ -162,8 +163,8 @@ export default defineComponent({
     const router = useRouter();
     const data = reactive({
       // theme: 'white',
-      articleList: new Array(),
-      casesImages: new Array(),
+      articleList: [],
+      casesImages: [],
       currentCaseItem: {},
       currentCaseIndex: 0,
       localTheme: localStorage.getItem('nutui-theme-color'),
@@ -171,7 +172,11 @@ export default defineComponent({
     });
     let caseSwiper: any = null;
     onMounted(() => {
-      // 文章列表接口
+      if (homePage.article.show) getArticle();
+      if (homePage.cases.show) getCasesImages();
+    });
+    // 文章列表
+    const getArticle = () => {
       const apiService = new ApiService();
       apiService.getArticle().then((res) => {
         if (res?.state == 0) {
@@ -184,6 +189,11 @@ export default defineComponent({
             .filter((i) => i);
         }
       });
+    };
+    // 获取案例
+    const getCasesImages = () => {
+      const apiService = new ApiService();
+
       apiService.getCases().then((res) => {
         if (res?.state == 0) {
           data.casesImages = (res.value.data.arrays as any[]).map((item) => {
@@ -215,7 +225,7 @@ export default defineComponent({
           }, 500);
         }
       });
-    });
+    };
     const goAwait = () => {
       data.showAwait = true;
     };
@@ -746,9 +756,17 @@ export default defineComponent({
           width: 160px;
           height: 160px;
           margin: 0 auto;
-          background: url(https://img12.360buyimg.com/imagetools/jfs/t1/162421/39/13392/9425/6052ea60E592310a9/264bdff23ef5fe95.png)
-            no-repeat;
-          background-size: cover;
+
+          &.qrcode-vue {
+            background: url(https://img12.360buyimg.com/imagetools/jfs/t1/162421/39/13392/9425/6052ea60E592310a9/264bdff23ef5fe95.png)
+              no-repeat;
+            background-size: cover;
+          }
+          &.qrcode-react {
+            background: url(https://img12.360buyimg.com/imagetools/jfs/t1/202336/18/18586/7437/61b832ccE0b13d53d/18605da7232a5a0e.png)
+              no-repeat;
+            background-size: cover;
+          }
         }
       }
     }
