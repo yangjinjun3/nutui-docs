@@ -38,7 +38,7 @@ from '@nutui/nutui-react' 就会有按需加载的效果。因此仅样式不是
 
 由于 vite 本身已按需导入了组件库，因此仅样式不是按需导入的，因此只需按需导入样式即可。
 
-Vite 构建工具，使用 vite-plugin-style-import 实现按需引入。
+[Vite](https://vitejs.dev/) 构建工具，使用 [vite-plugin-style-import](https://github.com/anncwb/vite-plugin-style-import) 实现按需引入。
 
 #### 安装插件
 
@@ -78,60 +78,31 @@ export default defineConfig({
 
 ```
 
-#### WebPack 构建工具
+#### WebPack 构建工具 通过 babel 使用按需加载
+
+[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一款 babel 插件，它会在编译过程中将 import 语句自动转换为按需引入的方式。
+##### 安装插件
+``` bash
+npm install babel-plugin-import --save-dev
+```
+在 `.babelrc` 或 `babel.config.js` 中添加配置：
 
 ``` javascript
-module: {
-    rules: [
+{
+  // ...
+  plugins: [
+    [
+      "import",
       {
-        test: /\.tsx?$/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                "@babel/preset-env",
-                "@babel/preset-react",
-                "@babel/preset-typescript",
-              ],
-              plugins: [
-                [
-                  "import",
-                  {
-                    libraryName: "@test/nutui-react",
-                    libraryDirectory: "dist/esm",
-                    style: (file) => {
-                      const fileName = file.match(/\/(\w+)$/)[0];
-                      return `${file
-                        .replace("esm", "packages")
-                        .toLowerCase()}${fileName.toLowerCase()}.scss`;
-                    },
-                    camel2DashComponentName: false,
-                  },
-                  "nutui-react",
-                ],
-              ],
-            },
-          },
-        ],
-        exclude: "/node_modules/",
+        "libraryName": "@nutui/nutui-react",
+        "libraryDirectory": "dist/esm",
+        "style": true,
+        "camel2DashComponentName": false
       },
-      {
-        test: /\.(s[ac]|c)ss$/i,
-        use: [
-          "style-loader",
-          "css-loader",
-          {
-            loader: "sass-loader",
-            options: {
-              additionalData: `@import "@test/nutui-react/dist/styles/variables.scss";`,
-            },
-          },
-        ],
-      },
-    ],
-  },
-
+      'nutui-react'
+    ]
+  ]
+}
 ```
 
 #### CDN 安装使用示例
