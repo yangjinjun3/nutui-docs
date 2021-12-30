@@ -30,7 +30,7 @@ export const SiteReact = {
     {
       name: 'intro,theme,start',
       cName: '指南',
-      path: '#/intro'
+      path: '#/intro-react'
     },
     {
       name: 'component',
