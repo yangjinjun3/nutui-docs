@@ -1,4 +1,4 @@
-const computerBase = '/Users/suzigang/Downloads/project/nutui3.0/';
+const computerBase = '/Users/yangxiaolu3/Documents/JD/NutUI/';
 const vueBaseUrl = `${computerBase}nutui`;
 const reactBaseUrl = `${computerBase}nutui-react`;
 const fse = require('fs-extra');
