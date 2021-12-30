@@ -1,4 +1,4 @@
-#  Collapse组件
+#  Collapse 折叠面板
 
 ### 介绍
 
@@ -34,7 +34,7 @@
 
 ```jsx
 import React, { useState } from 'react'
-import { Collapse ,CollapseItem} from '@nutui/nutui-react'
+import { Collapse ,CollapseItem} from 'nutui-react'
 const CollapseDemo = () => {
   const changeEnv = (isOpen: boolean, name: string) => {
     console.log(isOpen, name)
