@@ -31,8 +31,7 @@ ReactDOM.render(
 
 #### 为什么只按需引入样式
 
-NutUI React 默认支持基于 ES modules 的 tree shaking，对于 JS 部分，直接引入 import { Button }
-from '@nutui/nutui-react' 就会有按需加载的效果。因此仅样式不是按需导入的，因此只需按需导入样式即可。
+NutUI React 默认支持基于 ES modules 的 tree shaking，对于 JS 部分，直接引入 `import { Button } from '@nutui/nutui-react'` 就会有按需加载的效果。因此仅样式不是按需导入的，因此只需按需导入样式即可。
 
 #### Vite 构建工具 通过 vite-plugin 使用按需加载
 
@@ -149,9 +148,11 @@ npm install babel-plugin-import --save-dev
 > 在页面中直接引入，将无法使用 **主题定制** 等功能。我们推荐使用 *NPM* 或 *YARN* 方式安装，不推荐在页面中直接引入的用法
 
 ## 使用注意事项
-
+- NutUI-React 基于 [react@^17.0.0](https://www.npmjs.com/package/react) 构建
+- NutUI-React 版本提供的 `.scss` 文件建议使用 [Dart Sass ^1.40.0](https://www.npmjs.com/package/sass) 以上版本
 - 组件 css 单位使用的是 **px**，如果你的项目中需要 **rem**
   单位，可借助一些工具进行转换，比如 [webpack](https://www.webpackjs.com/)
   的 [px2rem-loader](https://www.npmjs.com/package/px2rem-loader)、[postcss](https://github.com/postcss/postcss)
   的 [postcss-plugin-px2rem](https://www.npmjs.com/package/postcss-plugin-px2rem)
   插件等
+
