@@ -31,7 +31,7 @@ ReactDOM.render(
 
 #### 为什么只按需引入样式
 
-NutUI React 默认支持基于 ES modules 的 tree shaking，对于 JS 部分，直接引入 `import { Button } from '@nutui/nutui-react'` 就会有按需加载的效果。因此仅样式不是按需导入的，因此只需按需导入样式即可。
+NutUI-React 默认支持基于 ES modules 的 tree shaking，对于 JS 部分，直接引入 `import { Button } from '@nutui/nutui-react'` 就会有按需加载的效果。因此仅样式不是按需导入的，因此只需按需导入样式即可。
 
 #### Vite 构建工具 通过 vite-plugin 使用按需加载
 

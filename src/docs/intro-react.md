@@ -1,4 +1,4 @@
-# NutUI React
+# NutUI-React
 
 NutUI 是京东风格的 React 移动端组件库，开发和服务于移动Web界面的企业级产品。
 
@@ -30,7 +30,7 @@ NutUI 是京东风格的 React 移动端组件库，开发和服务于移动Web�
 
 ## 版本说明
 
-- @nutui/nutui-react 基于React 视觉风格 JD APP 7.0规范 ，只能开发 h5
+- @nutui/nutui-react 基于 React 和 JD APP 10.0 视觉规范 ，只能开发 H5。
 
 ## 支持环境
 
