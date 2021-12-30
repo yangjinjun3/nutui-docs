@@ -50,7 +50,7 @@ NutUI 是京东风格的 React 移动端组件库，开发和服务于移动Web�
 
 ## 版本号规则
 
-NutUI-React 遵循 [语义化版本semver](https://semver.org/) 原则。
+NutUI-React 遵循 [语义化版本semver](https://semver.org/) 原则。([中文文档](https://semver.org/lang/zh-CN/))
 
 ## 开源协议
 
