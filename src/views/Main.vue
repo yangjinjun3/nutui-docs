@@ -254,7 +254,11 @@ export default defineComponent({
       window.open('//jelly.jd.com/article/' + id);
     };
     function toIntro() {
-      router.push({ name: 'intro' });
+      if (language == 'react') {
+        router.push({ name: 'intro-react' });
+      } else {
+        router.push({ name: 'intro' });
+      }
     }
     const toDetail = () => {
       window.open('/cat');
