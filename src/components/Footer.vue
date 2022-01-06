@@ -2,7 +2,8 @@
   <div class="doc-footer" :class="`doc-footer-${themeColor}`">
     <div class="doc-footer-content">
       <div class="doc-footer-list">
-        <img class="doc-footer-logo" src="@/assets/images/logo-header-red.png" />
+        <img class="doc-footer-logo" v-if="language.toLowerCase() == 'vue'" src="@/assets/images/logo-header-red.png" />
+        <img class="doc-footer-logo" v-else src="@/assets/images/logo-header-red-react.png" />
       </div>
       <div class="doc-footer-list">
         <h4 class="doc-footer-title">相关产品</h4>

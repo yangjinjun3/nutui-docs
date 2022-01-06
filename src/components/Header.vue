@@ -5,9 +5,9 @@
   </div> -->
   <div class="doc-header" :class="themeName()">
     <div class="header-logo">
-      <a class="logo-link" href="#" @click="toHome"></a>
+      <a class="logo-link" :class="{ [language]: language }" href="#" @click="toHome"></a>
       <span class="logo-border"></span>
-      <span class="version">{{ version }}</span>
+      <span class="version" v-if="language == 'vue'">{{ version }}</span>
     </div>
     <div class="header-nav">
       <Search />
@@ -117,6 +117,7 @@ export default defineComponent({
       version,
       repository,
       data,
+      language,
       toHome,
       isActive,
       checkTheme,
@@ -181,6 +182,10 @@ export default defineComponent({
       position: absolute;
       top: 50%;
       margin-top: -23px;
+
+      &.react {
+        width: 197px;
+      }
     }
     .logo-border {
       width: 1px;
@@ -313,6 +318,9 @@ export default defineComponent({
       &-logo {
         .logo-link {
           background: url('@/assets/images/logo-header-white.png') no-repeat center/100%;
+          &.react {
+            background: url('@/assets/images/logo-header-white-react.png') no-repeat center/100%;
+          }
         }
         .logo-border {
           background: $theme-red-border;
@@ -391,6 +399,9 @@ export default defineComponent({
       &-logo {
         .logo-link {
           background: url('@/assets/images/logo-header-red.png') no-repeat center/100%;
+          &.react {
+            background: url('@/assets/images/logo-header-red-react.png') no-repeat center/100%;
+          }
         }
         .logo-border {
           background: $theme-white-border;
@@ -469,6 +480,9 @@ export default defineComponent({
       &-logo {
         .logo-link {
           background: url('@/assets/images/logo-header-red.png') no-repeat center/100%;
+          &.react {
+            background: url('@/assets/images/logo-header-red-react.png') no-repeat center/100%;
+          }
         }
         .logo-border {
           background: $theme-black-border;
