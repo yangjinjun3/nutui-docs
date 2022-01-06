@@ -55,7 +55,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // 配置 nutui 全局 scss 变量
-        additionalData: `@import "@test/nutui-react/dist/styles/variables.scss";`,
+        additionalData: `@import "@nutui/nutui-react/dist/styles/variables.scss";`,
       },
     },
   },
@@ -64,10 +64,10 @@ export default defineConfig({
     styleImport({
       libs: [
         {
-          libraryName: "@test/nutui-react",
+          libraryName: "@nutui/nutui-react",
           libraryNameChangeCase: "pascalCase",
           resolveStyle: (name) => {
-            return `@test/nutui-react/dist/packages/${name.toLowerCase()}/${name.toLowerCase()}.scss`;
+            return `@nutui/nutui-react/dist/packages/${name.toLowerCase()}/${name.toLowerCase()}.scss`;
           },
         },
       ],
