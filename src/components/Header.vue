@@ -13,22 +13,28 @@
       <Search />
       <div class="nav-box">
         <ul class="nav-list">
+          <li class="nav-item" v-for="item in header" :key="item.name" :class="{ active: isActive(item.name) }">
+            <a :href="item.path">
+              {{ item.cName }}
+            </a>
+          </li>
           <li class="nav-item">
             <div
               @focus="handleFocus"
               @focusout="handleGuidFocusOut"
               tabindex="0"
               class="header-select-box"
-              @click.stop="dataGuid.isShowGuid = !dataGuid.isShowGuid"
+              @click.stop="data.isShowGuid = !data.isShowGuid"
+              :class="[data.isShowGuid == true ? 'select-up' : 'select-down']"
             >
-              <div>指南</div>
+              <div class="header-select-hd">{{ data.verson }}<i class=""></i></div>
               <transition name="fade">
-                <div class="guid-data" v-show="dataGuid.isShowGuid">
+                <div class="guid-data" v-show="data.isShowGuid">
                   <div
                     class="info"
-                    v-for="(item, index) in guide"
-                    :key="index"
-                    :class="{ active: dataGuid.activeIndex === index }"
+                    v-for="(item, indexKey) in guide"
+                    :key="indexKey"
+                    :class="{ contentKey: indexKey === 1 }"
                   >
                     <div class="header">
                       <img :src="item.icon" class="icon" />
@@ -39,6 +45,7 @@
                       v-for="(info, index) in item.data"
                       :key="index"
                       @click.stop="checkGuidTheme(info)"
+                      :class="{ active: data.activeIndex === index }"
                     >
                       <div class="version"> {{ info.name }}</div>
                       <div class="list">
@@ -49,37 +56,6 @@
 
                       <div class="app"> {{ info.app }}</div>
                     </div>
-                  </div>
-                </div>
-              </transition>
-            </div>
-          </li>
-
-          <li class="nav-item" v-for="item in header" :key="item.name" :class="{ active: isActive(item.name) }">
-            <a :href="item.path">
-              {{ item.cName }}
-            </a>
-          </li>
-          <li class="nav-item">
-            <div
-              @focus="handleFocus"
-              @focusout="handleFocusOut"
-              tabindex="0"
-              class="header-select-box"
-              @click.stop="data.isShowSelect = !data.isShowSelect"
-              :class="[data.isShowSelect == true ? 'select-up' : 'select-down']"
-            >
-              <div class="header-select-hd">{{ data.verson }}<i class=""></i></div>
-              <transition name="fade">
-                <div class="header-select-bd" v-show="data.isShowSelect">
-                  <div
-                    class="header-select-item"
-                    v-for="(item, index) in versions"
-                    :key="index"
-                    @click.stop="checkTheme(item)"
-                    :class="{ active: data.activeIndex === index }"
-                  >
-                    {{ item.name }}
                   </div>
                 </div>
               </transition>
@@ -111,30 +87,18 @@ export default defineComponent({
     });
     const data = reactive({
       theme: 'black',
-      // headerBg: 'url(' + require('@/assets/images/header-bg.png') + ')',
       verson: language == 'vue' ? '3.x' : '1.x',
       navIndex: 0,
-      activeIndex: 0,
-      isShowSelect: false
-    });
-
-    const dataGuid = reactive({
-      theme: 'black',
-      verson: language == 'vue' ? '3.x' : '1.x',
-      navIndex: 0,
-      activeIndex: 0,
+      activeIndex: 2,
       isShowGuid: false
     });
 
     const handleFocus = () => {
       console.log(1);
     };
-    const handleFocusOut = () => {
-      data.isShowSelect = false;
-    };
 
     const handleGuidFocusOut = () => {
-      dataGuid.isShowGuid = false;
+      data.isShowGuid = false;
     };
 
     const toHome = () => {
@@ -160,16 +124,10 @@ export default defineComponent({
         return `doc-header-${RefData.getInstance().themeColor.value}`;
       };
     });
-    const checkTheme = (item: any, index: number) => {
-      data.isShowSelect = false;
+    const checkGuidTheme = (item: any, index: number) => {
+      data.isShowGuid = false;
       data.activeIndex = index;
       data.verson = item.name;
-      window.location.href = item.link;
-    };
-    const checkGuidTheme = (item: any, index: number) => {
-      dataGuid.isShowGuid = false;
-      dataGuid.activeIndex = index;
-      dataGuid.verson = item.name;
       window.location.href = item.link;
     };
     return {
@@ -178,15 +136,12 @@ export default defineComponent({
       version,
       repository,
       data,
-      dataGuid,
       language,
       toHome,
       isActive,
-      checkTheme,
       checkGuidTheme,
       themeName,
       handleFocus,
-      handleFocusOut,
       handleGuidFocusOut,
       guide
     };
@@ -458,8 +413,8 @@ export default defineComponent({
 
   .guid-data {
     position: absolute;
-    top: 50px;
-    left: 50%;
+    top: 40px;
+    right: 0%;
     margin-left: -60px;
     border-radius: 3px;
     overflow: hidden;
@@ -496,6 +451,9 @@ export default defineComponent({
         margin-top: 2px;
         margin-bottom: 2px;
         border-radius: 4px;
+        &.active {
+          background-color: $theme-black-nav-select-active-bg;
+        }
         &:hover {
           background-color: $theme-black-nav-select-hover-bg;
         }
@@ -536,6 +494,19 @@ export default defineComponent({
           width: 64px;
           margin-left: 18px;
           margin-right: 19px;
+        }
+      }
+    }
+    .contentKey {
+      @extend .info;
+      .content {
+        .list {
+          .lang {
+            background: $doc-nav-icon-bg2;
+            .name {
+              color: $doc-nav-icon-color2;
+            }
+          }
         }
       }
     }
