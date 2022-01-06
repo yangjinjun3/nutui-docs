@@ -13,6 +13,48 @@
       <Search />
       <div class="nav-box">
         <ul class="nav-list">
+          <li class="nav-item">
+            <div
+              @focus="handleFocus"
+              @focusout="handleGuidFocusOut"
+              tabindex="0"
+              class="header-select-box"
+              @click.stop="dataGuid.isShowGuid = !dataGuid.isShowGuid"
+            >
+              <div>指南</div>
+              <transition name="fade">
+                <div class="guid-data" v-show="dataGuid.isShowGuid">
+                  <div
+                    class="info"
+                    v-for="(item, index) in guide"
+                    :key="index"
+                    :class="{ active: dataGuid.activeIndex === index }"
+                  >
+                    <div class="header">
+                      <img :src="item.icon" class="icon" />
+                      <div class="type"> {{ item.type }}</div>
+                    </div>
+                    <div
+                      class="content"
+                      v-for="(info, index) in item.data"
+                      :key="index"
+                      @click.stop="checkGuidTheme(info)"
+                    >
+                      <div class="version"> {{ info.name }}</div>
+                      <div class="list">
+                        <div class="lang" v-for="(lang, index) in info.language" :key="index"
+                          ><div class="name">{{ lang }}</div>
+                        </div></div
+                      >
+
+                      <div class="app"> {{ info.app }}</div>
+                    </div>
+                  </div>
+                </div>
+              </transition>
+            </div>
+          </li>
+
           <li class="nav-item" v-for="item in header" :key="item.name" :class="{ active: isActive(item.name) }">
             <a :href="item.path">
               {{ item.cName }}
@@ -55,7 +97,7 @@
 <script lang="ts">
 import { defineComponent, reactive, computed, onMounted } from 'vue';
 import Search from './Search.vue';
-import { header, versions, version, nav, repository, language } from '@/config/index';
+import { header, versions, version, nav, repository, language, guide } from '@/config/index';
 import { RefData } from '@/assets/util/ref';
 export default defineComponent({
   name: 'doc-header',
@@ -75,11 +117,24 @@ export default defineComponent({
       activeIndex: 0,
       isShowSelect: false
     });
+
+    const dataGuid = reactive({
+      theme: 'black',
+      verson: language == 'vue' ? '3.x' : '1.x',
+      navIndex: 0,
+      activeIndex: 0,
+      isShowGuid: false
+    });
+
     const handleFocus = () => {
       console.log(1);
     };
     const handleFocusOut = () => {
       data.isShowSelect = false;
+    };
+
+    const handleGuidFocusOut = () => {
+      dataGuid.isShowGuid = false;
     };
 
     const toHome = () => {
@@ -111,18 +166,28 @@ export default defineComponent({
       data.verson = item.name;
       window.location.href = item.link;
     };
+    const checkGuidTheme = (item: any, index: number) => {
+      dataGuid.isShowGuid = false;
+      dataGuid.activeIndex = index;
+      dataGuid.verson = item.name;
+      window.location.href = item.link;
+    };
     return {
       header,
       versions,
       version,
       repository,
       data,
+      dataGuid,
       toHome,
       isActive,
       checkTheme,
+      checkGuidTheme,
       themeName,
       handleFocus,
-      handleFocusOut
+      handleFocusOut,
+      handleGuidFocusOut,
+      guide
     };
   }
 });
@@ -382,6 +447,92 @@ export default defineComponent({
       }
     }
   }
+
+  .guid-data {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -60px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding-left: 29px;
+    padding-right: 29px;
+    width: 336px;
+    background: $theme-black-nav-select-bg;
+    border: 1px solid $theme-black-nav-select-border;
+    border-radius: 12px;
+    .info {
+      padding-top: 16px;
+      padding-bottom: 22px;
+      &:first-child {
+        border-bottom: 1px solid $theme-black-nav-select-border;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        line-height: 24px;
+        .icon {
+          width: 22px;
+          height: 19px;
+          margin-right: 9px;
+        }
+      }
+      .content {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        line-height: 24px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        border-radius: 4px;
+        &:hover {
+          background-color: $theme-black-nav-select-hover-bg;
+        }
+        .version {
+          width: 91px;
+          text-align: center;
+        }
+        .list {
+          width: 95px;
+          height: 24px;
+          align-items: center;
+          justify-content: flex-start;
+          display: flex;
+          .lang {
+            height: 24px;
+            background: $doc-nav-icon-bg1;
+            border-radius: 4px;
+            margin-right: 4px;
+            &:nth-child(2) {
+              background: $doc-nav-icon-bg2;
+              .name {
+                color: $doc-nav-icon-color2;
+              }
+            }
+            .name {
+              padding-left: 6px;
+              padding-right: 6px;
+              font-size: 14px;
+              font-family: PingFangSC;
+              font-weight: normal;
+              color: $doc-nav-icon-color1;
+            }
+          }
+        }
+        .app {
+          display: flex;
+          justify-content: flex-start;
+          width: 64px;
+          margin-left: 18px;
+          margin-right: 19px;
+        }
+      }
+    }
+  }
+
   // 白色
   &-white {
     background: $white;

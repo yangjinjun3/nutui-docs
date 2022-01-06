@@ -65,6 +65,9 @@ $theme-black-input: #ccc;
 $theme-black-border: #d8d8d8;
 $theme-black-actice: #fff;
 $theme-black-select-bg: #1d1d1d;
+$theme-black-nav-select-bg: #2c2c2c;
+$theme-black-nav-select-border: #5e5e5e;
+$theme-black-nav-select-hover-bg: rgba(255, 255, 255, 0.2);
 $theme-black-select-border: #c1c1c3;
 $theme-black-select-hover: #797a7b;
 $theme-black-select-word: #fff;
@@ -85,6 +88,10 @@ $doc-header-bg: url('@/assets/images/header-bg.png') no-repeat;
 // nav
 $doc-default-nav-bg: $white;
 $doc-default-nav-color: $title-color;
+$doc-nav-icon-color1: #41b883;
+$doc-nav-icon-color2: #74c9ff;
+$doc-nav-icon-bg1: rgba(65, 184, 131, 0.16);
+$doc-nav-icon-bg2: rgba(116, 201, 255, 0.16);
 // footer
 // $doc-default-header-color: $white;
 // $doc-footer-height: 73px;

@@ -134,12 +134,54 @@ export const SiteVue = {
       link: 'https://nutui.jd.com/react'
     }
   ],
-  header: [
+
+  guide: [
     {
-      name: 'intro,theme,start',
-      cName: '指南',
-      path: '#/intro'
+      type: 'Vue',
+      icon: 'https://img11.360buyimg.com/imagetools/jfs/t1/221256/40/8490/1929/61d64810Ec6a88d27/99270cce560545d5.png',
+      data: [
+        {
+          name: '1.X',
+          link: '/1x/',
+          language: ['Vue2'],
+          app: 'App7.0'
+        },
+        {
+          name: '2.X',
+          link: '/2x/',
+          language: ['Vue2'],
+          app: 'App10.0'
+        },
+        {
+          name: '3.X',
+          link: '/',
+          language: ['Vue2', 'Taro'],
+          app: 'App10.0'
+        },
+        {
+          name: 'JDL',
+          link: '/jdl/',
+          language: ['Vue2'],
+          app: '物流视觉'
+        }
+      ]
     },
+
+    {
+      type: 'React',
+      icon: 'https://img10.360buyimg.com/imagetools/jfs/t1/91454/20/21042/3482/61d64815E5c35af0a/ecf7aded2f5ffc6b.png',
+      data: [
+        {
+          name: '3.X',
+          link: 'https://nutui.jd.com/react',
+          language: ['React'],
+          app: 'App10.0'
+        }
+      ]
+    }
+  ],
+
+  header: [
     {
       name: 'component',
       cName: '组件',
