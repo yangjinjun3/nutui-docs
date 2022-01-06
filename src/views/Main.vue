@@ -21,7 +21,7 @@
             </div>
           </div>
           <iframe
-            :style="{ marginLeft: `${language === 'react' ? '40px' : '20px'}` }"
+            style="margin-left: 20px"
             :src="homePage.gitstar"
             frameborder="0"
             scrolling="0"
@@ -326,9 +326,9 @@ export default defineComponent({
     }
   }
   .react-content-left {
-    background: url(https://storage.360buyimg.com/imgtools/58eaa953e3-7a8cef60-6e92-11ec-b519-876b558491f4.png)
+    background: url(https://storage.360buyimg.com/imgtools/7cd27ba3eb-686f76e0-6ec9-11ec-8cd6-b10a2c66b169.png)
       no-repeat;
-    background-size: 1264px 861px;
+    background-size: 1126px 568px;
     background-position-x: right;
     background-position-y: 136px;
   }
@@ -792,29 +792,29 @@ export default defineComponent({
     }
   }
 }
-.doc-content-index-react {
-  height: 1012px;
-  margin-bottom: 20px;
-  .content-left {
-    padding: 17.5% 0 0 8.8%;
-    .content-title {
-      font-size: 56px;
-    }
-    .content-subTitle {
-      font-size: 36px;
-    }
-    .content-button {
-      .leftButton,
-      .rightButton {
-        width: 170px;
-        height: 50px;
-      }
-      .rightButton {
-        margin-left: 40px;
-      }
-    }
-  }
-}
+//.doc-content-index-react {
+//  height: 1012px;
+//  margin-bottom: 20px;
+//  .content-left {
+//    padding: 17.5% 0 0 8.8%;
+//    .content-title {
+//      font-size: 56px;
+//    }
+//    .content-subTitle {
+//      font-size: 36px;
+//    }
+//    .content-button {
+//      .leftButton,
+//      .rightButton {
+//        width: 170px;
+//        height: 50px;
+//      }
+//      .rightButton {
+//        margin-left: 40px;
+//      }
+//    }
+//  }
+//}
 .doc-content-black {
   background: $theme-black-content-bg;
   color: white;
