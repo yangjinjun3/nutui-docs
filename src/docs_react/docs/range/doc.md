@@ -107,49 +107,47 @@ import { Range } from '@nutui/nutui-react';
 
 ### 自定义按钮
 
-::: demo
 ```jsx
-import  React ,{useState,useEffect} from "react";
-import { Range,Toast } from '@test/nutui-react';
-
-const App = () => {
-  const [value1, SetValue1] = useState(40)
-  const [value2, SetValue2] = useState(60)
-  const change = (value, name) => {
-    Toast.text('当前值：' + value)
-    switch (name) {
-      case 'value1':
-        SetValue1(value)
-        break
-      case 'value2':
-        SetValue2(value)
-        break
-      default:
-        break
-    }
-  }
-  const customButtonStyle = {
-    width:"26px",
-    color: "#fff",
-    fontSize: "10px",
-    lineHeight: "18px",
-    textAlign: "center",
-    backgroundColor: "#ee0a24",
-    borderAadius: "100px",
-  }
-  return (
-    <Range
-      modelValue={value2}
-      button={<div sytle={customButtonStyle}>{value2}</div>}
-      change={(value) => {
-        change(value, 'value2')
-      }}
-    ></Range>
-  );
-};
-export default App;
+<Range
+  modelValue={value2}
+  button={<div className="custom-button">{value2}</div>}
+  change={(value: number) => {
+    change(value, 'value2')
+  }}
+></Range>
 ```
-::: 
+
+```js
+const [value1, SetValue1] = useState(40)
+const [value2, SetValue2] = useState(60)
+const change = (value: number, name?: string) => {
+  Toast.text('当前值：' + value)
+  switch (name) {
+    case 'value1':
+      SetValue1(value)
+      break
+    case 'value2':
+      SetValue2(value)
+      break
+    default:
+      break
+  }
+}
+```
+
+```html
+<style>
+  .custom-button {
+    width: 26px;
+    color: #fff;
+    font-size: 10px;
+    line-height: 18px;
+    text-align: center;
+    background-color: #ee0a24;
+    border-radius: 100px;
+  }
+</style>
+```
 
 ## API
 

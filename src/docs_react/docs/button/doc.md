@@ -16,8 +16,8 @@ import { Button } from '@nutui/nutui-react';
 
 按钮支持 `default`、`primary`、`info`、`warning`、`danger`、`success` 六种类型，默认为 `default`。
 
-::: demo
-```jsx
+:::demo
+```tsx
 import  React from "react";
 import { Button } from '@nutui/nutui-react';
 
@@ -37,21 +37,20 @@ export default App;
 ```
 :::
 
-
 ### 朴素按钮
 
 通过 `plain` 属性将按钮设置为朴素按钮，朴素按钮的文字为按钮颜色，背景为白色。
 
-::: demo
-```jsx
+:::demo
+```tsx
 import  React from "react";
 import { Button } from '@nutui/nutui-react';
 
 const App = () => {
   return (
     <>
-    <Button plain type="primary">朴素按钮</Button>
-    <Button plain type="info">朴素按钮</Button>
+<Button plain type="primary">朴素按钮</Button>
+<Button plain type="info">朴素按钮</Button>
     </>
   );
 };
@@ -61,68 +60,39 @@ export default App;
 ### 禁用状态
 
 通过 `disabled` 属性来禁用按钮，禁用状态下按钮不可点击。
-::: demo
-```jsx
+
+:::demo
+```tsx
 import  React from "react";
 import { Button } from '@nutui/nutui-react';
 
 const App = () => {
   return (
     <>
-    <Button disabled type="primary">禁用状态</Button>
-    <Button plain disabled type="info">禁用状态</Button>
-    <Button plain disabled type="primary">禁用状态</Button>
+<Button disabled type="primary">禁用状态</Button>
+<Button plain disabled type="info">禁用状态</Button>
+<Button plain disabled type="primary">禁用状态</Button>
     </>
   );
 };
 export default App;
 ```
 :::
+
 ### 按钮形状
 
 通过 `shape` 属性设置按钮形状，支持圆形、方形按钮，默认为圆形。
 
-::: demo
-```jsx
+:::demo
+```tsx
 import  React from "react";
 import { Button } from '@nutui/nutui-react';
 
 const App = () => {
   return (
     <>
-    <Button shape="square" type="primary">方形按钮</Button>
-    <Button type="info">圆形按钮</Button>
-    </>
-  );
-};
-export default App;
-```
-::: 
-### 加载状态
-
-::: demo
-```jsx
-import  React ,{useState} from "react";
-import { Button } from '@nutui/nutui-react';
-const App = () => {
-  const [loading,setLoading] = useState(false)
-  return (
-    <>
-      <Button loading type="info"></Button>
-      <Button loading type="warning">加载中...</Button>
-      <Button
-                loading={loading}
-                type="success"
-                onClick={() => {
-                  setTimeout(() => {
-                    setLoading(false)
-                  }, 1500),
-                    setLoading(!loading)
-                }}
-                style={{ margin: 8 }}
-              >
-                Click me!
-      </Button>
+<Button shape="square" type="primary">方形按钮</Button>
+<Button type="info">圆形按钮</Button>
     </>
   );
 };
@@ -130,17 +100,50 @@ export default App;
 ```
 :::
 
+### 加载状态
+
+:::demo
+```tsx
+import  React ,{useState} from "react";
+import { Button } from '@nutui/nutui-react';
+
+const App = () => {
+  const [loading,setLoading] = useState(false)
+  return (
+    <>
+<Button loading type="info"></Button>
+<Button loading type="warning">加载中...</Button>
+<Button
+      loading={loading}
+      type="success"
+      onClick={() => {
+        setTimeout(() => {
+          setLoading(false)
+        }, 1500),
+          setLoading(!loading)
+      }}
+      style={{ margin: 8 }}
+    >
+      Click me!
+</Button>
+    </>
+  );
+};
+export default App;
+```
+:::
 ### 图标按钮
-::: demo
-```jsx
+
+:::demo
+```tsx
 import  React from "react";
 import { Button } from '@nutui/nutui-react';
 
 const App = () => {
   return (
     <>
-    <Button shape="square" plain type="primary" icon="star-fill"></Button>
-    <Button shape="square" type="primary" icon="star">收藏</Button>
+  <Button shape="square" plain type="primary" icon="star-fill"></Button>
+  <Button shape="square" type="primary" icon="star">收藏</Button>
     </>
   );
 };
@@ -151,36 +154,37 @@ export default App;
 
 支持 `large`、`normal`、`small` 三种尺寸，默认为 `normal`。
 
-::: demo
-```jsx
+:::demo
+```tsx
 import  React from "react";
 import { Button } from '@nutui/nutui-react';
 
-const App = () => {
+const App = () => { 
   return (
     <>
-    <Button size="large" type="primary">大号按钮</Button>
-    <Button type="primary">普通按钮</Button>
-    <Button size="small" type="primary">小型按钮</Button>
+<Button size="large" type="primary">大号按钮</Button>
+<Button type="primary">普通按钮</Button>
+<Button size="small" type="primary">小型按钮</Button>
     </>
   );
 };
 export default App;
 ```
 :::
+
 ### 块级元素
 
 按钮在默认情况下为行内块级元素，通过 `block` 属性可以将按钮的元素类型设置为块级元素，常用来实现通栏按钮。
 
-::: demo
-```jsx
+:::demo
+```tsx
 import  React from "react";
 import { Button } from '@nutui/nutui-react';
 
-const App = () => {
+const App = () => { 
   return (
     <>
-      <Button block type="primary">块级元素</Button>
+<Button block type="primary">块级元素</Button>
     </>
   );
 };
@@ -190,19 +194,20 @@ export default App;
 
 ### 自定义颜色
 通过 color 属性可以自定义按钮的颜色。
-::: demo
-```jsx
+
+:::demo
+```tsx
 import  React from "react";
 import { Button } from '@nutui/nutui-react';
 
-const App = () => {
+const App = () => { 
   return (
     <>
-    <Button color="#7232dd">单色按钮</Button>
-    <Button color="#7232dd" plain>单色按钮</Button>
-    <Button color="linear-gradient(to right, #ff6034, #ee0a24)">
-      渐变色按钮
-    </Button>
+<Button color="#7232dd">单色按钮</Button>
+<Button color="#7232dd" plain>单色按钮</Button>
+<Button color="linear-gradient(to right, #ff6034, #ee0a24)">
+  渐变色按钮
+</Button>
     </>
   );
 };

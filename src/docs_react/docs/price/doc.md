@@ -15,79 +15,37 @@ import { Price } from '@nutui/nutui-react'
 
 ### 基本用法
 
-::: demo
-```jsx
-import  React from "react";
-import { Price } from '@test/nutui-react';
-
-const App = () => {
-  return (
-    <Price price={1010} needSymbol={false} thousands={true} />
-  );
-};
-export default App;
+```tsx
+<Price price={1010} needSymbol={false} thousands={true} />
 ```
-::: 
 
 ### 有人民币符号，无千位分隔
 
-::: demo
-```jsx
-import  React from "react";
-import { Price } from '@test/nutui-react';
-
-const App = () => {
-  return (
-    <Price price={10010.01} needSymbol={true} thousands={false} />
-  );
-};
-export default App;
+```tsx
+<Price price={10010.01} needSymbol={true} thousands={false} />
 ```
-::: 
-
 
 ### 带人民币符号，有千位分隔，保留小数点后三位
 
-::: demo
-```jsx
-import  React from "react";
-import { Price } from '@test/nutui-react';
-
-const App = () => {
-  return (
-    <Price price={15213.1221} decimalDigits={3} needSymbol={true} thousands={true} />
-  );
-};
-export default App;
+```tsx
+<Price price={15213.1221} decimalDigits={3} needSymbol={true} thousands={true} />
 ```
-::: 
-
 
 ### 异步随机变更
 
-::: demo
-```jsx
-import  React ,{useState,useEffect} from "react";
-import { Price } from '@test/nutui-react';
-
-const App = () => {
+```tsx
 const [price, setPrice] = useState(Math.random() * 10000000)
 useEffect(() => {
-  const timer = setInterval(() => {
-      setPrice(Math.random() * 10000000)
-  }, 1000)
-  return () => {
-      clearInterval(timer)
-  }
+const timer = setInterval(() => {
+    setPrice(Math.random() * 10000000)
+}, 1000)
+return () => {
+    clearInterval(timer)
+}
 }, [])
-  return (
-    <Price price={price} decimal-digits={3} need-symbol={true} thousands={true} />
-  );
-};
-export default App;
-```
-::: 
 
+<Price price={price} decimal-digits={3} need-symbol={true} thousands={true} />
+```
 
 ## API
 
