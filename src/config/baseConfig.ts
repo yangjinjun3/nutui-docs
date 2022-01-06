@@ -102,7 +102,7 @@ export const SiteReact = {
   language: 'react'
 };
 
-// React 官网配置
+// Vue 官网配置
 export const SiteVue = {
   repository: {
     git: 'https://github.com/jdf2e/nutui',
