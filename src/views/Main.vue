@@ -1,9 +1,9 @@
 <template>
   <doc-header></doc-header>
   <div class="doc-content" :class="themeName()">
-    <div class="doc-content-index">
-      <div class="content-left">
-        <div class="content-title"> NutUI </div>
+    <div :class="['doc-content-index', `${language.toLowerCase() === 'react' ? 'doc-content-index-react' : ''}`]">
+      <div :class="bannerName()">
+        <div class="content-title"> NutUI<span v-if="language === 'react'" class="sub-content-title">-React</span></div>
         <div class="content-smile"> </div>
         <div class="content-subTitle"
           >京东风格的轻量级移动端 {{ language.replace(/^\S/, (s) => s.toUpperCase()) }} 组件库</div
@@ -21,7 +21,7 @@
             </div>
           </div>
           <iframe
-            style="margin-left: 20px"
+            :style="{ marginLeft: `${language === 'react' ? '40px' : '20px'}` }"
             :src="homePage.gitstar"
             frameborder="0"
             scrolling="0"
@@ -245,6 +245,11 @@ export default defineComponent({
         return `doc-content-${RefData.getInstance().themeColor.value}`;
       };
     });
+    const bannerName = computed(() => {
+      return function () {
+        return language === 'vue' ? 'content-left' : 'content-left react-content-left';
+      };
+    });
     const themeNameValue = computed(() => {
       return function () {
         return RefData.getInstance().themeColor.value;
@@ -275,7 +280,8 @@ export default defineComponent({
       onRight,
       toDetail,
       goAwait,
-      hideAwait
+      hideAwait,
+      bannerName
     };
   }
 });
@@ -318,6 +324,13 @@ export default defineComponent({
         animation: fadeInLeft 1s both 1.2s;
       }
     }
+  }
+  .react-content-left {
+    background: url(https://storage.360buyimg.com/imgtools/58eaa953e3-7a8cef60-6e92-11ec-b519-876b558491f4.png)
+      no-repeat;
+    background-size: 1264px 861px;
+    background-position-x: right;
+    background-position-y: 136px;
   }
 }
 </style>
@@ -679,6 +692,9 @@ export default defineComponent({
       font-size: 42px;
       color: rgba(255, 255, 255, 1);
     }
+    .sub-content-title {
+      font-weight: 300;
+    }
     .content-smile {
       margin-top: 10px;
       width: 44px;
@@ -772,6 +788,29 @@ export default defineComponent({
             background-size: cover;
           }
         }
+      }
+    }
+  }
+}
+.doc-content-index-react {
+  height: 1012px;
+  margin-bottom: 20px;
+  .content-left {
+    padding: 17.5% 0 0 8.8%;
+    .content-title {
+      font-size: 56px;
+    }
+    .content-subTitle {
+      font-size: 36px;
+    }
+    .content-button {
+      .leftButton,
+      .rightButton {
+        width: 170px;
+        height: 50px;
+      }
+      .rightButton {
+        margin-left: 40px;
       }
     }
   }
