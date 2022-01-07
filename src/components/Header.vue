@@ -20,11 +20,10 @@
           </li>
           <li class="nav-item">
             <div
-              @focus="handleFocus"
-              @focusout="handleGuidFocusOut"
+              @mouseenter="onMouseHover(true)"
+              @mouseleave="onMouseHover(false)"
               tabindex="0"
               class="header-select-box"
-              @click.stop="data.isShowGuid = !data.isShowGuid"
               :class="[data.isShowGuid == true ? 'select-up' : 'select-down']"
             >
               <div class="header-select-hd">{{ data.verson }}<i class=""></i></div>
@@ -45,7 +44,9 @@
                       v-for="(info, index) in item.data"
                       :key="index"
                       @click.stop="checkGuidTheme(info)"
-                      :class="{ active: data.activeIndex === index }"
+                      :class="{
+                        active: (info.name === 'vue 3.x' || info.name === '1.x') && item.type.toLowerCase() == language
+                      }"
                     >
                       <div class="version"> {{ info.name }}</div>
                       <div class="list">
@@ -101,6 +102,10 @@ export default defineComponent({
       data.isShowGuid = false;
     };
 
+    const onMouseHover = (flag: any) => {
+      data.isShowGuid = flag;
+    };
+
     const toHome = () => {
       RefData.getInstance().currentRoute.value = '/';
     };
@@ -126,9 +131,7 @@ export default defineComponent({
     });
     const checkGuidTheme = (item: any, index: number) => {
       data.isShowGuid = false;
-      data.activeIndex = index;
-      data.verson = item.name;
-      window.location.href = item.link;
+      window.open(item.link);
     };
     return {
       header,
@@ -143,6 +146,7 @@ export default defineComponent({
       themeName,
       handleFocus,
       handleGuidFocusOut,
+      onMouseHover,
       guide
     };
   }
