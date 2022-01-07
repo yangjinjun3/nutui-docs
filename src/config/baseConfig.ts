@@ -78,7 +78,7 @@ export const SiteReact = {
       //   },
       {
         title: '组件丰富',
-        desc: '30+ 组件，覆盖多数业务场景',
+        desc: '40+ 组件，覆盖多数业务场景',
         url: homefeatures2
       },
       {
