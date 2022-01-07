@@ -28,6 +28,7 @@
               @click.stop="data.isShowGuid = !data.isShowGuid"
             >
               <div class="header-select-hd">{{ data.verson }}<i class=""></i></div>
+              <div class="guild-line"></div>
               <transition name="fade">
                 <div class="guid-data" v-show="data.isShowGuid">
                   <div
@@ -399,6 +400,13 @@ export default defineComponent({
             background-image: url('@/assets/images/icon-select-white-up.png');
           }
         }
+        .guild-line {
+          position: absolute;
+          height: 20px;
+          width: 77px;
+          right: 0%;
+          background: transparent;
+        }
         .guid-data {
           position: absolute;
           top: 40px;
@@ -581,6 +589,13 @@ export default defineComponent({
             background-image: url('@/assets/images/icon-select-gray-up.png');
           }
         }
+        .guild-line {
+          position: absolute;
+          right: 0%;
+          height: 20px;
+          width: 77px;
+          background: transparent;
+        }
         .guid-data {
           position: absolute;
           top: 40px;
@@ -761,6 +776,13 @@ export default defineComponent({
           .header-select-hd {
             background-image: url('@/assets/images/icon-select-white-up.png');
           }
+        }
+        .guild-line {
+          position: absolute;
+          height: 20px;
+          right: 0%;
+          width: 77px;
+          background: transparent;
         }
         .guid-data {
           position: absolute;
