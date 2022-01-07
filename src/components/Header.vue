@@ -25,6 +25,7 @@
               tabindex="0"
               class="header-select-box"
               :class="[data.isShowGuid == true ? 'select-up' : 'select-down']"
+              @click.stop="data.isShowGuid = !data.isShowGuid"
             >
               <div class="header-select-hd">{{ data.verson }}<i class=""></i></div>
               <transition name="fade">
