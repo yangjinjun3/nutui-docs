@@ -388,6 +388,7 @@ export default defineComponent({
     }
     .header-select {
       &-box {
+        position: relative;
         &.select-down {
           .header-select-hd {
             background-image: url('@/assets/images/icon-select-white-down.png');
@@ -396,6 +397,106 @@ export default defineComponent({
         &.select-up {
           .header-select-hd {
             background-image: url('@/assets/images/icon-select-white-up.png');
+          }
+        }
+        .guid-data {
+          position: absolute;
+          top: 40px;
+          right: 0%;
+          margin-left: -60px;
+          border-radius: 3px;
+          overflow: hidden;
+          padding-left: 29px;
+          padding-right: 29px;
+          width: 336px;
+          background: $theme-black-nav-select-bg;
+          border: 1px solid $theme-black-nav-select-border;
+          border-radius: 12px;
+          .info {
+            padding-top: 16px;
+            padding-bottom: 22px;
+            &:first-child {
+              border-bottom: 1px solid $theme-black-nav-select-border;
+            }
+            .header {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              line-height: 24px;
+              .icon {
+                width: 22px;
+                height: 19px;
+                margin-right: 9px;
+              }
+            }
+            .content {
+              padding-top: 6px;
+              padding-bottom: 6px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              line-height: 24px;
+              margin-top: 2px;
+              margin-bottom: 2px;
+              border-radius: 4px;
+              &.active {
+                background-color: $theme-black-nav-select-active-bg;
+              }
+              &:hover {
+                background-color: $theme-black-nav-select-hover-bg;
+              }
+              .version {
+                width: 91px;
+                text-align: center;
+              }
+              .list {
+                width: 95px;
+                height: 24px;
+                align-items: center;
+                justify-content: flex-start;
+                display: flex;
+                .lang {
+                  height: 24px;
+                  background: $doc-nav-icon-bg1;
+                  border-radius: 4px;
+                  margin-right: 4px;
+                  &:nth-child(2) {
+                    background: $doc-nav-icon-bg2;
+                    .name {
+                      color: $doc-nav-icon-color2;
+                    }
+                  }
+                  .name {
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    font-size: 14px;
+                    font-family: PingFangSC;
+                    font-weight: normal;
+                    color: $doc-nav-icon-color1;
+                  }
+                }
+              }
+              .app {
+                display: flex;
+                justify-content: flex-start;
+                width: 64px;
+                margin-left: 18px;
+                margin-right: 19px;
+              }
+            }
+          }
+          .contentKey {
+            @extend .info;
+            .content {
+              .list {
+                .lang {
+                  background: $doc-nav-icon-bg2;
+                  .name {
+                    color: $doc-nav-icon-color2;
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -415,108 +516,6 @@ export default defineComponent({
       }
     }
   }
-
-  .guid-data {
-    position: absolute;
-    top: 40px;
-    right: 0%;
-    margin-left: -60px;
-    border-radius: 3px;
-    overflow: hidden;
-    padding-left: 29px;
-    padding-right: 29px;
-    width: 336px;
-    background: $theme-black-nav-select-bg;
-    border: 1px solid $theme-black-nav-select-border;
-    border-radius: 12px;
-    .info {
-      padding-top: 16px;
-      padding-bottom: 22px;
-      &:first-child {
-        border-bottom: 1px solid $theme-black-nav-select-border;
-      }
-      .header {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        line-height: 24px;
-        .icon {
-          width: 22px;
-          height: 19px;
-          margin-right: 9px;
-        }
-      }
-      .content {
-        padding-top: 6px;
-        padding-bottom: 6px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        line-height: 24px;
-        margin-top: 2px;
-        margin-bottom: 2px;
-        border-radius: 4px;
-        &.active {
-          background-color: $theme-black-nav-select-active-bg;
-        }
-        &:hover {
-          background-color: $theme-black-nav-select-hover-bg;
-        }
-        .version {
-          width: 91px;
-          text-align: center;
-        }
-        .list {
-          width: 95px;
-          height: 24px;
-          align-items: center;
-          justify-content: flex-start;
-          display: flex;
-          .lang {
-            height: 24px;
-            background: $doc-nav-icon-bg1;
-            border-radius: 4px;
-            margin-right: 4px;
-            &:nth-child(2) {
-              background: $doc-nav-icon-bg2;
-              .name {
-                color: $doc-nav-icon-color2;
-              }
-            }
-            .name {
-              padding-left: 6px;
-              padding-right: 6px;
-              font-size: 14px;
-              font-family: PingFangSC;
-              font-weight: normal;
-              color: $doc-nav-icon-color1;
-            }
-          }
-        }
-        .app {
-          display: flex;
-          justify-content: flex-start;
-          width: 64px;
-          margin-left: 18px;
-          margin-right: 19px;
-        }
-      }
-    }
-    .contentKey {
-      @extend .info;
-      .content {
-        .list {
-          .lang {
-            background: $doc-nav-icon-bg2;
-            .name {
-              color: $doc-nav-icon-color2;
-            }
-          }
-        }
-      }
-    }
-  }
-
   // 白色
   &-white {
     background: $white;
@@ -571,6 +570,7 @@ export default defineComponent({
     }
     .header-select {
       &-box {
+        position: relative;
         &.select-down {
           .header-select-hd {
             background-image: url('@/assets/images/icon-select-gray-down.png');
@@ -579,6 +579,106 @@ export default defineComponent({
         &.select-up {
           .header-select-hd {
             background-image: url('@/assets/images/icon-select-gray-up.png');
+          }
+        }
+        .guid-data {
+          position: absolute;
+          top: 40px;
+          right: 0%;
+          margin-left: -60px;
+          border-radius: 3px;
+          overflow: hidden;
+          padding-left: 29px;
+          padding-right: 29px;
+          width: 336px;
+          background: $theme-white;
+          border: 1px solid $theme-white-select-border;
+          border-radius: 12px;
+          .info {
+            padding-top: 16px;
+            padding-bottom: 22px;
+            &:first-child {
+              border-bottom: 1px solid $theme-black-nav-select-border;
+            }
+            .header {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              line-height: 24px;
+              .icon {
+                width: 22px;
+                height: 19px;
+                margin-right: 9px;
+              }
+            }
+            .content {
+              padding-top: 6px;
+              padding-bottom: 6px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              line-height: 24px;
+              margin-top: 2px;
+              margin-bottom: 2px;
+              border-radius: 4px;
+              &.active {
+                background-color: $theme-white-select-active;
+              }
+              &:hover {
+                background-color: $theme-white-select-hover;
+              }
+              .version {
+                width: 91px;
+                text-align: center;
+              }
+              .list {
+                width: 95px;
+                height: 24px;
+                align-items: center;
+                justify-content: flex-start;
+                display: flex;
+                .lang {
+                  height: 24px;
+                  background: $doc-nav-icon-bg1;
+                  border-radius: 4px;
+                  margin-right: 4px;
+                  &:nth-child(2) {
+                    background: $doc-nav-icon-bg2;
+                    .name {
+                      color: $doc-nav-icon-color2;
+                    }
+                  }
+                  .name {
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    font-size: 14px;
+                    font-family: PingFangSC;
+                    font-weight: normal;
+                    color: $doc-nav-icon-color1;
+                  }
+                }
+              }
+              .app {
+                display: flex;
+                justify-content: flex-start;
+                width: 64px;
+                margin-left: 18px;
+                margin-right: 19px;
+              }
+            }
+          }
+          .contentKey {
+            @extend .info;
+            .content {
+              .list {
+                .lang {
+                  background: $doc-nav-icon-bg2;
+                  .name {
+                    color: $doc-nav-icon-color2;
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -660,6 +760,106 @@ export default defineComponent({
         &.select-up {
           .header-select-hd {
             background-image: url('@/assets/images/icon-select-white-up.png');
+          }
+        }
+        .guid-data {
+          position: absolute;
+          top: 40px;
+          right: 0%;
+          margin-left: -60px;
+          border-radius: 3px;
+          overflow: hidden;
+          padding-left: 29px;
+          padding-right: 29px;
+          width: 336px;
+          background: $theme-black-nav-select-bg;
+          border: 1px solid $theme-black-nav-select-border;
+          border-radius: 12px;
+          .info {
+            padding-top: 16px;
+            padding-bottom: 22px;
+            &:first-child {
+              border-bottom: 1px solid $theme-black-nav-select-border;
+            }
+            .header {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              line-height: 24px;
+              .icon {
+                width: 22px;
+                height: 19px;
+                margin-right: 9px;
+              }
+            }
+            .content {
+              padding-top: 6px;
+              padding-bottom: 6px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              line-height: 24px;
+              margin-top: 2px;
+              margin-bottom: 2px;
+              border-radius: 4px;
+              &.active {
+                background-color: $theme-black-nav-select-active-bg;
+              }
+              &:hover {
+                background-color: $theme-black-nav-select-hover-bg;
+              }
+              .version {
+                width: 91px;
+                text-align: center;
+              }
+              .list {
+                width: 95px;
+                height: 24px;
+                align-items: center;
+                justify-content: flex-start;
+                display: flex;
+                .lang {
+                  height: 24px;
+                  background: $doc-nav-icon-bg1;
+                  border-radius: 4px;
+                  margin-right: 4px;
+                  &:nth-child(2) {
+                    background: $doc-nav-icon-bg2;
+                    .name {
+                      color: $doc-nav-icon-color2;
+                    }
+                  }
+                  .name {
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    font-size: 14px;
+                    font-family: PingFangSC;
+                    font-weight: normal;
+                    color: $doc-nav-icon-color1;
+                  }
+                }
+              }
+              .app {
+                display: flex;
+                justify-content: flex-start;
+                width: 64px;
+                margin-left: 18px;
+                margin-right: 19px;
+              }
+            }
+          }
+          .contentKey {
+            @extend .info;
+            .content {
+              .list {
+                .lang {
+                  background: $doc-nav-icon-bg2;
+                  .name {
+                    color: $doc-nav-icon-color2;
+                  }
+                }
+              }
+            }
           }
         }
       }
