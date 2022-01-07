@@ -24,9 +24,7 @@ app.use(Elevator);
 
 ### 选择自定义地址
 
-::: demo
 ```html
-<template>
 <nut-cell title="选择地址" :desc="text" is-link @click="showAddress"></nut-cell>
 <nut-address
     v-model:visible="showPopup"
@@ -38,11 +36,9 @@ app.use(Elevator);
     @close="close"
     custom-address-title="请选择所在地区"
 ></nut-address>
-</template>
-<script>
-import { ref, toRefs, reactive } from "vue";
-export default {
-  setup() {
+```
+```javascript
+setup() {
     const showPopup = ref(false);
     const address = reactive({
       province:[
@@ -81,18 +77,14 @@ export default {
       console.log(val);
       text.value = val.data.addressStr;
     };
+
     return { showPopup, text, showAddress, onChange, close, ...toRefs(address) };
-  }
 }
-</script>
 ```
-:::
 
 ### 选择自定义地址2
 
-::: demo
 ```html
-<template>
 <nut-cell title="选择地址" :desc="text" type="custom2" is-link @click="showAddress"></nut-cell>
 <nut-address
     v-model:visible="showPopup"
@@ -104,10 +96,8 @@ export default {
     @close="close"
     custom-address-title="请选择所在地区"
 ></nut-address>
-</template>
-<script>
-  import { ref, toRefs, reactive } from "vue";
-export default {
+```
+```javascript
 setup() {
     const showPopup = ref(false);
     const address = reactive({
@@ -153,10 +143,8 @@ setup() {
 
     return { showPopup, text, showAddress, onChange, close, ...toRefs(address) };
 }
-}
-</script>
 ```
-:::
+
 ### 选择已有地址
 
 ```html
