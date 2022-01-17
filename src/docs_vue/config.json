@@ -1,6 +1,5 @@
 {
   "version": "3.1.14",
-  "demoUrl": "https://nutui.jd.com/3x/demo.html#",
   "nav": [
     {
       "name": "基础组件",
@@ -1054,5 +1053,6 @@
         "show": true
       }
     ]
-  }
+  },
+  "demoUrl": "https://nutui.jd.com/3x/demo.html#"
 }
