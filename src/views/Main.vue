@@ -194,7 +194,7 @@ export default defineComponent({
     const getCasesImages = () => {
       const apiService = new ApiService();
 
-      apiService.getCases().then((res) => {
+      apiService.getCases(1).then((res) => {
         if (res?.state == 0) {
           data.casesImages = (res.value.data.arrays as any[]).map((item) => {
             if (item.cover_image?.length) {

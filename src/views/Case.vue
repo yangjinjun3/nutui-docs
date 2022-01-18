@@ -154,7 +154,7 @@ export default defineComponent({
           });
         }
       });
-      apiService.getCases().then((res) => {
+      apiService.getCases(0).then((res) => {
         if (res?.state == 0) {
           data.caseList = res.value.data.arrays;
         }

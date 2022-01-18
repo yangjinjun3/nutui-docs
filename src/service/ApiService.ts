@@ -11,15 +11,23 @@ export class ApiService {
    * @memberof ArticleApiService
    */
   getArticle() {
-    return this.httpClient.request('/openapi/article?pageIndex=1&pageSize=100', 'get', {});
+    return this.httpClient.request('/openapi/article', 'get', {
+      pageIndex: 1,
+      pageSize: 100
+    });
   }
   /**
    * 获取nutui使用案例
+   * is_recommend 是否获取推荐位数据 1获取 0获取全部
    * @returns
    * @memberof ArticleApiService
    */
-  getCases() {
-    return this.httpClient.request('/openapi/cases?pageIndex=1&pageSize=100', 'get', {});
+  getCases(is_recommend: number = 1) {
+    return this.httpClient.request('/openapi/cases', 'get', {
+      pageIndex: 1,
+      pageSize: 100,
+      is_recommend
+    });
   }
   /**
    * 获取nutui常见问题
@@ -27,6 +35,9 @@ export class ApiService {
    * @memberof FaqApiService
    */
   getFaq() {
-    return this.httpClient.request('/openapi/faq?pageIndex=1&pageSize=100', 'get', {});
+    return this.httpClient.request('/openapi/faq', 'get', {
+      pageIndex: 1,
+      pageSize: 100
+    });
   }
 }
