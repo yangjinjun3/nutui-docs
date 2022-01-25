@@ -89,9 +89,10 @@
               <img src="@/assets/images/marketing-title.png" alt="" />
             </div>
             <p class="marketing-content-right-desc">{{ homePage.bizComponent[1].desc }}</p>
-            <div class="marketing-content-right-godetail" @click="goAwait">敬请期待</div>
+            <div class="marketing-content-right-godetail" @click="goBingoDetails">查看详情</div>
+            <!-- <div class="marketing-content-right-godetail" @click="goAwait">敬请期待</div> -->
           </div>
-          <div class="marketing-content-mask" v-if="showAwait" @click="hideAwait"> 正在建设中，敬请期待~ </div>
+          <!-- <div class="marketing-content-mask" v-if="showAwait" @click="hideAwait"> 正在建设中，敬请期待~ </div> -->
         </div>
       </div>
     </div>
@@ -226,6 +227,9 @@ export default defineComponent({
         }
       });
     };
+    const goBingoDetails = () => {
+      window.open('/bingo');
+    };
     const goAwait = () => {
       data.showAwait = true;
     };
@@ -279,6 +283,7 @@ export default defineComponent({
       homePage,
       onRight,
       toDetail,
+      goBingoDetails,
       goAwait,
       hideAwait,
       bannerName
