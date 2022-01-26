@@ -500,6 +500,7 @@
           "show": false,
           "taro": true,
           "exportEmpty": true,
+          "exportEmptyTaro": true,
           "desc": "标签栏子组件",
           "author": "Drjingfubo"
         },
