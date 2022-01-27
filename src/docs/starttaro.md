@@ -70,6 +70,10 @@ yarn add @tarojs/plugin-html
 config = {
   // ...
   plugins: ['@tarojs/plugin-html']
+  // 给 sass-loader 传递选项 ！！！！ 按需加载方式必须配置
+  scss: {
+      data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
+  }
 }
 ```
 3. 配置 nutui 375尺寸
@@ -139,7 +143,6 @@ npm install babel-plugin-import --save-dev
 import { createApp } from "vue";
 import App from "./App.vue";
 import { Button, Cell, Icon } from "@nutui/nutui-taro";
-import "@nutui/nutui-taro/dist/style.css";
 createApp(App).use(Button).use(Cell).use(Icon);
 ```
 

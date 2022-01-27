@@ -92,6 +92,7 @@ npm install babel-plugin-import --save-dev
       {
         "libraryName": "@nutui/nutui",
         "libraryDirectory": "dist/packages/_es",
+        "style": (name, file) => name.toLowerCase().replace('_es/', '') + '/index.scss',
         "camel2DashComponentName": false
       },
       'nutui3-vue'
@@ -101,6 +102,7 @@ npm install babel-plugin-import --save-dev
       {
         "libraryName": "@nutui/nutui-taro",
         "libraryDirectory": "dist/packages/_es",
+        "style": (name, file) => name.toLowerCase().replace('_es/', '') + '/index.scss',
         "camel2DashComponentName": false
       },
       'nutui3-taro'
@@ -108,13 +110,22 @@ npm install babel-plugin-import --save-dev
   ]
 }
 ```
+在 webpack 配置中配置 sass-loader ，将 nutui 样式变量导入全局
+```javascript
+//...
+// 给 sass-loader 传递选项
+scss: {
+    data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
+}
+//...
+```
+
 接着像这样在代码中直接引入组件。
 
 ```javascript
 import { createApp } from "vue";
 import App from "./App.vue";
 import { Button, Icon } from "@nutui/nutui";
-import "@nutui/nutui/dist/style.css";
 createApp(App).use(Button).use(Icon).mount("#app");
 ```
 
