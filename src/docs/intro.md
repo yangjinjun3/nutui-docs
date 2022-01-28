@@ -37,10 +37,9 @@ NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在
 - @nutui/nutui-taro 基于Vue3 视觉风格 JD APP 10.0规范 ，必须基于 taro + vue3 框架 进行开发多端（多端指一套代码 部署多端环境 微信小程序 h5、等第三方小程序）
 ## 支持环境
 
-* Android 5.0+
-* iOS 9.2+
 
-> 如果想要兼容低版本，请使用 NutUI2.x
+NutUI 2 支持 Android >= 4.0、iOS >= 8.0。
+NutUI 3 支持 Chrome >= 51、iOS >= 10.0（与 Vue 3 一致）。
 
 ## 构建版本
 
