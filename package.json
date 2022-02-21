@@ -76,6 +76,7 @@
     "lzutf8": "^0.6.0",
     "markdown-it-container": "^3.0.0",
     "prettier": "^2.0.0",
+    "remark-codesandbox": "^0.10.1",
     "standard-version": "^9.3.0",
     "swiper": "6.5.1",
     "transliteration": "^2.2.0",
