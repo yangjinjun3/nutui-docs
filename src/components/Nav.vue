@@ -19,7 +19,11 @@
     <ol v-for="_nav in nav" :key="_nav">
       <li>{{ _nav.name }}</li>
       <ul>
-        <template :class="{ active: isActive(_package.name) }" v-for="_package in _nav.packages" :key="_package">
+        <template
+          :class="{ active: isActive(_package.name) }"
+          v-for="_package in reorder(_nav.packages)"
+          :key="_package"
+        >
           <li v-if="_package.show">
             <router-link :to="_package.name.toLowerCase()" :class="{ active: isActive(_package.name) }">
               {{ _package.name }}&nbsp;&nbsp;<b>{{ _package.cName }}</b>
@@ -44,11 +48,18 @@ export default defineComponent({
         return value == name.toLowerCase();
       };
     });
+
+    const reorder = (packages: any) => {
+      return packages.sort(function (x: any, y: any) {
+        return x['name'].localeCompare(y['name']);
+      });
+    };
     return {
       isActive,
       nav: reactive(nav),
       docs: reactive(docs),
-      currentRoute: RefData.getInstance().currentRoute
+      currentRoute: RefData.getInstance().currentRoute,
+      reorder
     };
   }
 });

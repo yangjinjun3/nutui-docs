@@ -169,6 +169,10 @@ export default defineComponent({
 
     &-document {
       min-height: 800px;
+
+      .markdown-body {
+        min-height: 600px;
+      }
     }
     &-tabs {
       position: absolute;
