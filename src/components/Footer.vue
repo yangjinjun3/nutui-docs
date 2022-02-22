@@ -21,23 +21,12 @@
           ><a class="sub-link" target="_blank" href="https://ling.jd.com/jdw" v-hover>羚珑</a>
         </div>
         <div class="doc-footer-item"
-          ><a class="sub-link" target="_blank" href="https://legao.jd.com/" v-hover>Legao</a></div
-        >
+          ><a class="sub-link" target="_blank" href="https://legao.jd.com/" v-hover>Legao</a>
+        </div>
       </div>
       <div class="doc-footer-list">
         <h4 class="doc-footer-title">社区</h4>
         <div class="doc-footer-item"><a class="sub-link" target="_blank" :href="repository.git" v-hover>GitHub</a></div>
-        <div class="doc-footer-item"
-          ><a class="sub-link" target="_blank" href="https://www.zhihu.com/column/c_1263837684834889728" v-hover
-            >知乎专栏</a
-          ></div
-        >
-        <div class="doc-footer-item"
-          ><a class="sub-link" target="_blank" href="timline://chat/?topin=82957939&type=2" v-hover
-            >咚咚群：82957939</a
-          ></div
-        >
-
         <div class="doc-footer-item vx-item">
           <span v-hover>微信</span>
           <i class="icon-vx"></i>
@@ -48,6 +37,23 @@
             <p class="vx-desc">回复<span class="vx-red">NutUI</span>即刻进群</p>
           </div>
         </div>
+        <div class="doc-footer-item"
+          ><a class="sub-link" target="_blank" href="https://juejin.cn/user/3949101495616919" v-hover>掘金专栏</a></div
+        >
+        <div class="doc-footer-item"
+          ><a class="sub-link" target="_blank" href="https://space.bilibili.com/549965366" v-hover>哔哩哔哩</a></div
+        >
+        <div class="doc-footer-item"
+          ><a class="sub-link" target="_blank" href="https://www.zhihu.com/column/c_1263837684834889728" v-hover
+            >知乎专栏</a
+          ></div
+        >
+
+        <div class="doc-footer-item"
+          ><a class="sub-link" target="_blank" href="timline://chat/?topin=82957939&type=2" v-hover
+            >咚咚群：82957939</a
+          ></div
+        >
       </div>
       <div class="doc-footer-list">
         <h4 class="doc-footer-title">帮助</h4>
@@ -57,11 +63,11 @@
           ><a class="sub-link" target="_blank" href="#/contributing" v-hover>贡献指南</a></div
         >
         <div class="doc-footer-item"
-          ><a class="sub-link" target="_blank" :href="repository.issues" v-hover>报告 Bug</a></div
-        >
+          ><a class="sub-link" target="_blank" :href="repository.issues" v-hover>报告 Bug</a>
+        </div>
         <div class="doc-footer-item"
-          ><a class="sub-link" target="_blank" :href="repository.discussions" v-hover>讨论区</a></div
-        >
+          ><a class="sub-link" target="_blank" :href="repository.discussions" v-hover>讨论区</a>
+        </div>
         <div class="doc-footer-item"
           ><a class="sub-link" target="_blank" :href="repository.plan" v-hover>开发计划</a></div
         >
