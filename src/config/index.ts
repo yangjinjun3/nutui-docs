@@ -23,7 +23,7 @@ let guide = [
         app: 'App 7.0'
       },
       {
-        name: 'vue 3.x',
+        name: '3.x',
         link: '/',
         language: ['Vue3', 'Taro'],
         app: 'App 10.0'
@@ -34,6 +34,12 @@ let guide = [
         language: ['Vue2'],
         app: '物流视觉'
       }
+      // {
+      //   name: 'JDT',
+      //   link: '/?theme=jdt/#/button',
+      //   language: ['Vue3', 'Taro'],
+      //   app: '科技视觉'
+      // }
     ]
   },
 
