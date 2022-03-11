@@ -1,6 +1,5 @@
 import config from '@/config/env';
 import { reactive, watch, onMounted, computed, onBeforeUnmount } from 'vue';
-import { useRoute } from 'vue-router';
 import { nav } from '../../config/index';
 
 type Obj = {
@@ -10,7 +9,7 @@ type Obj = {
 type Store = {
   variables: Obj[];
   variablesMap: Obj;
-  rawStyles: Obj;
+  rawStyles: string;
   [k: string]: any;
 };
 
@@ -89,7 +88,7 @@ const extractStyle = (style: string) => {
     .filter((str) => !/^(\s+)?@include/.test(str))
     .join('\n');
 
-  style = style.replace(/[\w-]+:([^;{}]|;base64)+;(?!base64)/g, (matched) => {
+  style = style.replace(/(?:({|;|\s|\n))[\w-]+:([^;{}]|;base64)+;(?!base64)/g, (matched) => {
     const matchedKey = matched.match(/\$[\w-]+\b/g);
     if (matchedKey && matchedKey.some((k) => store.variablesMap[k])) {
       return matched;
@@ -137,12 +136,12 @@ const parseSassVariables = (text: string, components: string[]) => {
   return variables;
 };
 
-const cachedStyles: Obj = {};
+let cachedStyles = '';
 const store: Store = reactive({
   init: false,
   variables: [],
   variablesMap: {},
-  rawStyles: {}
+  rawStyles: ''
 });
 
 const getSassVariables = async () => {
@@ -154,7 +153,7 @@ const getSassVariables = async () => {
   const source = {
     jdt: 'https://storage.360buyimg.com/nutui-static/source/variables-jdt.scss_source'
   } as any;
-  const customUrl = source[param.replace('/', '')];
+  const customUrl = param && source[param.replace('/', '')];
   if (customUrl) {
     const customVariablesText = await getRawFileText(customUrl);
     const customVariables = parseSassVariables(customVariablesText, components);
@@ -168,48 +167,28 @@ const getSassVariables = async () => {
   }
 };
 
-export const getRawSassStyle = async (name: string): Promise<void> => {
-  if (!store.rawStyles[name]) {
-    const style = await getRawFileText(`${config.themeUrl}/packages/${name}/index.scss_source`);
-    store.rawStyles[name] = style;
-  }
+export const getRawSassStyle = async (): Promise<void> => {
+  const style = await getRawFileText(`${config.themeUrl}/styles/sass-styles.scss_source`);
+  store.rawStyles = style;
 };
 
 export const useThemeEditor = function () {
-  const route = useRoute();
-
   const cssText = computed(() => {
     const variablesText = store.variables.map(({ key, value }) => `${key}:${value}`).join(';');
-
-    const styleText = Object.keys(store.rawStyles)
-      .map((name) => {
-        cachedStyles[name] = cachedStyles[name] || extractStyle(store.rawStyles[name]);
-        return cachedStyles[name] || '';
-      })
-      .join('');
-
-    return `${variablesText};${styleText}`;
+    cachedStyles = cachedStyles || extractStyle(store.rawStyles);
+    return `${variablesText};${cachedStyles}`;
   });
 
   onMounted(async () => {
     if (!store.init) {
-      await Promise.all([getSassVariables(), loadScript('https://cdnout.com/sass.js/sass.sync.min.js')]);
+      await Promise.all([
+        getSassVariables(),
+        loadScript('https://cdnout.com/sass.js/sass.sync.min.js'),
+        getRawSassStyle()
+      ]);
       store.init = true;
     }
   });
-
-  watch(
-    () => route.path,
-    (path) => {
-      const name = path.substring(1);
-      if (name !== 'base') {
-        getRawSassStyle(name);
-      }
-    },
-    {
-      immediate: true
-    }
-  );
 
   let timer: any = null;
   onBeforeUnmount(() => {
@@ -217,7 +196,7 @@ export const useThemeEditor = function () {
   });
   watch(
     () => cssText.value,
-    (css) => {
+    (css: string) => {
       clearTimeout(timer);
       timer = setTimeout(() => {
         const Sass = (window as any).Sass;
