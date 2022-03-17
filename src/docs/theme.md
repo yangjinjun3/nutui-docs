@@ -30,6 +30,7 @@ $primary-color-end: #fa6419;
 
 ```javascript
 import NutUI from '@nutui/nutui';
+// 全量引入NutUI 需要引入此scss文件 ，按需加载方式不需要引入此文件
 import "@nutui/nutui/dist/styles/themes/default.scss";
 ```
 
@@ -56,7 +57,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "./assets/custom_theme.scss";`
+        additionalData: `@import "./assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`
       }
     }
   }
@@ -72,7 +73,7 @@ export default defineConfig({
         {
             loader: 'sass-loader',
             options: {
-                data: `@import "./assets/custom_theme.scss";`,
+                data: `@import "./assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`,
             }
         }
     ]
@@ -89,7 +90,7 @@ module.exports = {
             scss: {
                 // @/ 是 src/ 的别名
                 // 注意：在 sass-loader v7 中，这个选项名是 "data"
-                prependData: `@import "@/assets/custom_theme.scss";`,
+                prependData: `@import "@/assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`,
             }
         },
     }

@@ -148,8 +148,8 @@ createApp(App).use(Button).use(Cell).use(Icon);
 import { createApp } from "vue";
 import App from "./App.vue";
 import { Button, Cell, Icon } from "@nutui/nutui-taro";
-// 定制化主题必须使用 scss 
-import '@nutui/nutui-taro/dist/styles/themes/default.scss';
+// 全量引入NutUI 需要引入此scss文件 ，按需加载方式不需要引入此文件
+// import '@nutui/nutui-taro/dist/styles/themes/default.scss';
 createApp(App).use(Button).use(Cell).use(Icon);
 ```
 
@@ -173,10 +173,11 @@ const config = {
     375: 2 / 1
   },
   sass: {
-    resource: [
-        path.resolve(__dirname, '..', 'src/assets/styles/custom_theme.scss')
-    ]
-  },
+		resource: [
+			path.resolve(__dirname, '..', 'src/assets/styles/custom_theme.scss')
+		],
+    data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
+	},
   // ...
 ```
 
