@@ -200,18 +200,29 @@ export const useThemeEditor = function () {
       clearTimeout(timer);
       timer = setTimeout(() => {
         const Sass = (window as any).Sass;
+        let beginTime = new Date().getTime();
+        console.log('sass编译开始', beginTime);
         Sass &&
           Sass.compile(css, async (res: Obj) => {
             await awaitIframe();
             const iframe = window.frames[0] as any;
             if (res.text && iframe) {
-              if (!iframe.__styleEl) {
-                const style = iframe.document.createElement('style');
-                style.id = 'theme';
-                iframe.__styleEl = style;
+              console.log('sass编译成功', new Date().getTime() - beginTime);
+              try {
+                if (!iframe.__styleEl) {
+                  const style = iframe.document.createElement('style');
+                  style.id = 'theme';
+                  iframe.__styleEl = style;
+                }
+                iframe.__styleEl.innerHTML = res.text;
+                iframe.document.head.appendChild(iframe.__styleEl);
+                console.info('insert success！');
+              } catch (error) {
+                console.error(error);
               }
-              iframe.__styleEl.innerHTML = res.text;
-              iframe.document.head.appendChild(iframe.__styleEl);
+            } else {
+              console.log('sass编译失败', new Date().getTime() - beginTime);
+              console.error(res);
             }
 
             if (res.status !== 0 && res.message) {
