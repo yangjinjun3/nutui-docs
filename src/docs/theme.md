@@ -67,7 +67,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // 默认京东 APP 10.0主题 > @import "@nutui/nutui/dist/styles/variables.scss";
-        // 京东科技主题 > @import "@nutui/nutui/dist/styles/variables.scss";
+        // 京东科技主题 > @import "@nutui/nutui/dist/styles/variables-jdt.scss";
         additionalData: `@import "./assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`
       }
     }
@@ -85,7 +85,7 @@ export default defineConfig({
             loader: 'sass-loader',
             options: {
                 // 默认京东 APP 10.0主题 > @import "@nutui/nutui/dist/styles/variables.scss";
-                // 京东科技主题 > @import "@nutui/nutui/dist/styles/variables.scss";
+                // 京东科技主题 > @import "@nutui/nutui/dist/styles/variables-jdt.scss";
                 data: `@import "./assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`,
             }
         }
