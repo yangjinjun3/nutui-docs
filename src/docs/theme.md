@@ -75,7 +75,7 @@ export default defineConfig({
 })
 ```
 
-#### vue/cli 2版本
+#### webpack 配置方法
 
 ``` javascript
 {
@@ -86,6 +86,7 @@ export default defineConfig({
             options: {
                 // 默认京东 APP 10.0主题 > @import "@nutui/nutui/dist/styles/variables.scss";
                 // 京东科技主题 > @import "@nutui/nutui/dist/styles/variables-jdt.scss";
+                // 注意：在 sass-loader 不同版本，这个选项名是 是不一样的，具体可参考 sass-loader对应的版本文档
                 data: `@import "./assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`,
             }
         }
@@ -110,4 +111,28 @@ module.exports = {
 }
 ```
 
-> @nutui/nutui 多种模式（vite 、vue/cli、cdn、ts）使用示例 [Demo](https://github.com/jdf2e/nutui-demo)
+#### taro 小程序使用示例
+
+修改 `config/index.js` 文件中配置 `scss` 文件全局覆盖如：
+
+```javascript
+const path = require('path');
+const config = {
+  deviceRatio: {
+    640: 2.34 / 2,
+    750: 1,
+    828: 1.81 / 2,
+    375: 2 / 1
+  },
+  sass: {
+		resource: [
+			path.resolve(__dirname, '..', 'src/assets/styles/custom_theme.scss')
+		],
+    // 默认京东 APP 10.0主题 > @import "@nutui/nutui-taro/dist/styles/variables.scss";
+    // 京东科技主题 > @import "@nutui/nutui-taro/dist/styles/variables-jdt.scss";
+    data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
+	},
+  // ...
+```
+
+> @nutui/nutui 多种使用方式（vite 、vue/cli、cdn、ts、taro...）使用示例 [Demo](https://github.com/jdf2e/nutui-demo)

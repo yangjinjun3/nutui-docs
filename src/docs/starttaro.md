@@ -176,6 +176,8 @@ const config = {
 		resource: [
 			path.resolve(__dirname, '..', 'src/assets/styles/custom_theme.scss')
 		],
+    // 默认京东 APP 10.0主题 > @import "@nutui/nutui-taro/dist/styles/variables.scss";
+    // 京东科技主题 > @import "@nutui/nutui-taro/dist/styles/variables-jdt.scss";
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
 	},
   // ...
