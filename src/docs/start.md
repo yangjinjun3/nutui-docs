@@ -49,20 +49,14 @@ npm install vite-plugin-style-import --save-dev
 在 `vite.config` 中添加配置：
 ``` javascript
 import vue from '@vitejs/plugin-vue'
-import styleImport from 'vite-plugin-style-import';
+import { createStyleImportPlugin, NutuiResolve } from 'vite-plugin-style-import'
 export default {
   plugins: [
     vue(),
-    styleImport({
-      libs: [
-        {
-          libraryName: '@nutui/nutui',
-          libraryNameChangeCase: 'pascalCase',
-          resolveStyle: (name) => {
-            return `@nutui/nutui/dist/packages/${name}/index.scss`
-          }
-        }
-      ],
+    createStyleImportPlugin({
+      resolves: [
+        NutuiResolve(),
+      ]
     }),
   ],
   css: {
