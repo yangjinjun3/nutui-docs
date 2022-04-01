@@ -18,7 +18,17 @@
           <div class="tab-item cur">vue/taro</div>
         </div>
         <router-view />
-        <div class="doc-content-contributors" v-if="isShow() && contributorsData.length !== 0">
+
+        <div class="doc-content-faq" v-if="faqsList.length && isShow() && language == 'vue' && curKey === 'vue'">
+          <div class="doc-content-faq-title">FAQ</div>
+
+          <div class="doc-content-faq-item" v-for="faq in faqsList" :key="faq.id">
+            <div class="doc-content-faq-que">{{ faq.question }}</div>
+            <div class="doc-content-faq-aws" v-html="faq.answer.replace(/>[\t\s]*</gm, '><')"></div>
+          </div>
+        </div>
+
+        <div :class="{ 'doc-content-contributors': true }" v-if="isShow() && contributorsData.length !== 0">
           <a
             :href="'https://github.com/' + item.username"
             v-for="(item, index) in contributorsData"
@@ -83,6 +93,8 @@ export default defineComponent({
     });
     const contributorsData = ref([]); //贡献者表格
 
+    const faqsList = ref([]); // 组件的faq
+
     const configNav = computed(() => {
       let tarodocs = [] as string[];
       nav.map((item) => {
@@ -109,6 +121,17 @@ export default defineComponent({
     const isShowTaroDoc = computed(() => {
       return configNav.value.findIndex((item) => item === route.path.toLocaleLowerCase().substr(1)) > -1;
     });
+
+    // 获取 FAQ 内容
+    const getFaqs = (router: RouteLocationNormalized) => {
+      const apiService = new ApiService();
+      apiService.getSingleFaq(router.path.toLocaleLowerCase().split('/')[1].split('-')[0]).then((res) => {
+        if (res && res.state == 0) {
+          faqsList.value = res.value.data;
+        }
+      });
+    };
+
     const getContributors = (router: RouteLocationNormalized) => {
       // 贡献者列表接口
       const apiService = new ApiService();
@@ -140,17 +163,20 @@ export default defineComponent({
       watchDemoUrl(route);
       data.curKey = isTaro(route) ? 'taro' : 'vue';
       getContributors(route);
+      getFaqs(route);
     });
 
     onBeforeRouteUpdate((to) => {
       watchDemoUrl(to);
       data.curKey = isTaro(to) ? 'taro' : 'vue';
       getContributors(to);
+      getFaqs(to);
     });
 
     return {
       ...toRefs(data),
       handleTabs,
+      faqsList,
       isShow,
       isShowTaroDoc,
       language,
@@ -210,7 +236,7 @@ export default defineComponent({
       }
     }
     &-contributors {
-      margin: 50px 0;
+      margin: 40px 0;
       a {
         position: relative;
       }
@@ -237,6 +263,35 @@ export default defineComponent({
         .contributors-hover {
           display: inline-block;
         }
+      }
+    }
+
+    &-contributors-gap {
+      padding-top: 20px;
+      border-top: 1px solid #eeeaea;
+    }
+
+    &-faq {
+      &-title {
+        margin: 38px 0 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      &-item {
+        margin: 0 8px 28px;
+      }
+      &-que {
+        font-size: 18px;
+        line-height: 30px;
+        color: #323232;
+        font-weight: 600;
+      }
+      &-aws {
+        margin-top: 8px;
+        color: #34495e;
+        font-size: 14px;
+        line-height: 26px;
       }
     }
   }
