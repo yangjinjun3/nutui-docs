@@ -11,10 +11,10 @@
 
 ```bash
 # Vue2 项目 需要参考 2.x 文档 https://nutui.jd.com/2x
-npm i @nutui/nutui
+npm i @nutui/nutui@2
 
 # Vue3 项目
-npm i @nutui/nutui@next
+npm i @nutui/nutui
 
 # taro 小程序项目
 npm i @nutui/nutui-taro
@@ -134,11 +134,11 @@ createApp(App).use(Button).use(Icon).mount("#app");
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nutui/nutui@next/dist/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nutui/nutui/dist/style.css" />
     <!-- 引入Vue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!-- 引入NutUI组件库 -->
-    <script src="https://cdn.jsdelivr.net/npm/@nutui/nutui@next/dist/nutui.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@nutui/nutui/dist/nutui.umd.js"></script>
   </head>
   <body>
     <div id="app">
