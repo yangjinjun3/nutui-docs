@@ -1061,6 +1061,17 @@
           "sort": 1,
           "show": true,
           "author": "Drjingfubo"
+        },
+        {
+          "version": "3.0.0",
+          "name": "Ecard",
+          "cType": "特色组件",
+          "cName": "虚拟电子卡",
+          "desc": "虚拟电子卡选择",
+          "show": true,
+          "tarodoc": false,
+          "type": "component",
+          "author": "yangxiaolu"
         }
       ]
     }
