@@ -1,42 +1,5 @@
 {
   "version": "1.1.2",
-  "demoUrl": "https://nutui.jd.com/react/demo.html#",
-  "docs": {
-    "name": "指南",
-    "packages": [
-      {
-        "name": "intro-react",
-        "cName": "介绍",
-        "show": true
-      },
-      {
-        "name": "start-react",
-        "cName": "快速上手",
-        "show": true
-      },
-      {
-        "name": "theme-react",
-        "cName": "主题定制",
-        "show": true
-      },
-      {
-        "name": "international",
-        "cName": "国际化",
-        "show": false
-      },
-      {
-        "name": "resource",
-        "cName": "资源",
-        "show": true
-      },
-      {
-        "name": "https://github.com/jdf2e/nutui-react/releases",
-        "cName": "更新日志",
-        "show": true,
-        "isLink": true
-      }
-    ]
-  },
   "nav": [
     {
       "name": "基础组件",
@@ -85,7 +48,7 @@
         },
         {
           "version": "0.1.0",
-          "name": "OverLay",
+          "name": "Overlay",
           "type": "component",
           "cName": "遮罩层",
           "desc": "创建一个遮罩层，通常用于阻止用户进行其他操作",
@@ -159,7 +122,7 @@
       "packages": [
         {
           "version": "0.1.0",
-          "name": "Navbar",
+          "name": "NavBar",
           "type": "component",
           "cName": "头部导航",
           "desc": "提供导航功能。",
@@ -443,7 +406,7 @@
         },
         {
           "version": "0.1.0",
-          "name": "InfiniteLoading",
+          "name": "Infiniteloading",
           "type": "component",
           "cName": "滚动加载",
           "desc": "列表滚动到底部自动加载更多数据。",
@@ -687,5 +650,42 @@
         }
       ]
     }
-  ]
+  ],
+  "docs": {
+    "name": "指南",
+    "packages": [
+      {
+        "name": "intro-react",
+        "cName": "介绍",
+        "show": true
+      },
+      {
+        "name": "start-react",
+        "cName": "快速上手",
+        "show": true
+      },
+      {
+        "name": "theme-react",
+        "cName": "主题定制",
+        "show": true
+      },
+      {
+        "name": "international",
+        "cName": "国际化",
+        "show": false
+      },
+      {
+        "name": "resource",
+        "cName": "资源",
+        "show": true
+      },
+      {
+        "name": "https://github.com/jdf2e/nutui-react/releases",
+        "cName": "更新日志",
+        "show": true,
+        "isLink": true
+      }
+    ]
+  },
+  "demoUrl": "https://nutui.jd.com/react/demo.html#"
 }
