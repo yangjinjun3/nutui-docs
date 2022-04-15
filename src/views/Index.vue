@@ -65,7 +65,7 @@ export default defineComponent({
   setup() {
     const route = useRoute();
     const router = useRouter();
-    const excludeTaroVue = ['/intro', '/start', '/theme', '/joinus', '/starttaro', '/contributing'];
+    const excludeTaroVue = ['/intro', '/start', '/theme', '/joinus', '/starttaro', '/contributing', '/international'];
 
     const excludeTaroReact = [
       '/intro-react',
