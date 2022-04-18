@@ -15,14 +15,15 @@ NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在
 
 ## 特性
 
-* 70+ 高质量组件（3.0 持续开发中）
+* 70+ 高质量组件
 * 基于京东APP 10.0 视觉规范
 * 支持按需引用
 * 详尽的文档和示例
 * 支持 TypeScript
 * 支持服务端渲染（测试阶段）
+* 国际化（开发中，计划2022-Q2支持）
 * 支持定制主题
-* 单元测试覆盖（3.0 开发中）
+* 单元测试覆盖
 
 ## 示例 H5 & 小程序
 
@@ -30,10 +31,10 @@ NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在
 <img src="https://storage.360buyimg.com/jdc-article/gh_f2231eb941be_258.jpg" width="200" alt="NutUI" />
 
 ## 版本说明
-> @nutui/nutui@next 和 @nutui/nutui-taro 属于并行版本，存在部分的差异化，版本号始终保持一致
-- @nutui/nutui 基于Vue2 视觉风格 JD APP 7.0规范 ，只能开发 h5
+> @nutui/nutui 和 @nutui/nutui-taro 属于并行版本，存在部分的差异化，版本号始终保持一致
+- @nutui/nutui@2 基于Vue2 视觉风格 JD APP 7.0规范 ，只能开发 h5
 - @nutui/nutui-jdl 基于Vue2 视觉风格 JDL 规范 ，只能开发 h5
-- @nutui/nutui@next 基于Vue3 视觉风格 JD APP 10.0规范 ，只能开发 h5
+- @nutui/nutui 基于Vue3 视觉风格 JD APP 10.0规范 ，只能开发 h5
 - @nutui/nutui-taro 基于Vue3 视觉风格 JD APP 10.0规范 ，必须基于 taro + vue3 框架 进行开发多端（多端指一套代码 部署多端环境 微信小程序 h5、等第三方小程序）
 ## 支持环境
 

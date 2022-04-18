@@ -137,7 +137,7 @@ export const SiteVue = {
 
   header: [
     {
-      name: 'intro,theme,start',
+      name: 'intro,theme,start,international',
       cName: '指南',
       path: '#/intro'
     },

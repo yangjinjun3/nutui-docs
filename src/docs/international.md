@@ -1,104 +1,36 @@
-# 国际化（3.0开发中）
+# 国际化
 
-NutUI 3.0 以上版本支持多语言。组件默认使用中文，支持加载其他语言包来实现多语言切换功能。除了组件本身的语言切换以外，用户还可以调用相关的语言转换方法来支持其他功能的国际化。具体使用方法如下：
+NutUI 3.0 以上版本支持多语言。组件默认使用中文。具体使用方法如下：
 
 ## 使用方法
 
-### 引用整个组件库
+### 多语言切换
 
 ```javascript
 import Vue from 'vue';
-import NutUI from '@nutui/nutui';
-
-import enUS from '@nutui/nutui/dist/locales/lang/en-US';
-
-Vue.use(NutUI, {
-  locale: 'en-US',
-  lang: enUS
-});
+import { Locale } from '@nutui/nutui';
+import enUS from '@nutui/nutui/dist/locale/lang/en-US';
+Locale.use('en-US', enUS);
 ```
 
-### 按需引用组件
+## 目前支持的语言:
 
-通过 **[@nutui/babel-plugin-separate-import](https://www.npmjs.com/package/@nutui/babel-plugin-separate-import)** 插件，我们可以根据项目需要引用 NutUI 的组件，最终只打包引用的组件，减少引入代码的体积。国际化功能同样支持按需引用的方式。
+| 语言         | 文件名 | 版本      |
+|--------------|--------|-----------|
+| 英语         | en-US  | `v3.1.19` |
+| 印度尼西亚语 | id-ID  | 等待 PR   |
+| 泰语         | th-TH  | 等待 PR   |
+| 简体中文     | zh-CN  | `v3.1.19` |
+| 繁體中文     | zh-TW  | `v3.1.19` |
 
-```javascript
-import Vue from 'vue';
-import {locale} from '@nutui/nutui';
+> 在 [这里](https://github.com/jdf2e/nutui/tree/next/src/vant/src/packages/locale/lang) 查看所有的语言包源文件。
 
-import enUS from '@nutui/nutui/dist/locales/lang/en-US';
+## 常见问题
 
-locale('en-US', enUS);
-```
+### 找不到所需的语言包？
 
-> 请注意：通过该插件进行按需引用组件时默认引用的是构建后的文件，此时并不支持国际化的功能。如需使用组件库的国际化功能，需要在 babel 的配置文件（如.babelrc）中将 **@nutui/babel-plugin-separate-import** 插件的 **sourceCode** 参数值设为 **true** 。这样插件将引用未经构建的源文件，同时引用的组件也不再具有 `install` 方法，请使用 `Vue.component` 对组件进行注册。
+如果上方列表中没有你需要的语言，欢迎给我们提 Pull Request 来增加新的语言包。改动内容可以参考增加 [中文繁体](https://github.com/jdf2e/nutui/commit/d6275bf87387860e0757629f3553320359ec7434) 语言包 的 PR
 
-```bash
-{
-  "plugins": [
-    ["@nutui/babel-plugin-separate-import", {
-      "sourceCode": true,
-      "style": "css"
-    }]
-  ]
-}
-```
+### 业务代码如何实现国际化？
 
-## 兼容 vue-i18n
-
-```javascript
-import VueI18n from 'vue-i18n';
-import enUS from '@nutui/nutui/dist/locales/lang/en-US';
-
-Vue.use(VueI18n);
-
-Vue.locale = () => {};
-const i18n = new VueI18n({
-  locale: 'en-US',
-  messages: {
-    'en-US': enUS
-  }
-});
-
-
-const app = new Vue({
-  el: '#app',
-  i18n
-})
-
-```
-
-## 语言切换
-
-使用 **vue-i18n** 时，可以通过调用 **$t** 方法来对某个位置做国际化支持的语言切换。我们也可以调用 NutUI 内置的语言切换方法 **nutTranslate** 来实现相同功能，而且还支持非常灵活的模板化传参方式。我们可以通过 **mixin** 将该语言切换方法混入到每个组件的 **methods**，方便直接调用。
-
-```javascript
-import Vue from 'vue';
-import {i18n} from '@nutui/nutui';
-
-Vue.mixin({
-    methods: {
-        nutTranslate() {
-            return i18n.apply(this, arguments);
-        }
-    }
-});
-
-
-// 使用 nutTranslate
-// params 参数支持默认值、对象、数组、函数等格式
-<nut-cell :title="nutTranslate('demo.cell.title', params)" />
-```
-
-一般来说，要实现全面的国际化，我们还需要将用户自己的语言包与组件库的语言包进行合并。
-
-```javascript
-import Vue from 'vue';
-import {locale} from '@nutui/nutui';
-import enUS from '@nutui/nutui/dist/locales/lang/en-US';
-import myEnUS from './path/to/lang/en-US';
-
-Object.assign(enUS, myEnUS);
-
-locale('en-US', enUS);
-```
+可以使用 [vue-i18n](https://github.com/kazupon/vue-i18n) 来实现。

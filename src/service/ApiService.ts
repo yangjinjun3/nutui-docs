@@ -50,6 +50,18 @@ export class ApiService {
       name
     });
   }
+
+  /**
+   * 获取FAQ
+   * @returns
+   * @memberof contributorsApiService
+   */
+  getSingleFaq(component: string) {
+    return this.httpClient.request('/openapi/componentfaq', 'get', {
+      component
+    });
+  }
+
   /**
    * 获取二维码数据
    * @returns
