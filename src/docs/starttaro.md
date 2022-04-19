@@ -4,7 +4,7 @@
 
 * 作为一款具有京东风格的组件库，我们一直致力于用心打造更符合开发者体验的组件库。NutUI 3.0 上线后我们研发团队也在不断的优化、测试、使用、迭代 Vue3 的相关组件，但是在跨端小程序的开发过程中，发现没有合适的组件库可以支持多端开发。为了填补这一空白，同时为了优化开发者体验，让 NutUI 能够为更多的开发者带来便利，我们决定在 NutUI 中增加小程序多端适配的能力。
 
-* 为了给开发者提供更高效便捷的开发方式，NutUI 和 Taro 合力，现已可以用 NutUI 开发小程序了，NutUI 提供了 50+ 组件涵盖了日常业务开发使用的大部分组件。
+* 为了给开发者提供更高效便捷的开发方式，NutUI 和 Taro 合力，现已可以用 NutUI 开发小程序了，NutUI 提供了 70+ 组件涵盖了日常业务开发使用的大部分组件。
 
 * 二者的结合，不仅可以让开发者一处代码，多端运行，畅快自如地开发小程序。更可以在开发过程中，使用到更美观、更便捷、组件更丰富的组件库。我们将 NutUI 和 Taro 更完美地接合到一起，Taro 官方将 NutUI 作为 Vue技术栈的推荐组件库。现在开发者将可以使用 NutUI 无缝开发 H5 和多端小程序。
 
@@ -122,6 +122,14 @@ npm install babel-plugin-import --save-dev
       {
         "libraryName": "@nutui/nutui-taro",
         "libraryDirectory": "dist/packages/_es",
+        // customName自定义兼容国际化使用
+        "customName": (name, file) => {
+          if (name == 'Locale') {
+            return '@nutui/nutui-taro/dist/packages/locale/lang';
+          } else {
+            return `@nutui/nutui-taro/dist/packages/_es/${name}`;
+          }
+        },
         "style": (name, file) => name.toLowerCase().replace('_es/', '') + '/index.scss',
         "camel2DashComponentName": false
       },
