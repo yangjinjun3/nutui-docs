@@ -1,5 +1,5 @@
 {
-  "version": "3.1.18",
+  "version": "3.1.20",
   "nav": [
     {
       "name": "基础组件",
@@ -1155,6 +1155,11 @@
       {
         "name": "international",
         "cName": "国际化",
+        "show": true
+      },
+      {
+        "name": "ide",
+        "cName": "开发工具支持",
         "show": true
       },
       {
