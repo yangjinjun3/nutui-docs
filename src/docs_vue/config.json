@@ -1,5 +1,5 @@
 {
-  "version": "3.1.18",
+  "version": "3.1.20",
   "nav": [
     {
       "name": "基础组件",
@@ -356,7 +356,7 @@
         {
           "name": "Cascader",
           "type": "component",
-          "cName": "级联选择",
+          "cName": "级联选择器",
           "desc": "级联选择，用于多层级数据的选择，典型场景为省市区选择.",
           "sort": 23,
           "show": true,
@@ -1115,6 +1115,16 @@
           "exportEmpty": true,
           "author": "liqiong43",
           "taro": true
+        },
+        {
+          "name": "Comment",
+          "cType": "特色组件",
+          "cName": "商品评论",
+          "desc": "商品评论",
+          "show": true,
+          "tarodoc": false,
+          "type": "component",
+          "author": "yangxiaolu"
         }
       ]
     }
@@ -1145,6 +1155,11 @@
       {
         "name": "international",
         "cName": "国际化",
+        "show": true
+      },
+      {
+        "name": "ide",
+        "cName": "开发工具支持",
         "show": true
       },
       {

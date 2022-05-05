@@ -7,6 +7,9 @@
   padding-bottom: 48px;
   padding-left: 40px;
   padding-right: 445px;
+  &.full {
+    padding-right: 100px;
+  }
   .card {
     margin-bottom: 24px;
     padding: 24px;

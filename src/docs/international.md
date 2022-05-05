@@ -8,8 +8,12 @@ NutUI 3.0 以上版本支持多语言。组件默认使用中文。具体使用�
 
 ```javascript
 import Vue from 'vue';
+// Vue3 H5
 import { Locale } from '@nutui/nutui';
-import enUS from '@nutui/nutui/dist/locale/lang/en-US';
+import enUS from '@nutui/nutui/dist/packages/locale/lang/en-US';
+// Taro 多端小程序
+// import { Locale } from '@nutui/nutui-taro';
+// import enUS from '@nutui/nutui-taro/dist/packages/locale/lang/en-US';
 Locale.use('en-US', enUS);
 ```
 
@@ -23,13 +27,13 @@ Locale.use('en-US', enUS);
 | 简体中文     | zh-CN  | `v3.1.19` |
 | 繁體中文     | zh-TW  | `v3.1.19` |
 
-> 在 [这里](https://github.com/jdf2e/nutui/tree/next/src/vant/src/packages/locale/lang) 查看所有的语言包源文件。
+> 在 [这里](https://github.com/jdf2e/nutui/tree/next/src/packages/locale/lang) 查看所有的语言包源文件。
 
 ## 常见问题
 
 ### 找不到所需的语言包？
 
-如果上方列表中没有你需要的语言，欢迎给我们提 Pull Request 来增加新的语言包。改动内容可以参考增加 [中文繁体](https://github.com/jdf2e/nutui/commit/d6275bf87387860e0757629f3553320359ec7434) 语言包 的 PR
+如果上方列表中没有你需要的语言，欢迎给我们提 Pull Request 来增加新的语言包。改动内容可以参考 [语言包](https://github.com/jdf2e/nutui/tree/next/src/packages/locale/lang) 语言包 的 PR
 
 ### 业务代码如何实现国际化？
 

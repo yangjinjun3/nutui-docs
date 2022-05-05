@@ -3,7 +3,7 @@
     <doc-header></doc-header>
     <doc-nav></doc-nav>
     <div class="doc-content">
-      <div class="doc-content-document">
+      <div class="doc-content-document" :class="{ full: !isShow() }">
         <div class="doc-content-tabs" v-if="isShow() && isShowTaroDoc && language == 'vue'">
           <div
             class="tab-item"
@@ -65,7 +65,16 @@ export default defineComponent({
   setup() {
     const route = useRoute();
     const router = useRouter();
-    const excludeTaroVue = ['/intro', '/start', '/theme', '/joinus', '/starttaro', '/contributing', '/international'];
+    const excludeTaroVue = [
+      '/intro',
+      '/start',
+      '/theme',
+      '/joinus',
+      '/starttaro',
+      '/contributing',
+      '/international',
+      '/ide'
+    ];
 
     const excludeTaroReact = [
       '/intro-react',
