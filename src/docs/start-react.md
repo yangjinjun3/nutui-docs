@@ -103,7 +103,15 @@ npm install babel-plugin-import --save-dev
   ]
 }
 ```
-
+在 webpack 配置中配置 sass-loader ，将 nutui-react 样式变量导入全局
+```javascript
+//...
+// 给 sass-loader 传递选项
+scss: {
+    data: `@import "@nutui/nutui-react/dist/styles/variables.scss";`,
+}
+//...
+```
 #### CDN 安装使用示例
 
 > 可以通过 CDN 的方式引入， 可以在 **jsdelivr** 和 **unpkg** 等公共 CDN 上获取到 NutUI。
