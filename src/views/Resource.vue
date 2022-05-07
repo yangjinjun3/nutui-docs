@@ -203,7 +203,7 @@ $mainRed: #fa685d;
       color: #959fb1;
     }
     .sub-red {
-      color: #fa2c19;
+      color: $doc-default-color;
     }
   }
 }
@@ -295,7 +295,7 @@ $mainRed: #fa685d;
       margin-top: -8px;
       width: 12px;
       height: 12px;
-      border: 2px solid #fa2c19;
+      border: 2px solid $doc-default-color;
       border-radius: 50%;
     }
   }

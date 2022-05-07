@@ -228,7 +228,7 @@ export default defineComponent({
         text-align: center;
         border-radius: 4px;
         &.cur {
-          color: #fa2c19;
+          color: $doc-default-color;
           &:after {
             content: ' ';
             position: absolute;
@@ -236,7 +236,7 @@ export default defineComponent({
             left: 0;
             width: 100%;
             height: 3px;
-            background-color: #fa2c19;
+            background-color: $doc-default-color;
           }
         }
         &:hover {
