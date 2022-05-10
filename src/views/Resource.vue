@@ -30,7 +30,15 @@
         <p class="nodata-desc">敬请期待</p>
       </div>
       <div class="tab-box" v-else>
-        <h4 class="sub-title">全部文章</h4>
+        <h4 class="sub-title">视频</h4>
+        <div class="tab-bd" v-for="(vItem, i) in videoList" v-show="activeIndex === 0" :key="i">
+          <div class="design-item" @click="toVideoLink(vItem.link)">
+            <img class="img-design" :src="vItem.cover_image" />
+            <p class="design-title" v-hover>{{ vItem.title }}</p>
+            <div class="play"><img src="@/assets/images/play-start.png" alt="" /></div>
+          </div>
+        </div>
+        <h4 class="sub-title">文章</h4>
         <template v-for="pItem in articleList" v-show="activeIndex === 0" :key="pItem.category">
           <h3>{{ pItem.title }}</h3>
           <div class="tab-bd">
@@ -71,12 +79,21 @@ export default defineComponent({
   setup() {
     const articleList: any[] = [];
     const communityArticleList: any[] = [];
+    const videoList: any = [
+      {
+        title: '开发者的福利 - NutUI-vscode 智能提示来了',
+        cover_image:
+          'https://img11.360buyimg.com/imagetools/jfs/t1/71804/8/17652/683071/627a2494E8a9947f5/e208310632eaf587.png',
+        link: 'https://www.bilibili.com/video/BV1xZ4y1h7Pg/'
+      }
+    ];
     const data = reactive({
       articleList,
       communityArticleList,
+      videoList,
       tabData: [
         {
-          title: '全部文章'
+          title: '文章'
         }
         // {
         //   title: '性能体验'
@@ -139,10 +156,14 @@ export default defineComponent({
     const toLink = (id: number) => {
       window.open('//jelly.jd.com/article/' + id);
     };
+    const toVideoLink = (url: string) => {
+      window.open(url);
+    };
     return {
       ...toRefs(data),
       clickTab,
-      toLink
+      toLink,
+      toVideoLink
     };
   }
 });
@@ -254,6 +275,7 @@ $mainRed: #fa685d;
 }
 .design {
   &-item {
+    position: relative;
     width: 280px;
     margin-right: 26px;
     margin-bottom: 45px;
@@ -266,6 +288,16 @@ $mainRed: #fa685d;
       height: 170px;
       margin-bottom: 20px;
       border-radius: 5px;
+    }
+    .play {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      img {
+        width: 70px;
+        height: 70px;
+      }
     }
   }
   &-title {
