@@ -30,9 +30,17 @@
         <p class="nodata-desc">敬请期待</p>
       </div>
       <div class="tab-box" v-else>
-        <h4 class="sub-title">全部文章</h4>
-        <template v-for="pItem in articleList" v-show="activeIndex === 0">
-          <h3>{{ pItem.year }}</h3>
+        <h4 class="sub-title">视频</h4>
+        <div class="tab-bd" v-for="(vItem, i) in videoList" v-show="activeIndex === 0" :key="i">
+          <div class="design-item" @click="toVideoLink(vItem.link)">
+            <img class="img-design" :src="vItem.cover_image" />
+            <p class="design-title" v-hover>{{ vItem.title }}</p>
+            <div class="play"><img src="@/assets/images/play-start.png" alt="" /></div>
+          </div>
+        </div>
+        <h4 class="sub-title">文章</h4>
+        <template v-for="pItem in articleList" v-show="activeIndex === 0" :key="pItem.category">
+          <h3>{{ pItem.title }}</h3>
           <div class="tab-bd">
             <div class="design-item" v-for="item in pItem.list" :key="item.id" @click="toLink(item.id)">
               <img class="img-design" :src="item.cover_image" />
@@ -71,12 +79,21 @@ export default defineComponent({
   setup() {
     const articleList: any[] = [];
     const communityArticleList: any[] = [];
+    const videoList: any = [
+      {
+        title: '开发者的福利 - NutUI-vscode 智能提示来了',
+        cover_image:
+          'https://img11.360buyimg.com/imagetools/jfs/t1/71804/8/17652/683071/627a2494E8a9947f5/e208310632eaf587.png',
+        link: 'https://www.bilibili.com/video/BV1xZ4y1h7Pg/'
+      }
+    ];
     const data = reactive({
       articleList,
       communityArticleList,
+      videoList,
       tabData: [
         {
-          title: '全部文章'
+          title: '文章'
         }
         // {
         //   title: '性能体验'
@@ -100,22 +117,33 @@ export default defineComponent({
       const apiService = new ApiService();
       apiService.getArticle().then((res) => {
         if (res?.state == 0) {
+          const categoryMap: {
+            [props: string]: string;
+          } = {
+            1: '项目实践',
+            2: '技术揭秘',
+            3: '成长历程'
+          };
           (res.value.data.arrays as any[]).forEach((element) => {
             if (element.type == 1) {
-              let year = element.create_time.split('-')[0];
-              let index = data.articleList.findIndex((item) => item.year == year);
-              if (index == -1) {
+              let category = element.category;
+              let index = data.articleList.findIndex((item) => item.category == category);
+              if (index != -1) {
+                data.articleList[index].list.push(element);
+              } else {
                 data.articleList.push({
-                  year,
+                  category: category,
+                  title: categoryMap[category],
                   list: [element]
                 });
-              } else {
-                data.articleList[index].list.push(element);
               }
             } else {
               data.communityArticleList.push(element);
             }
           });
+          // 进行排序
+          let order = [3, 2, 1];
+          data.articleList.sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
         }
       });
     });
@@ -128,10 +156,14 @@ export default defineComponent({
     const toLink = (id: number) => {
       window.open('//jelly.jd.com/article/' + id);
     };
+    const toVideoLink = (url: string) => {
+      window.open(url);
+    };
     return {
       ...toRefs(data),
       clickTab,
-      toLink
+      toLink,
+      toVideoLink
     };
   }
 });
@@ -192,7 +224,7 @@ $mainRed: #fa685d;
       color: #959fb1;
     }
     .sub-red {
-      color: #fa2c19;
+      color: $doc-default-color;
     }
   }
 }
@@ -210,8 +242,11 @@ $mainRed: #fa685d;
 }
 .tab {
   &-box {
+    .sub-title {
+      margin-bottom: 20px;
+    }
     > h3 {
-      margin-bottom: 10px;
+      margin-bottom: 18px;
     }
   }
   &-hd {
@@ -240,6 +275,7 @@ $mainRed: #fa685d;
 }
 .design {
   &-item {
+    position: relative;
     width: 280px;
     margin-right: 26px;
     margin-bottom: 45px;
@@ -253,6 +289,16 @@ $mainRed: #fa685d;
       margin-bottom: 20px;
       border-radius: 5px;
     }
+    .play {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      img {
+        width: 70px;
+        height: 70px;
+      }
+    }
   }
   &-title {
     width: 280px;
@@ -260,13 +306,10 @@ $mainRed: #fa685d;
     line-height: 22px;
     font-size: 16px;
     color: #1d1d21;
-    text-overflow: -o-ellipsis-lastline;
-    overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
   }
 }
 .article {
@@ -284,7 +327,7 @@ $mainRed: #fa685d;
       margin-top: -8px;
       width: 12px;
       height: 12px;
-      border: 2px solid #fa2c19;
+      border: 2px solid $doc-default-color;
       border-radius: 50%;
     }
   }

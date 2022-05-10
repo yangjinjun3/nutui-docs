@@ -85,7 +85,7 @@ export default defineComponent({
   },
   setup() {
     let packages = [] as any[];
-    nav.forEach((item) => {
+    nav.forEach((item: any) => {
       packages.push(...item.packages);
     });
     const data = reactive({

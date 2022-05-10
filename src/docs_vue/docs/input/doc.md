@@ -22,57 +22,54 @@ app.use(Icon);
 
 ### 基础用法
 
-双向绑定
-
 :::demo
 
 ```html
 <template>
-  <nut-input
-        v-model="state.val0"
-        @change="change"
-        @focus="focus"
-        @blur="blur"
-        label="文本"
-      />
-  <nut-input placeholder="请输入文本"
-        @change="change"
-        v-model="state.val1"
-        :require-show="true"
-        label="文本"
-        @clear="clear"
-      />
+  <nut-input placeholder="请输入文本" v-model="state.val1" label="文本" />
 </template>
 <script lang="ts">
   import { reactive } from 'vue';
   export default {
     setup() {
       const state = reactive({
-        val0: '初始数据',
         val1: ''
       });
-      setTimeout(function() {
-        state.val0 = '异步数据';
-      }, 2000);
-      const change = (value: string | number,event:Event) => {
-        console.log('change: ', value,event);
-      };
-      const focus = (value: string | number,event:Event) => {
-        console.log('focus:', value,event);
-      };
-      const blur = (value: string | number,event:Event) => {
-        console.log('blur:', value,event);
-      };
-      const clear = (value: string | number) => {
-        console.log('clear:', value);
-      };
-
       return {
-        state,
-        change,
-        blur,
-        clear,
-        focus
+        state
+      };
+    }
+  }
+</script>
+```
+
+:::
+
+### 自定义类型
+
+:::demo
+
+```html
+<template>
+  <nut-input label="文本" v-model="state.text" />
+  <nut-input label="密码" v-model="state.password" type="password" />
+  <nut-input label="数字" v-model="state.number" type="number" placeholder="支持小数点的输入" />
+  <nut-input label="整数" v-model="state.digit" type="digit" />
+  <nut-input label="手机号" v-model="state.tel" type="tel" />
+</template>
+<script lang="ts">
+  import { reactive } from 'vue';
+  export default {
+    setup() {
+      const state = reactive({
+        text: '',
+        password: '',
+        number: '',
+        digit: '',
+        tel: ''
+      });
+      return {
+        state
       };
     }
   }
@@ -87,24 +84,19 @@ app.use(Icon);
 
 ```html
 <template>
-  <nut-input v-model="state.val2" @change="change"  disabled="true" label="标题："/>
-  <nut-input v-model="state.val3" @change="change" readonly="true"  label="标题："/>
+  <nut-input v-model="state.readonly" readonly label="文本" placeholder="输入框只读" />
+  <nut-input v-model="state.disabled" disabled label="文本" placeholder="输入框已禁用" />
 </template>
 <script lang="ts">
   import { reactive } from 'vue';
   export default {
     setup() {
       const state = reactive({
-        val2: '禁止修改',
-        val3: 'readonly 只读'
+        readonly: '',
+        disabled: ''
       });
-      const change = (value: string | number,event:Event) => {
-        console.log('change: ', value,event);
-      };
-
       return {
-        state,
-        change
+        state
       };
     }
   }
@@ -113,28 +105,27 @@ app.use(Icon);
 
 :::
 
-### 限制输入长度
+### 显示图标
+
+通过 left-icon 和 right-icon 配置输入框两侧的图标，通过设置 clearable 在输入过程中展示清除图标。需要引用 icon 组件
 
 :::demo
 
 ```html
 <template>
-  <nut-input v-model="state.val4" @change="change" max-length="7" label="限制7" />
+  <nut-input v-model="state.showIcon" label="文本" left-icon="dongdong" right-icon="ask2" placeholder="显示图标" />
+  <nut-input v-model="state.clear" label="文本" clearable clearSize="14" placeholder="显示清除图标" />
 </template>
 <script lang="ts">
   import { reactive } from 'vue';
   export default {
     setup() {
       const state = reactive({
-        val4: ''
+        showIcon: '',
+        required: '',
       });
-      const change = (value: string | number,event:Event) => {
-        console.log('change: ', value,event);
-      };
-
       return {
-        state,
-        change
+        state
       };
     }
   }
@@ -142,32 +133,152 @@ app.use(Icon);
 ```
 
 :::
-### 其他类型
+
+### 错误提示
 
 :::demo
 
 ```html
 <template>
-  <nut-input v-model="state.val5" @change="change" type="password" label="密码"/>
-  <nut-input v-model="state.val6" @change="change" type="number" label="整数" />
-  <nut-input v-model="state.val7" @change="change" type="digit" placeholder="支持小数点的输入" label="数字"/>
+  <nut-input v-model="state.required" label="文本" required placeholder="必填项" />
+  <nut-input v-model="state.error1" label="文本" error placeholder="输入内容标红" />
+  <nut-input v-model="state.error2" label="文本" error-message="底部错误提示文案" placeholder="底部错误提示文案" />
 </template>
 <script lang="ts">
   import { reactive } from 'vue';
   export default {
     setup() {
       const state = reactive({
-        val5: '',
-        val6: '',
-        val7: ''
+        required: '',
+        error1: '',
+        error2: '',
       });
-      const change = (value: string | number,event:Event) => {
-        console.log('change: ', value,event);
+      return {
+        state
       };
+    }
+  }
+</script>
+```
 
+:::
+
+### 插入按钮
+
+:::demo
+
+```html
+<template>
+  <nut-input v-model="state.buttonVal" clearable center label="短信验证码" placeholder="请输入短信验证码">
+    <template #button>
+      <nut-button size="small" type="primary"> 发送验证码 </nut-button>
+    </template>
+  </nut-input>
+</template>
+<script lang="ts">
+  import { reactive } from 'vue';
+  export default {
+    setup() {
+      const state = reactive({
+        buttonVal: ''
+      });
+      return {
+        state
+      };
+    }
+  }
+</script>
+```
+
+:::
+
+### 格式化输入内容
+
+:::demo
+
+```html
+<template>
+  <nut-input v-model="state.format1" label="文本" :formatter="formatter" placeholder="在输入时执行格式化" />
+  <nut-input
+    v-model="state.format2"
+    label="文本"
+    :formatter="formatter"
+    format-trigger="onBlur"
+    placeholder="在失焦时执行格式化"
+  />
+</template>
+<script lang="ts">
+  import { reactive } from 'vue';
+  export default {
+    setup() {
+      const state = reactive({
+        format1: '',
+        format2: ''
+      });
+      const formatter = (value: string) => value.replace(/\d/g, '');
       return {
         state,
-        change
+        formatter
+      };
+    }
+  }
+</script>
+```
+
+:::
+
+### 显示字数统计
+
+:::demo
+
+```html
+<template>
+  <nut-input
+    v-model="state.textarea"
+    label="留言"
+    type="textarea"
+    show-word-limit
+    rows="2"
+    maxLength="50"
+    placeholder="请输入留言"
+  />
+</template>
+<script lang="ts">
+  import { reactive } from 'vue';
+  export default {
+    setup() {
+      const state = reactive({
+        textarea: ''
+      });
+      return {
+        state
+      };
+    }
+  }
+</script>
+```
+
+:::
+
+### 对齐方式
+
+:::demo
+
+```html
+<template>
+  <nut-input v-model="state.align1" label="文本" label-align="right" placeholder="文本内容对齐" />
+  <nut-input v-model="state.align2" label="文本" input-align="right" placeholder="输入框内容对齐" />
+</template>
+<script lang="ts">
+  import { reactive } from 'vue';
+  export default {
+    setup() {
+      const state = reactive({
+        align1: '',
+        align2: ''
+      });
+      return {
+        state
       };
     }
   }
@@ -182,24 +293,91 @@ app.use(Icon);
 
 ```html
 <template>
-  <nut-input v-model="state.val8" @change="change" :hasBorder="false" label="无边框" />
-  <nut-input v-model="state.val9" @change="change" :hasBorder="false" label="无边框" />
+  <nut-input v-model="state.disabled" :border="false" label="无边框" />
+  <nut-input v-model="state.showIcon" :border="false" label="无边框" />
 </template>
 <script lang="ts">
   import { reactive } from 'vue';
   export default {
     setup() {
       const state = reactive({
-        val8: '',
-        val9: ''
+        disabled: '',
+        showIcon: ''
       });
-      const change = (value: string | number,event:Event) => {
-        console.log('change: ', value,event);
+      return {
+        state
+      };
+    }
+  }
+</script>
+```
+
+:::
+### 点击事件
+
+:::demo
+
+```html
+<template>
+  <nut-input
+    v-model="state.event"
+    label="event"
+    left-icon="dongdong"
+    right-icon="ask2"
+    clearable
+    placeholder="显示图标"
+    @update:model-value="change"
+    @focus="focus"
+    @blur="blur"
+    @clear="clear"
+    @click="click"
+    @click-input="clickInput"
+    @click-left-icon="clickLeftIcon"
+    @click-right-icon="clickRightIcon"
+  />
+</template>
+<script lang="ts">
+  import { reactive } from 'vue';
+  export default {
+    setup() {
+      const state = reactive({
+        event: ''
+      });
+      const change = (value: string | number) => {
+        console.log('change: ', value);
+      };
+      const focus = (value: string | number, event: Event) => {
+        console.log('focus:', value, event);
+      };
+      const blur = (value: string | number, event: Event) => {
+        console.log('blur:', value, event);
+      };
+      const clear = (value: string | number, event: Event) => {
+        console.log('clear:', value, event);
+      };
+      const click = (value: string | number) => {
+        console.log('click:', value);
+      };
+      const clickInput = (value: string | number) => {
+        console.log('clickInput:', value);
+      };
+      const clickLeftIcon = (value: string | number) => {
+        console.log('clickLeftIcon:', value);
+      };
+      const clickRightIcon = (value: string | number) => {
+        console.log('clickRightIcon:', value);
       };
 
       return {
         state,
-        change
+        change,
+        blur,
+        clear,
+        focus,
+        click,
+        clickInput,
+        clickLeftIcon,
+        clickRightIcon
       };
     }
   }
@@ -213,25 +391,47 @@ app.use(Icon);
 | 参数         | 说明                                   | 类型           | 默认值  |
 |--------------|----------------------------------------|----------------|---------|
 | v-model      | 输入值，双向绑定                       | String         | -       |
-| type         | 类型，可选值为 `text` `number`  等     | String         | `text`  |
-| placeholder  | 为空时占位符                           | String         | -       |
-| label        | 左侧文案                               | String         | -       |
-| require-show | 左侧*号是否展示                        | Boolean        | `false` |
-| has-border   | 下边框是否展示                         | Boolean        | `true` |
-| disabled     | 是否禁用                               | Boolean        | `false` |
-| readonly     | 是否只读                               | Boolean        | `false` |
-| max-length   | 限制最长输入字符                       | String、Number | -       |
-| clearable    | 展示清除icon                           | Boolean        | `true`  |
-| text-align   | 文本位置,可选值`left`,`center`,`right` | String         | `left`  |
+| type         | 输入框类型，支持原生 `input` 标签的所有 `type` 属性，另外还支持 `textarea` `number` `digit`     | String         | `text`  |
+| placeholder  | 输入框为空时占位符                      | String         | -       |
+| label        | 左侧文本                              | String         | -       |
+| label-class  | 左侧文本额外类名                        | String | -  |
+| label-width  | 左侧文本宽度，默认单位为 `px`            | String、Number | `80`    |
+| label-align  | 左侧文本对齐方式，可选值 `left`、`center`、`right`   | String | `left` |
+| input-align  | 输入框内容对齐方式，可选值 `left`、`center`、`right` | String | `left` |
+| colon        | 是否在 label 后面添加冒号               | Boolean        | `false` |
+| required     | 左侧*号是否展示                        | Boolean        | `false` |
+| border       | 是否显示下边框                         | Boolean        | `true` |
+| disabled     | 是否禁用                              | Boolean        | `false` |
+| readonly     | 是否只读                              | Boolean        | `false` |
+| autofocus    | 是否自动获得焦点，iOS 系统不支持该属性     | Boolean        | `false` |
+| max-length      | 限制最长输入字符                       | String、Number  | -       |
+| clearable    | 展示清除 Icon                         | Boolean        | `false`  |
+| clear-icon   | 清除图标 Icon 名称或图片链接，可参考 Icon 组件的 name 属性           | String        | `mask-close`  |
+| clear-size   | 清除图标的 `font-size` 大小           | String        | `14`  |
+| left-icon    | 左侧 Icon 名称或图片链接，可参考 Icon 组件的 name 属性 | String        | - |
+| right-icon   | 右侧 Icon 名称或图片链接，可参考 Icon 组件的 name 属性 | String        | - |
+| left-icon-size    | 左侧 Icon 的 `font-size` 大小           | String        | `14`  |
+| right-icon-size   | 右侧 Icon 的 `font-size` 大小           | String        | `14`  |
+| show-word-limit | 是否显示限制最长输入字符，需要设置 `max-length` 属性 | Boolean | `false`  |
+| error         | 是否标红                                | Boolean | `false`  |
+| error-message | 底部错误提示文案，为空时不展示            | String、Number | - |
+| error-message-align | 底部错误提示文案对齐方式，可选值 `left`、`center`、`right`          | String | - |
+| formatter      | 输入内容格式化函数    | `(val: string) => string` | - |
+| format-trigger | 格式化函数触发的时机，可选值为 `onChange`、`onBlur` | String | - |
 
 ### Event
 
 | 名称   | 说明           | 回调参数    |
 |--------|----------------|-------------|
-| change | 输入内容时触发 | val ,event  |
-| focus  | 聚焦时触发     | val  ,event |
-| blur   | 失焦时触发     | val ,event  |
-| clear  | 点击清空时触发 | val         |
+| update:model-value | 输入框内容变化时触发 | val  |
+| focus  | 输入框聚焦时触发     | val  ,event |
+| blur   | 输入框失焦时触发     | val ,event  |
+| clear  | 点击清除按钮时触发   | val ,event  |
+| click  | 点击组件时触发      | val ,event  |
+| click-input      | 点击输入区域时触发      | val ,event  |
+| click-left-icon  | 点击左侧图标时触发      | val ,event  |
+| click-right-icon | 点击右侧图标时触发      | val ,event  |
+
 
 
 

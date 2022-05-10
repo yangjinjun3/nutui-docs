@@ -73,6 +73,22 @@ app.use(Icon);
 </template>
 ```
 :::
+### 设置百分比内显自定义内容
+:::demo
+```html
+<template>
+     <nut-cell>
+        <nut-progress percentage="60" :text-inside="true">
+          <nut-icon
+            style="display: block"
+            size="30"
+            name="https://img11.360buyimg.com/imagetools/jfs/t1/137646/13/7132/1648/5f4c748bE43da8ddd/a3f06d51dcae7b60.png"
+          ></nut-icon>
+        </nut-progress>
+      </nut-cell>
+</template>
+```
+:::
 
 ## 自定义尺寸
 
@@ -134,6 +150,7 @@ app.use(Icon);
 | show-text | 是否显示进度条文字内容 | Boolean | true
 | text-inside | 进度条文字显示位置(false:外显，true:内显) | Boolean | false
 | text-color | 进度条文字颜色设置 | String | #333
+| text-background | 进度条文字背景颜色设置 | String | 同进度条颜色
 | status | 进度条当前状态,active(展示动画效果)/icon(展示icon标签) | String | text
 | icon-name | icon名称 | String | checked
 | icon-color | icon颜色 | String | #439422

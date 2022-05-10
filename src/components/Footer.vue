@@ -433,7 +433,7 @@ export default defineComponent({
   .vx-red {
     margin: 0 4px;
     font-weight: bold;
-    color: #fa2c19;
+    color: $doc-default-color;
   }
 }
 </style>

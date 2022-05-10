@@ -137,7 +137,7 @@ export const SiteVue = {
 
   header: [
     {
-      name: 'intro,theme,start',
+      name: 'intro,theme,start,international,ide',
       cName: '指南',
       path: '#/intro'
     },
@@ -223,7 +223,8 @@ export const SiteVue = {
       show: true,
       moreRouter: '#/case'
     },
-
+    //是否展示二维码
+    qrcodeShow: true,
     // 学习资源
     article: {
       show: true,

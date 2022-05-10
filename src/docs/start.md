@@ -11,10 +11,10 @@
 
 ```bash
 # Vue2 项目 需要参考 2.x 文档 https://nutui.jd.com/2x
-npm i @nutui/nutui
+npm i @nutui/nutui@2
 
 # Vue3 项目
-npm i @nutui/nutui@next
+npm i @nutui/nutui
 
 # taro 小程序项目
 npm i @nutui/nutui-taro
@@ -49,20 +49,14 @@ npm install vite-plugin-style-import --save-dev
 在 `vite.config` 中添加配置：
 ``` javascript
 import vue from '@vitejs/plugin-vue'
-import styleImport from 'vite-plugin-style-import';
+import { createStyleImportPlugin, NutuiResolve } from 'vite-plugin-style-import'
 export default {
   plugins: [
     vue(),
-    styleImport({
-      libs: [
-        {
-          libraryName: '@nutui/nutui',
-          libraryNameChangeCase: 'pascalCase',
-          resolveStyle: (name) => {
-            return `@nutui/nutui/dist/packages/${name}/index.scss`
-          }
-        }
-      ],
+    createStyleImportPlugin({
+      resolves: [
+        NutuiResolve(),
+      ]
     }),
   ],
   css: {
@@ -92,6 +86,14 @@ npm install babel-plugin-import --save-dev
       {
         "libraryName": "@nutui/nutui",
         "libraryDirectory": "dist/packages/_es",
+        // customName自定义兼容国际化使用
+        "customName": (name, file) => {
+          if (name == 'Locale') {
+            return '@nutui/nutui/dist/packages/locale/lang';
+          } else {
+            return `@nutui/nutui/dist/packages/_es/${name}`;
+          }
+        },
         "style": (name, file) => name.toLowerCase().replace('_es/', '') + '/index.scss',
         "camel2DashComponentName": false
       },
@@ -102,6 +104,14 @@ npm install babel-plugin-import --save-dev
       {
         "libraryName": "@nutui/nutui-taro",
         "libraryDirectory": "dist/packages/_es",
+        // customName自定义兼容国际化使用
+        "customName": (name, file) => {
+          if (name == 'Locale') {
+            return '@nutui/nutui-taro/dist/packages/locale/lang';
+          } else {
+            return `@nutui/nutui-taro/dist/packages/_es/${name}`;
+          }
+        },
         "style": (name, file) => name.toLowerCase().replace('_es/', '') + '/index.scss',
         "camel2DashComponentName": false
       },
@@ -140,11 +150,11 @@ createApp(App).use(Button).use(Icon).mount("#app");
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nutui/nutui@next/dist/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nutui/nutui/dist/style.css" />
     <!-- 引入Vue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!-- 引入NutUI组件库 -->
-    <script src="https://cdn.jsdelivr.net/npm/@nutui/nutui@next/dist/nutui.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@nutui/nutui/dist/nutui.umd.js"></script>
   </head>
   <body>
     <div id="app">

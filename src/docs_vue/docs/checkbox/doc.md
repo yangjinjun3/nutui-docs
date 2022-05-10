@@ -200,8 +200,7 @@ app.use(Checkbox).use(CheckboxGroup).use(Icon);
 ```html
 <template>
   <nut-checkboxgroup v-model="checkboxgroup3" ref="group" @change="changeBox4">
-    <nut-checkbox label="1">组合复选框</nut-checkbox>
-    <nut-checkbox label="2">组合复选框</nut-checkbox>
+    <nut-checkbox v-for="item in checkboxsource" :key="item.label" :label="item.label">{{item.value}}</nut-checkbox>
   </nut-checkboxgroup>
   <span class="btn">
     <nut-button type="primary" @click="toggleAll(true)">全选</nut-button>
@@ -216,11 +215,15 @@ app.use(Checkbox).use(CheckboxGroup).use(Icon);
     setup() {
       const state = reactive({
         checkboxgroup3: ['2'],
+        checkboxsource: [
+          {label: '1', value: '组合复选框'},
+          {label: '2', value: '组合复选框'}
+        ]
       });
 
       const group = ref(null);
       const changeBox4 = (label: any[]) => {
-        Toast.text(`${label.length ? '全选' : '取消全选'}`);
+        Toast.text(`${label.length === state.checkboxsource.length ? '全选' : '取消全选'}`);
       };
 
       const toggleAll = (f: boolean) => {
@@ -245,6 +248,8 @@ app.use(Checkbox).use(CheckboxGroup).use(Icon);
 | icon-size | [图标尺寸](#/icon) | String、Number | `18`
 | icon-name | [图标名称](#/icon)，选中前(建议和`icon-active-name`一起修改) | String | `'check-normal'`
 | icon-active-name | [图标名称](#/icon)，选中后(建议和`icon-name`一起修改) | String | `'checked'`
+| icon-class-prefix | 自定义 icon 类名前缀，用于使用自定义图标        | String                  | `nut-icon` |
+| icon-font-class-name | 自定义 icon 字体基础类名        | String                  | `nutui-iconfont` |
 | label | 复选框的文本内容 | String | -
 
 

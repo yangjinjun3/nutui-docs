@@ -165,14 +165,14 @@ export default defineComponent({
     }
     &:hover {
       // background: #6096ff;
-      color: #fa2c19;
+      color: $doc-default-color;
       a {
-        color: #fa2c19;
+        color: $doc-default-color;
       }
     }
   }
   .cur {
-    background: #fa2c19;
+    background: $doc-default-color;
     color: #fff;
     &:hover {
       color: #fff;

@@ -240,7 +240,7 @@ $mainRed: #fa685d;
       box-shadow: 0 2px 4px 1px rgb(40 120 255 / 8%), 0 0 6px 1px rgb(0 0 0 / 8%);
     }
     .sub-red {
-      color: #fa2c19;
+      color: $doc-default-color;
     }
   }
 
@@ -402,7 +402,7 @@ $mainRed: #fa685d;
       margin-top: -8px;
       width: 12px;
       height: 12px;
-      border: 2px solid #fa2c19;
+      border: 2px solid $doc-default-color;
       border-radius: 50%;
     }
   }
