@@ -45,6 +45,7 @@
     "copydoc": "node ./scripts/copydoc.js"
   },
   "dependencies": {
+    "@nutui/nutui": "^3.1.18",
     "sass": "~1.32.0",
     "vue-router": "^4.0.11"
   },

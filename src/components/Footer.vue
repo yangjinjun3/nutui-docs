@@ -117,7 +117,6 @@ export default defineComponent({
     }
   },
   setup(props) {
-    console.log(props.showLogo, 6666666666);
     const data = reactive({
       themeList: [
         {

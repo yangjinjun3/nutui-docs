@@ -179,7 +179,7 @@ export default defineComponent({
 }
 .doc {
   &-header {
-    position: fixed;
+    // position: fixed;
     z-index: 2;
     top: 0px;
     left: 0;
@@ -420,6 +420,7 @@ export default defineComponent({
           background: $theme-black-nav-select-bg;
           border: 1px solid $theme-black-nav-select-border;
           border-radius: 12px;
+          z-index: 3;
           .info {
             padding-top: 16px;
             padding-bottom: 22px;
@@ -609,6 +610,7 @@ export default defineComponent({
           background: $theme-white;
           border: 1px solid $theme-white-select-border;
           border-radius: 12px;
+          z-index: 3;
           .info {
             padding-top: 16px;
             padding-bottom: 22px;
@@ -797,6 +799,7 @@ export default defineComponent({
           background: $theme-black-nav-select-bg;
           border: 1px solid $theme-black-nav-select-border;
           border-radius: 12px;
+          z-index: 3;
           .info {
             padding-top: 16px;
             padding-bottom: 22px;
