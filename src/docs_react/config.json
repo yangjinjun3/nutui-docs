@@ -620,6 +620,7 @@
           "desc": "可以配置多语言等全局属性",
           "sort": 16,
           "show": false,
+          "exportEmpty": true,
           "author": "hanyuxinting"
         }
       ]
