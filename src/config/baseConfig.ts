@@ -146,11 +146,11 @@ export const SiteVue = {
       cName: '组件',
       path: '#/button'
     },
-    {
-      name: 'example',
-      cName: '示例',
-      path: 'demo.html'
-    },
+    // {
+    //   name: 'example',
+    //   cName: '示例',
+    //   path: 'demo.html'
+    // },
     {
       name: 'case',
       cName: '案例',
