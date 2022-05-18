@@ -35,6 +35,7 @@
     "build": "vite build",
     "build:oss": "vite build --base=/nutui/3x/",
     "build:react": "vite build --config vite.config.react.ts",
+    "build:jdt": "vite build --config vite.config.jdt.ts",
     "build:oss:react": "vite build --base=/nutui/react/",
     "build:gh-pages": "vite build --base=/nutui-docs/3x/",
     "build:gh-pages:react": "vite build --config vite.config.react.ts --base=/nutui-docs/react/",

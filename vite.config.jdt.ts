@@ -95,7 +95,7 @@ export default defineConfig({
     cssCodeSplit: true,
     rollupOptions: {
       input: {
-        vue: resolve(__dirname, 'index.html')
+        vue: resolve(__dirname, 'index.jdt.html')
       },
       output: {
         entryFileNames: `${config.version}/[name].js`,

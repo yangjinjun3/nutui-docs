@@ -13,7 +13,7 @@
 
           <div class="content-button">
             <div class="leftButton">
-              <a class="leftButtonText" href="/?theme=jdt/#/button">开始使用</a>
+              <a class="leftButtonText" href="/jdt/?theme=jdt/#/button">开始使用</a>
             </div>
             <!-- 待适配移动端展示时放开 -->
             <!-- <div class="rightButton">
