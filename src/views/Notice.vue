@@ -109,7 +109,7 @@ export default defineComponent({
         padding: 14px 66px;
         width: 296px;
         height: 48px;
-        background: rgba(250, 36, 0, 0.06);
+        background: rgba($doc-default-color, 0.06);
         position: relative;
         &:after {
           content: '';
@@ -153,7 +153,7 @@ export default defineComponent({
         &:hover {
           .article-title,
           .article-time {
-            color: rgba(250, 36, 0, 1);
+            color: $doc-default-color;
           }
           cursor: pointer;
         }

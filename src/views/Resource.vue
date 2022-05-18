@@ -170,7 +170,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-$mainRed: #fa685d;
+$mainRed: rgba($doc-default-color, 0.8);
 .resource {
   &-main {
     background-color: #1d1d1d;

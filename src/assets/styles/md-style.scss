@@ -218,7 +218,7 @@
   blockquote {
     margin: 16px 0px;
     padding: 16px;
-    background-color: #fff4f0;
+    background-color: rgba($doc-default-color, 0.06);
     border-left: 6px solid $doc-default-color;
     border-radius: 3px;
     p {

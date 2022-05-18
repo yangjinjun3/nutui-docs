@@ -4,7 +4,6 @@ import Index from '@/views/Index.vue';
 import Resource from '@/views/Resource.vue';
 import Case from '@/views/Case.vue';
 import Notice from '@/views/Notice.vue';
-import NoticeDetail from '@/views/NoticeDetail.vue';
 import Main from '@/views/Main.vue';
 import config from '@/config/env';
 const pagesRouter: Array<RouteRecordRaw> = [];
@@ -70,11 +69,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/notice',
     name: 'notice',
     component: Notice
-  },
-  {
-    path: '/noticedetail',
-    name: 'noticedetail',
-    component: NoticeDetail
   }
 ];
 routes.push({
