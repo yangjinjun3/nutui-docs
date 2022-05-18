@@ -8,4 +8,7 @@ const arrayGroup = (arr: any[], num: number): any[] => {
   }
   return arrSlice;
 };
-export { isMobile, arrayGroup };
+const isJDT = () => {
+  return location.href.includes('jdt');
+};
+export { isMobile, arrayGroup, isJDT };

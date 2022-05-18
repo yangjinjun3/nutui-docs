@@ -64,11 +64,12 @@ import { RefData } from '@/assets/util/ref';
 import { ApiService } from '@/service/ApiService';
 import { Button } from '@nutui/nutui';
 import { componentNav } from '@/config.json';
+import { isJDT } from '@/assets/util';
 
 export default defineComponent({
   name: 'doc',
   components: {
-    [Header.name]: location.href.includes('jdt') ? HeaderJDT : Header,
+    [Header.name]: isJDT() ? HeaderJDT : Header,
     [Nav.name]: Nav,
     [Footer.name]: Footer,
     [DemoPreview.name]: DemoPreview,
