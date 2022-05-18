@@ -135,7 +135,7 @@ export const SiteVue = {
     },
     {
       name: 'nutui-jdt',
-      link: '/jdt/?theme=jdt'
+      link: 'https://nutui.jd.com/jdt/?theme=jdt'
     }
   ],
 

@@ -55,6 +55,7 @@ import { defineComponent, onMounted, reactive, toRefs, computed, ref } from 'vue
 import { demoUrl, language, nav } from '@/config/index';
 import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute, useRouter } from 'vue-router';
 import Header from '@/components/Header.vue';
+import HeaderJDT from '@/docs_jdt/Header.vue';
 import Nav from '@/components/Nav.vue';
 import Footer from '@/components/Footer.vue';
 import DemoPreview from '@/components/DemoPreview.vue';
@@ -67,7 +68,7 @@ import { componentNav } from '@/config.json';
 export default defineComponent({
   name: 'doc',
   components: {
-    [Header.name]: Header,
+    [Header.name]: location.href.includes('jdt') ? HeaderJDT : Header,
     [Nav.name]: Nav,
     [Footer.name]: Footer,
     [DemoPreview.name]: DemoPreview,
