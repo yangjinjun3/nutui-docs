@@ -30,9 +30,10 @@
   ],
   "scripts": {
     "dev": "tsc && vite --force",
+    "dev:react": "tsc && vite --force --config vite.config.react.ts",
+    "dev:jdt": "tsc && vite --force --config vite.config.jdt.ts",
     "build": "vite build",
     "build:oss": "vite build --base=/nutui/3x/",
-    "dev:react": "tsc && vite --force --config vite.config.react.ts",
     "build:react": "vite build --config vite.config.react.ts",
     "build:oss:react": "vite build --base=/nutui/react/",
     "build:gh-pages": "vite build --base=/nutui-docs/3x/",
