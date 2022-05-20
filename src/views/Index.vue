@@ -63,7 +63,6 @@ import Issue from '@/components/Issue.vue';
 import { RefData } from '@/assets/util/ref';
 import { ApiService } from '@/service/ApiService';
 import { Button } from '@nutui/nutui';
-import { componentNav } from '@/config.json';
 import { isJDT } from '@/assets/util';
 
 export default defineComponent({
@@ -90,6 +89,7 @@ export default defineComponent({
     });
     const excludeTaroVue = [
       '/intro',
+      '/intro-jdt',
       '/start',
       '/theme',
       '/joinus',
@@ -247,8 +247,8 @@ export default defineComponent({
           ? route.path.split('/')[1].substr(0, route.path.split('/')[1].length - 5)
           : route.path.split('/')[1];
       }
-      componentNav.forEach((nav: any) => {
-        nav.packages.forEach((item: any) => {
+      nav.forEach((i: any) => {
+        i.packages.forEach((item: any) => {
           if (item.name.toLowerCase() == state.componentName.name) {
             state.componentName.name = item.name;
             state.componentName.cName = item.cName;

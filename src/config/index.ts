@@ -2,6 +2,7 @@ import vueConfig from '../docs_vue/config.json';
 import reactConfig from '../docs_react/config.json';
 
 import { SiteReact, SiteVue } from './baseConfig';
+import { isJDT } from '@/assets/util';
 
 let config: any = {};
 
@@ -62,6 +63,9 @@ if ((import.meta as any).env.BASE_URL.includes('react')) {
     ...SiteReact
   };
 } else {
+  if (isJDT()) {
+    vueConfig.docs.packages[0].name = 'intro-jdt';
+  }
   config = {
     ...vueConfig,
     ...SiteVue
