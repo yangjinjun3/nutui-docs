@@ -30,13 +30,15 @@
 import { defineComponent, onMounted, reactive, toRefs } from 'vue';
 import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute, useRouter } from 'vue-router';
 import Header from '@/components/Header.vue';
+import HeaderJDT from '@/docs_jdt/Header.vue';
 import { ApiService } from '@/service/ApiService';
 import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
+import { isJDT } from '@/assets/util';
 export default defineComponent({
   name: 'notice',
   components: {
-    [Header.name]: Header,
+    [Header.name]: isJDT() ? HeaderJDT : Header,
     [Footer.name]: Footer
   },
   setup() {

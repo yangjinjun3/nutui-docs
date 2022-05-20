@@ -119,17 +119,17 @@ export default defineComponent({
 
         &.active {
           &::before {
-            position: absolute;
-            content: '';
-            left: 0;
-            top: 50%;
-            width: 22px;
-            margin-top: -5px;
-            height: 10px;
-            transform: rotate(90deg);
-            background: url(https://img10.360buyimg.com/imagetools/jfs/t1/136135/19/14659/946/5fa20aa8E33a9aa26/d329fbe669171208.png)
-              no-repeat;
-            background-size: 100% 100%;
+            // position: absolute;
+            // content: '';
+            // left: 0;
+            // top: 50%;
+            // width: 22px;
+            // margin-top: -5px;
+            // height: 10px;
+            // transform: rotate(90deg);
+            // background: url(https://img10.360buyimg.com/imagetools/jfs/t1/136135/19/14659/946/5fa20aa8E33a9aa26/d329fbe669171208.png)
+            //   no-repeat;
+            // background-size: 100% 100%;
           }
         }
       }

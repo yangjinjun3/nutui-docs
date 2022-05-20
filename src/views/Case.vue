@@ -90,14 +90,16 @@
 import { defineComponent, onMounted, reactive, toRefs } from 'vue';
 import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute } from 'vue-router';
 import Header from '@/components/Header.vue';
+import HeaderJDT from '@/docs_jdt/Header.vue';
 import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
 import Swiper from 'swiper/swiper-bundle.min.js';
 import { ApiService } from '@/service/ApiService';
+import { isJDT } from '@/assets/util';
 export default defineComponent({
   name: 'doc',
   components: {
-    [Header.name]: Header,
+    [Header.name]: isJDT() ? HeaderJDT : Header,
     [Footer.name]: Footer
   },
   setup() {
