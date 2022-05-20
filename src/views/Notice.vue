@@ -114,13 +114,18 @@ export default defineComponent({
         background: rgba($doc-default-color, 0.06);
         position: relative;
         &:after {
+          position: absolute;
           content: '';
           display: inline-block;
-          width: 10px;
-          height: 22px;
-          background: url('@/assets/images/item-rotate-active.png') no-repeat;
-          position: absolute;
+          width: 22px;
+          height: 10px;
+          transform: rotate(90deg);
+          background: $doc-smile-curve;
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
           left: 42px;
+          top: 50%;
+          margin-top: -5px;
         }
       }
     }
