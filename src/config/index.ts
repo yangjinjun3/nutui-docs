@@ -65,6 +65,7 @@ if ((import.meta as any).env.BASE_URL.includes('react')) {
 } else {
   if (isJDT()) {
     vueConfig.docs.packages[0].name = 'intro-jdt';
+    SiteVue.header[0].path = '#/intro-jdt';
   }
   config = {
     ...vueConfig,
