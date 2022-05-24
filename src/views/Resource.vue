@@ -81,14 +81,7 @@ export default defineComponent({
   setup() {
     const articleList: any[] = [];
     const communityArticleList: any[] = [];
-    const videoList: any = [
-      {
-        title: '开发者的福利 - NutUI-vscode 智能提示来了',
-        cover_image:
-          'https://img11.360buyimg.com/imagetools/jfs/t1/71804/8/17652/683071/627a2494E8a9947f5/e208310632eaf587.png',
-        link: 'https://www.bilibili.com/video/BV1xZ4y1h7Pg/'
-      }
-    ];
+    const videoList: any = [];
     const data = reactive({
       articleList,
       communityArticleList,
@@ -146,6 +139,13 @@ export default defineComponent({
           // 进行排序
           let order = [3, 2, 1];
           data.articleList.sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
+        }
+      });
+
+      // 视频列表接口
+      apiService.getVideo().then((res) => {
+        if (res?.state == 0) {
+          data.videoList = res.value.data.arrays;
         }
       });
     });

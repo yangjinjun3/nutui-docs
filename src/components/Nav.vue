@@ -1,9 +1,9 @@
 <template>
   <div class="doc-nav" :class="{ fixed: fixed }">
-    <ol>
-      <li>
+    <ol v-if="isGuideNav">
+      <!-- <li>
         {{ docs.name }}
-      </li>
+      </li> -->
       <ul>
         <li
           :class="{ active: isActive(_package.name) }"
@@ -16,34 +16,41 @@
         </li>
       </ul>
     </ol>
-    <ol v-for="_nav in nav" :key="_nav">
-      <li>{{ _nav.name }}</li>
-      <ul>
-        <template
-          :class="{ active: isActive(_package.name) }"
-          v-for="_package in reorder(_nav.packages)"
-          :key="_package"
-        >
-          <li v-if="_package.show">
-            <router-link :to="_package.name.toLowerCase()" :class="{ active: isActive(_package.name) }">
-              {{ _package.name }}&nbsp;&nbsp;<b>{{ _package.cName }}</b>
-            </router-link>
-          </li>
-        </template>
-      </ul>
-    </ol>
+    <template v-else>
+      <ol v-for="_nav in nav" :key="_nav">
+        <li>{{ _nav.name }}</li>
+        <ul>
+          <template
+            :class="{ active: isActive(_package.name) }"
+            v-for="_package in reorder(_nav.packages)"
+            :key="_package"
+          >
+            <li v-if="_package.show">
+              <router-link :to="_package.name.toLowerCase()" :class="{ active: isActive(_package.name) }">
+                {{ _package.name }}&nbsp;&nbsp;<b>{{ _package.cName }}</b>
+              </router-link>
+            </li>
+          </template>
+        </ul>
+      </ol>
+    </template>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, computed, onMounted, toRefs } from 'vue';
+import { defineComponent, reactive, computed, onMounted, toRefs, ref } from 'vue';
+import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute, useRouter } from 'vue-router';
 import { RefData } from '@/assets/util/ref';
 import { nav, docs } from '@/config/index';
 export default defineComponent({
   name: 'doc-nav',
-  setup() {
+  setup(props: any) {
+    const route = useRoute();
+    const router = useRouter();
     const state = reactive({
-      fixed: false
+      fixed: false,
+      isGuideNav: false
     });
+
     const isActive = computed(() => {
       return function (name: string) {
         const currentValue = RefData.getInstance().currentRoute.value;
@@ -58,6 +65,8 @@ export default defineComponent({
       });
     };
     onMounted(() => {
+      if (route.name) getIsGuaid(route.name);
+
       document.addEventListener('scroll', scrollNav);
     });
     const scrollNav = () => {
@@ -69,6 +78,22 @@ export default defineComponent({
         state.fixed = false;
       }
     };
+
+    const getIsGuaid = (name: any) => {
+      const isGuaid = docs.packages.filter((doc) => doc.name == name);
+      state.isGuideNav = isGuaid.length ? true : false;
+    };
+
+    onBeforeRouteUpdate((to: any) => {
+      let name: any = '';
+      console.log('当前路由', to);
+      if (to) {
+        name = to.name;
+      } else {
+        name = route.name;
+      }
+      getIsGuaid(name);
+    });
     return {
       ...toRefs(state),
       isActive,
@@ -95,9 +120,11 @@ export default defineComponent({
     border-right: 1px solid #eee;
     overflow: auto;
     padding-left: 35px;
+    padding-top: 35px;
     &.fixed {
       position: fixed;
       top: 0;
+      padding-top: 15px;
     }
     ol {
       &.introduce {

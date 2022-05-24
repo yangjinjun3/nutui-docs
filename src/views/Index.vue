@@ -23,6 +23,7 @@
         <div class="doc-content-tabs single" v-if="isShow() && !isShowTaroDoc && language == 'vue'">
           <div class="tab-item cur">vue / taro</div>
         </div>
+
         <router-view />
 
         <div class="doc-content-faq" v-if="faqsList.length && isShow() && language == 'vue' && curKey === 'vue'">
@@ -52,7 +53,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, reactive, toRefs, computed, ref } from 'vue';
-import { demoUrl, language, nav } from '@/config/index';
+import { demoUrl, language, nav, docs } from '@/config/index';
 import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute, useRouter } from 'vue-router';
 import Header from '@/components/Header.vue';
 import HeaderJDT from '@/docs_jdt/Header.vue';
@@ -201,23 +202,7 @@ export default defineComponent({
       watchDemoUrl(route);
       data.curKey = isTaro(route) ? 'taro' : 'vue';
       getContributors(route);
-      // const params = {
-      //   state: "closed",
-      //   per_page: 100, // 每页结果（最多 100 个）
-      //   page: 1
-      // }
-      // const res = await axios({
-      //   method: 'GET',
-      //   url: 'https://api.github.com/repos/jdf2e/nutui/issues',
-      //   headers: {
-      //     Authorization: `tokenghp_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`
-      //   },
-      //   params: params
-      // })
 
-      // if (res?.status === 200) {
-      //   console.log('----res-------', res)
-      // }
       document.addEventListener('scroll', scrollTitle);
       getFaqs(route);
     });
@@ -239,7 +224,7 @@ export default defineComponent({
     };
     // 获得组件名称
     const componentTitle = (to?: any) => {
-      console.log('route.path', route.path);
+      console.log('1route.path', docs);
       if (to?.name) {
         state.componentName.name = to.name.includes('taro') ? to.name.substr(0, to.name.length - 5) : to.name;
       } else {

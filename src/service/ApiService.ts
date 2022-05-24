@@ -70,4 +70,16 @@ export class ApiService {
   getQRCode() {
     return this.httpClient.request('/openapi/qrcode', 'get', '');
   }
+
+  /**
+   * 获取nutui视频
+   * @returns
+   * @memberof VideoApiService
+   */
+  getVideo() {
+    return this.httpClient.request('/openapi/video', 'get', {
+      pageIndex: 1,
+      pageSize: 100
+    });
+  }
 }
