@@ -1,7 +1,7 @@
 # NutUI 3.0
 
 <!-- NutUI 是京东风格的 Vue 移动端组件库，开发和服务于移动Web界面的企业级产品。 -->
-NutUI 是京东科技风格的移动端组件库，使用 Vue 语言来编写可以在 H5，小程序平台上的应用，帮助研发人员提升开发效率，改善开发体验。
+NutUI-JDT 是京东科技风格的移动端组件库，使用 Vue 语言来编写可以在 H5，小程序平台上的应用，帮助研发人员提升开发效率，改善开发体验。
 
 <div style="margin:30px 0;">
     <img src="https://img12.360buyimg.com/imagetools/jfs/t1/101920/21/28459/834912/62870b04E0e1f20ec/17425bea5318a22c.png" width="150" alt="NutUI">
