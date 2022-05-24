@@ -67,7 +67,7 @@ export default defineComponent({
       });
     };
     onMounted(() => {
-      if (route.name) getIsGuaid(route.name);
+      if (route.name) getIsGuaid(route.path);
 
       document.addEventListener('scroll', scrollNav);
     });
@@ -82,17 +82,16 @@ export default defineComponent({
     };
 
     const getIsGuaid = (name: any) => {
-      const isGuaid = docs.packages.filter((doc) => doc.name == name);
-      state.isGuideNav = isGuaid.length ? true : false;
+      state.isGuideNav = name.indexOf('guide') > -1 ? true : false;
     };
 
     onBeforeRouteUpdate((to: any) => {
       let name: any = '';
       console.log('当前路由', to);
       if (to) {
-        name = to.name;
+        name = to.path;
       } else {
-        name = route.name;
+        name = route.path;
       }
       getIsGuaid(name);
     });
