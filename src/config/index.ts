@@ -37,7 +37,7 @@ let guide = [
       },
       {
         name: 'JDT',
-        link: '/jdt/?theme=jdt',
+        link: 'https://nutui.jd.com/jdt/',
         language: ['Vue3', 'Taro'],
         app: '科技视觉'
       }
