@@ -89,23 +89,23 @@ export default defineComponent({
       }
     });
     const excludeTaroVue = [
-      '/intro',
-      '/intro-jdt',
-      '/start',
-      '/theme',
-      '/joinus',
-      '/starttaro',
-      '/contributing',
-      '/international',
-      '/ide'
+      '/guide/intro',
+      '/guide/intro-jdt',
+      '/guide/start',
+      '/guide/theme',
+      '/guide/joinus',
+      '/guide/starttaro',
+      '/guide/contributing',
+      '/guide/international',
+      '/guide/ide'
     ];
 
     const excludeTaroReact = [
-      '/intro-react',
-      '/start-react',
-      '/theme-react',
-      '/joinus',
-      '/international',
+      '/guide/intro-react',
+      '/guide/start-react',
+      '/guide/theme-react',
+      '/guide/joinus',
+      '/guide/international',
       '/resource',
       '/contributing'
     ];
@@ -152,13 +152,15 @@ export default defineComponent({
     };
 
     const isShowTaroDoc = computed(() => {
-      return configNav.value.findIndex((item) => item === route.path.toLocaleLowerCase().substr(1)) > -1;
+      let routename = route.path.toLocaleLowerCase().split('/').pop() || '';
+      return configNav.value.findIndex((item) => item === routename) > -1;
     });
 
     // 获取 FAQ 内容
     const getFaqs = (router: RouteLocationNormalized) => {
       const apiService = new ApiService();
-      apiService.getSingleFaq(router.path.toLocaleLowerCase().split('/')[1].split('-')[0]).then((res) => {
+      let routename = router.path.toLocaleLowerCase().split('/').pop() || '';
+      apiService.getSingleFaq(routename.split('-')[0]).then((res) => {
         if (res && res.state == 0) {
           faqsList.value = res.value.data;
         }
@@ -168,7 +170,8 @@ export default defineComponent({
     const getContributors = (router: RouteLocationNormalized) => {
       // 贡献者列表接口
       const apiService = new ApiService();
-      apiService.getContributors(router.path.toLocaleLowerCase().split('/')[1].split('-')[0]).then((res) => {
+      let routename = router.path.toLocaleLowerCase().split('/').pop() || '';
+      apiService.getContributors(routename.split('-')[0]).then((res) => {
         if (res && res.state == 0) {
           contributorsData.value = res.value.data;
         }
@@ -179,7 +182,7 @@ export default defineComponent({
       const { origin, pathname } = window.location;
       RefData.getInstance().currentRoute.value = router.name as string;
       // data.demoUrl = `${origin}${pathname.replace('index.html', '')}demo.html#${router.path}`;
-      data.demoUrl = `${demoUrl}${router.path}`;
+      data.demoUrl = `${demoUrl}/${router.path.toLocaleLowerCase().split('/').pop()}`;
     };
 
     const watchDocMd = (curKey: string) => {
@@ -224,13 +227,12 @@ export default defineComponent({
     };
     // 获得组件名称
     const componentTitle = (to?: any) => {
-      console.log('1route.path', docs);
+      const routename = route.path.toLocaleLowerCase().split('/').pop() || '';
+      console.log('路径', routename);
       if (to?.name) {
         state.componentName.name = to.name.includes('taro') ? to.name.substr(0, to.name.length - 5) : to.name;
       } else {
-        state.componentName.name = route.path.split('/')[1].includes('taro')
-          ? route.path.split('/')[1].substr(0, route.path.split('/')[1].length - 5)
-          : route.path.split('/')[1];
+        state.componentName.name = routename.includes('taro') ? routename.substr(0, routename.length - 5) : routename;
       }
       nav.forEach((i: any) => {
         i.packages.forEach((item: any) => {

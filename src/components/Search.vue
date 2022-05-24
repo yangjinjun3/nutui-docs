@@ -16,7 +16,7 @@
         v-for="(item, index) in data.searchList"
         :key="index"
       >
-        <router-link :to="item.name.toLowerCase()">
+        <router-link :to="{ name: item.name.toLowerCase() }">
           {{ item.name }}
           <span>{{ item.cName }}</span>
         </router-link>

@@ -17,7 +17,7 @@ const modulesPage = (import.meta as any).glob('/src/docs_vue/docs/**/doc.md');
 for (const path in modulesPage) {
   let name = (/docs_vue\/docs\/(.*)\/doc.md/.exec(path) as any[])[1];
   pagesRouter.push({
-    path: '/' + name,
+    path: name,
     component: modulesPage[path],
     name
   });
@@ -28,7 +28,7 @@ const modulesPageTaro = (import.meta as any).glob('/src/docs_vue/docs/**/*.taro.
 for (const path in modulesPageTaro) {
   let name = (/docs_vue\/docs\/(.*)\/doc.taro.md/.exec(path) as any[])[1];
   pagesRouter.push({
-    path: `/${name}-taro`,
+    path: `${name}-taro`,
     component: modulesPageTaro[path],
     name: `${name}-taro`
   });
@@ -39,7 +39,7 @@ const modulesDocs = (import.meta as any).glob('/src/docs/*.md');
 for (const path in modulesDocs) {
   let name = (/docs\/(.*).md/.exec(path) as any[])[1];
   guideRouters.push({
-    path: '/' + name,
+    path: name,
     component: modulesDocs[path],
     name
   });
