@@ -33,7 +33,7 @@ Locale.use('en-US', enUS);
 
 ### 找不到所需的语言包？
 
-如果上方列表中没有你需要的语言，欢迎给我们提 Pull Request 来增加新的语言包。改动内容可以参考 [语言包](https://github.com/jdf2e/nutui/tree/next/src/packages/locale/lang) 语言包 的 PR
+如果上方列表中没有你需要的语言，欢迎给我们提 Pull Request 来增加新的语言包。改动内容可以参考 [语言包](https://github.com/jdf2e/nutui/tree/next/src/packages/locale/lang) 的 PR
 
 ### 业务代码如何实现国际化？
 
