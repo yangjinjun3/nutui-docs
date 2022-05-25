@@ -107,7 +107,7 @@ export default defineComponent({
       '/guide/joinus',
       '/guide/international',
       '/resource',
-      '/contributing'
+      '/guide/contributing'
     ];
 
     const data = reactive({
