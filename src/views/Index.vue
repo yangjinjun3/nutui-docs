@@ -91,6 +91,7 @@ export default defineComponent({
     const excludeTaroVue = [
       '/guide/intro',
       '/guide/intro-jdt',
+      '/guide/start-jdt',
       '/guide/start',
       '/guide/theme',
       '/guide/joinus',

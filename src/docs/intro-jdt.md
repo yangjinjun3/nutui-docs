@@ -29,7 +29,7 @@ NutUI-JDT 是京东科技风格的移动端组件库，使用 Vue 语言来编�
 
 ## 示例 H5 & 小程序
 
-<img src="https://img12.360buyimg.com/imagetools/jfs/t1/162421/39/13392/9425/6052ea60E592310a9/264bdff23ef5fe95.png" width="200" alt="NutUI" />
+<img src="https://img11.360buyimg.com/imagetools/jfs/t1/115715/25/28361/11512/628e1be0Ea995cff0/a8d3a6ccccb5bd56.png" width="200" alt="NutUI" />
 
 ## 版本说明
 
