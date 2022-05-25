@@ -71,6 +71,8 @@ if ((import.meta as any).env.BASE_URL.includes('react')) {
     vueConfig.docs.packages[1].name = 'start-jdt';
     SiteVue.header[1].path = '#/guide/start-jdt';
     SiteVue.header[1].pathName = 'start-jdt';
+
+    vueConfig.demoUrl = 'https://nutui.jd.com/jdt/demo.html#';
   }
   config = {
     ...vueConfig,
