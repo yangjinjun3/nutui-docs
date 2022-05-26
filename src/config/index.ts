@@ -65,12 +65,8 @@ if ((import.meta as any).env.BASE_URL.includes('react')) {
 } else {
   if (isJDT()) {
     vueConfig.docs.packages[0].name = 'intro-jdt';
-    SiteVue.header[0].path = '#/guide/intro-jdt';
-    SiteVue.header[0].pathName = 'intro-jdt';
 
     vueConfig.docs.packages[1].name = 'start-jdt';
-    SiteVue.header[1].path = '#/guide/start-jdt';
-    SiteVue.header[1].pathName = 'start-jdt';
 
     vueConfig.demoUrl = 'https://nutui.jd.com/jdt/demo.html#';
   }
