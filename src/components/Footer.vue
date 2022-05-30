@@ -39,7 +39,7 @@
           <div class="vx-box">
             <p class="vx-desc">微信交流群</p>
             <p class="vx-desc">扫码添加好友</p>
-            <img class="img-code" src="@/assets/images/vx-codeys.png" />
+            <img class="img-code" src="https://storage.360buyimg.com/nutui-static/image/wx-code.png" />
             <p class="vx-desc">回复<span class="vx-red">NutUI</span>即刻进群</p>
           </div>
         </div>

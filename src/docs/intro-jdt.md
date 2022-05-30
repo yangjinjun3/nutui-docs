@@ -81,7 +81,7 @@ NutUI-JDT 是京东科技风格的移动端组件库，使用 Vue 语言来编�
 
 | 版本 | 微信群 |内部咚咚群 |
 | --- | --- |--- |
-| [NutUI Vue](https://github.com/jdf2e/nutui/issues) | <img src="https://nutui.jd.com/3x/3.1.17/vx-codeys.png" width="100" /> 关注后回复「NutUI」 | 82957939
+| [NutUI Vue](https://github.com/jdf2e/nutui/issues) | <img src="https://storage.360buyimg.com/nutui-static/image/wx-code.png" width="100" /> 关注后回复「NutUI」 | 82957939
 | [NutUI x Taro](https://github.com/jdf2e/nutui/issues) | <img src="https://camo.githubusercontent.com/db4276b4ee4b443158195e943e9e678cb4d2afb7580f70d4d817ef0a90413aec/687474703a2f2f73746f726167652e333630627579696d672e636f6d2f7461726f2d6a642d636f6d2f7374617469632f636f6e746163745f7461726f5f6e757475695f71722e706e67" width="100" /> 关注后回复「NutUI」 | 1022545110 |
 | [NutUI React](https://github.com/jdf2e/nutui-react/issues) | 回复「NutUI」 | 1022619199
 
