@@ -71,7 +71,7 @@ config = {
   // ...
   plugins: ['@tarojs/plugin-html']
   // 给 sass-loader 传递选项 ！！！！ 按需加载方式必须配置
-  scss: {
+  sass: {
       data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
   }
 }
