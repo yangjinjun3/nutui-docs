@@ -186,6 +186,7 @@ const config = {
 		],
     // 默认京东 APP 10.0主题 > @import "@nutui/nutui-taro/dist/styles/variables.scss";
     // 京东科技主题 > @import "@nutui/nutui-taro/dist/styles/variables-jdt.scss";
+    // 京东B商城主题 > @import "@nutui/nutui-taro/dist/styles/variables-jdb.scss";
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
 	},
   // ...
