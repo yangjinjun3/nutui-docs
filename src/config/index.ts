@@ -2,6 +2,7 @@ import vueConfig from '../docs_vue/config.json';
 import reactConfig from '../docs_react/config.json';
 
 import { SiteReact, SiteVue } from './baseConfig';
+import { isJDT } from '@/assets/util';
 
 let config: any = {};
 
@@ -36,7 +37,7 @@ let guide = [
       },
       {
         name: 'JDT',
-        link: '/jdt/?theme=jdt',
+        link: 'https://nutui.jd.com/jdt/',
         language: ['Vue3', 'Taro'],
         app: '科技视觉'
       }
@@ -62,6 +63,15 @@ if ((import.meta as any).env.BASE_URL.includes('react')) {
     ...SiteReact
   };
 } else {
+  if (isJDT()) {
+    vueConfig.docs.packages[0].name = 'intro-jdt';
+    SiteVue.header[0].path = '#/guide/intro-jdt';
+    SiteVue.header[0].pathName = 'intro-jdt';
+
+    vueConfig.docs.packages[1].name = 'start-jdt';
+
+    vueConfig.demoUrl = 'https://nutui.jd.com/jdt/demo.html#';
+  }
   config = {
     ...vueConfig,
     ...SiteVue

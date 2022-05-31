@@ -7,7 +7,8 @@ NutUI 默认提供多套 UI 主题，同时允许在一定程度上定制新的�
 我们提供了一些官方主题，欢迎在项目中使用，如果下列主题还是不能满足您的需求，推荐您使用<a target="_blank" href="https://nutui.jd.com/theme/#/base" >在线主题预览生成器</a>
 
 * 京东 APP 10.0 设计规范主题（默认）
-* 京东科技设计主题（Vue3版本） <a target="_blank" href="https://nutui.jd.com/?theme=jdt/#/button" >预览</a>
+* 京东科技设计主题（Vue3版本） <a target="_blank" href="https://nutui.jd.com/jdt/" >预览</a>
+* 京东B商城设计主题（Vue3版本） <a target="_blank" href="https://nutui.jd.com/?jdb#/component/button" >预览</a>
 * 京东物流（Vue2版本）<a target="_blank" href="https://nutui.jd.com/jdl/" >预览</a>
 
 <br/>
@@ -68,6 +69,7 @@ export default defineConfig({
       scss: {
         // 默认京东 APP 10.0主题 > @import "@nutui/nutui/dist/styles/variables.scss";
         // 京东科技主题 > @import "@nutui/nutui/dist/styles/variables-jdt.scss";
+        // 京东B商城主题 > @import "@nutui/nutui-taro/dist/styles/variables-jdb.scss";
         additionalData: `@import "./assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`
       }
     }
@@ -86,6 +88,7 @@ export default defineConfig({
             options: {
                 // 默认京东 APP 10.0主题 > @import "@nutui/nutui/dist/styles/variables.scss";
                 // 京东科技主题 > @import "@nutui/nutui/dist/styles/variables-jdt.scss";
+                // 京东B商城主题 > @import "@nutui/nutui/dist/styles/variables-jdb.scss";
                 // 注意：在 sass-loader 不同版本，这个选项名是 是不一样的，具体可参考 sass-loader对应的版本文档
                 data: `@import "./assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`,
             }
@@ -130,6 +133,7 @@ const config = {
 		],
     // 默认京东 APP 10.0主题 > @import "@nutui/nutui-taro/dist/styles/variables.scss";
     // 京东科技主题 > @import "@nutui/nutui-taro/dist/styles/variables-jdt.scss";
+    // 京东B商城主题 > @import "@nutui/nutui-taro/dist/styles/variables-jdb.scss";
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
 	},
   // ...

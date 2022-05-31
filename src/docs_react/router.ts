@@ -5,8 +5,11 @@ import Resource from '@/views/Resource.vue';
 import Case from '@/views/Case.vue';
 import Notice from '@/views/Notice.vue';
 import Main from '@/views/Main.vue';
+import Guide from '@/views/Guide.vue';
+import Component from '@/views/Component.vue';
 import config from '@/config/env';
 const pagesRouter: Array<RouteRecordRaw> = [];
+const guideRouters: Array<RouteRecordRaw> = [];
 
 /** vite */
 
@@ -14,7 +17,7 @@ const modulesPage = (import.meta as any).glob('/src/docs_react/docs/**/doc.md');
 for (const path in modulesPage) {
   let name = (/docs_react\/docs\/(.*)\/doc.md/.exec(path) as any[])[1];
   pagesRouter.push({
-    path: '/' + name,
+    path: name,
     component: modulesPage[path],
     name
   });
@@ -24,8 +27,8 @@ for (const path in modulesPage) {
 const modulesDocs = (import.meta as any).glob('/src/docs/*.md');
 for (const path in modulesDocs) {
   let name = (/docs\/(.*).md/.exec(path) as any[])[1];
-  pagesRouter.push({
-    path: '/' + name,
+  guideRouters.push({
+    path: name,
     component: modulesDocs[path],
     name
   });
@@ -42,7 +45,20 @@ const routes: Array<RouteRecordRaw> = [
     path: '/index',
     name: 'index',
     component: Index,
-    children: pagesRouter
+    children: [
+      {
+        path: '/guide',
+        name: 'guide',
+        component: Guide,
+        children: guideRouters
+      },
+      {
+        path: '/component',
+        name: 'component',
+        component: Component,
+        children: pagesRouter
+      }
+    ]
   },
   {
     path: '/case',

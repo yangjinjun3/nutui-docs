@@ -39,7 +39,7 @@ NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在
 | 版本 | 支持的框架 | 视觉规范 | 支持的应用类型 | 兼容
 | --- | --- | --- | --- | --- |
 | @nutui/nutui  | Vue 3x | 京东 [APP 10.0](https://nutui.jd.com/#/resource) 规范 | H5 | 现代浏览器以 Chrome >= 51、iOS >= 10.0（与 Vue3 一致）
-| @nutui/nutui-taro  | Vue3 + Taro | 京东 [APP 10.0](https://nutui.jd.com/#/resource) 规范 | H5&小程序，可[开发多端](https://nutui.jd.com/#/starttaro) | 现代浏览器及 Chrome >= 51、iOS >= 10.0（与 Vue3 一致）
+| @nutui/nutui-taro  | Vue3 + Taro | 京东 [APP 10.0](https://nutui.jd.com/#/resource) 规范 | H5&小程序，可[开发多端](https://nutui.jd.com/#/guide/starttaro) | 现代浏览器及 Chrome >= 51、iOS >= 10.0（与 Vue3 一致）
 | @nutui/nutui@2  | Vue 2x | 京东 APP 7.0 规范 | H5 | 现代浏览器及 Android >= 4.0、iOS >= 8.0
 | @nutui/nutui-jdl  | Vue 2x | [京东物流视觉规范](https://nutui.jd.com/jdl/#/design) | H5 | 现代浏览器及 Android >= 4.0、iOS >= 8.0
 
@@ -82,7 +82,7 @@ NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在
 
 | 版本 | 微信群 |内部咚咚群 |
 | --- | --- |--- |
-| [NutUI Vue](https://github.com/jdf2e/nutui/issues) | <img src="https://nutui.jd.com/3x/3.1.17/vx-codeys.png" width="100" /> 关注后回复「NutUI」 | 82957939
+| [NutUI Vue](https://github.com/jdf2e/nutui/issues) | <img src="https://storage.360buyimg.com/nutui-static/image/wx-code.png" width="100" /> 关注后回复「NutUI」 | 82957939
 | [NutUI x Taro](https://github.com/jdf2e/nutui/issues) | <img src="https://camo.githubusercontent.com/db4276b4ee4b443158195e943e9e678cb4d2afb7580f70d4d817ef0a90413aec/687474703a2f2f73746f726167652e333630627579696d672e636f6d2f7461726f2d6a642d636f6d2f7374617469632f636f6e746163745f7461726f5f6e757475695f71722e706e67" width="100" /> 关注后回复「NutUI」 | 1022545110 |
 | [NutUI React](https://github.com/jdf2e/nutui-react/issues) | 回复「NutUI」 | 1022619199
 
@@ -97,7 +97,7 @@ NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在
 
 ## 参与共建
 
-非常欢迎社区开发者为 NutUI 贡献代码，在贡献之前请先阅读 [贡献指南](https://nutui.jd.com/#/contributing)，参与共建提 [PR](https://github.com/jdf2e/nutui/pulls)。
+非常欢迎社区开发者为 NutUI 贡献代码，在贡献之前请先阅读 [贡献指南](https://nutui.jd.com/#/guide/contributing)，参与共建提 [PR](https://github.com/jdf2e/nutui/pulls)。
 
 感谢以下所有给 NutUI 贡献过代码的 [开发者](https://github.com/jdf2e/nutui/graphs/contributors)。
 

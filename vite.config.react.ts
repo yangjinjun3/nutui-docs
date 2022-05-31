@@ -10,7 +10,7 @@ const resolve = path.resolve;
 export default defineConfig({
   base: '/react',
   server: {
-    port: 2021,
+    port: 2022,
     host: '0.0.0.0',
     open: '/react/index.react.html',
     proxy: {

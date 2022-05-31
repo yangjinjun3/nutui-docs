@@ -39,7 +39,7 @@
           <div class="vx-box">
             <p class="vx-desc">微信交流群</p>
             <p class="vx-desc">扫码添加好友</p>
-            <img class="img-code" src="@/assets/images/vx-codeys.png" />
+            <img class="img-code" src="https://storage.360buyimg.com/nutui-static/image/wx-code.png" />
             <p class="vx-desc">回复<span class="vx-red">NutUI</span>即刻进群</p>
           </div>
         </div>
@@ -66,7 +66,7 @@
         <div class="doc-footer-item"><a class="sub-link" :href="repository.releases" v-hover>更新日志</a></div>
         <div class="doc-footer-item"><a class="sub-link" target="_blank" href="#/notice" v-hover>常见问题</a></div>
         <div class="doc-footer-item" v-if="language.toLowerCase() == 'vue'"
-          ><a class="sub-link" target="_blank" href="#/contributing" v-hover>贡献指南</a></div
+          ><a class="sub-link" target="_blank" href="#/guide/contributing" v-hover>贡献指南</a></div
         >
         <div class="doc-footer-item"
           ><a class="sub-link" target="_blank" :href="repository.issues" v-hover>报告 Bug</a>
@@ -80,7 +80,7 @@
       </div>
       <div class="doc-footer-list">
         <h4 class="doc-footer-title">关于我们</h4>
-        <div class="doc-footer-item"><a class="sub-link" href="#/joinus" v-hover>加入我们</a></div>
+        <div class="doc-footer-item"><a class="sub-link" href="#/guide/joinus" v-hover>加入我们</a></div>
         <div class="doc-footer-item"><a class="sub-link" href="mailto:nutui@jd.com" v-hover>联系我们</a></div>
         <div class="doc-footer-item"
           ><a class="sub-link" target="_blank" href="http://fe.jd.com" v-hover>京东前端</a></div

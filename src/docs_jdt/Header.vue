@@ -8,7 +8,7 @@
       <div class="nav-box">
         <ul class="nav-list">
           <li class="nav-item" v-for="item in header" :key="item.name" :class="{ active: isActive(item.name) }">
-            <a :href="item.path">
+            <a @click="toLink(item)">
               {{ item.cName }}
             </a>
           </li>
@@ -72,12 +72,14 @@ import { defineComponent, reactive, computed, onMounted } from 'vue';
 import Search from '@/components/Search.vue';
 import { header, versions, version, nav, repository, language, guide } from '@/config/index';
 import { RefData } from '@/assets/util/ref';
+import { useRouter } from 'vue-router';
 export default defineComponent({
   name: 'doc-header-jdt',
   components: {
     Search
   },
   setup() {
+    const router = useRouter();
     let packages = [] as any[];
     nav.forEach((item: any) => {
       packages.push(...item.packages);
@@ -104,6 +106,14 @@ export default defineComponent({
 
     const toHome = () => {
       RefData.getInstance().currentRoute.value = '/';
+    };
+
+    const toLink = (item: any) => {
+      if (item) {
+        router.push({ name: item.pathName });
+      } else {
+        router.push({ name: '/' });
+      }
     };
 
     const isActive = computed(() => {
@@ -143,7 +153,8 @@ export default defineComponent({
       handleFocus,
       handleGuidFocusOut,
       onMouseHover,
-      guide
+      guide,
+      toLink
     };
   }
 });

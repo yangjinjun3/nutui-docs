@@ -35,7 +35,10 @@ export default defineConfig({
       scss: {
         // example : additionalData: `@import "./src/design/styles/variables";`
         // dont need include file extend .scss
-        additionalData: `$doc-default-color: #2c68ff !default;@import "@/assets/styles/variables.scss";`
+        additionalData: `
+        $doc-default-color: #2c68ff !default;
+        $doc-smile-curve: url("https://img14.360buyimg.com/imagetools/jfs/t1/217538/34/19232/3215/62872c85Ecce2deda/6549417387fc413f.png") !default;
+        @import "@/assets/styles/variables.scss";`
       }
     },
     postcss: {

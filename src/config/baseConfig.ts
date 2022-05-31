@@ -28,34 +28,39 @@ export const SiteReact = {
   ],
   header: [
     {
-      name: 'intro,theme,start',
+      name: 'intro-react,theme-react,start-react',
       cName: '指南',
-      path: '#/intro-react'
+      path: '#/intro-react',
+      pathName: 'intro-react'
     },
     {
       name: 'component',
       cName: '组件',
-      path: '#/button'
+      path: '#/button',
+      pathName: 'button'
     },
-    {
-      name: 'example',
-      cName: '示例',
-      path: 'demo.html'
-    },
+    // {
+    //   name: 'example',
+    //   cName: '示例',
+    //   path: 'demo.html'
+    // },
     {
       name: 'resource',
       cName: '资源',
-      path: '#/resource'
+      path: '#/resource',
+      pathName: 'resource'
     },
     {
       name: 'notice',
       cName: '通知',
-      path: '#/notice'
+      path: '#/notice',
+      pathName: 'notice'
     },
     {
       name: 'joinus',
       cName: '加入我们',
-      path: '#/joinus'
+      path: '#/joinus',
+      pathName: 'joinus'
     }
   ],
   homePage: {
@@ -135,20 +140,22 @@ export const SiteVue = {
     },
     {
       name: 'nutui-jdt',
-      link: 'https://nutui.jd.com/jdt/?theme=jdt'
+      link: 'https://nutui.jd.com/jdt/'
     }
   ],
 
   header: [
     {
-      name: 'intro,theme,start,international,ide',
+      name: 'intro-jdt,intro,theme,start,start-jdt,starttaro,international,ide,contributing',
       cName: '指南',
-      path: '#/intro'
+      path: '#/guide/intro',
+      pathName: 'intro'
     },
     {
       name: 'component',
       cName: '组件',
-      path: '#/button'
+      path: '#/guide/button',
+      pathName: 'button'
     },
     // {
     //   name: 'example',
@@ -158,22 +165,26 @@ export const SiteVue = {
     {
       name: 'case',
       cName: '案例',
-      path: '#/case'
+      path: '#/case',
+      pathName: 'case'
     },
     {
       name: 'resource',
       cName: '资源',
-      path: '#/resource'
+      path: '#/resource',
+      pathName: 'resource'
     },
     {
       name: 'notice',
       cName: '通知',
-      path: '#/notice'
+      path: '#/notice',
+      pathName: 'notice'
     },
     {
       name: 'joinus',
       cName: '加入我们',
-      path: '#/joinus'
+      path: '#/guide/joinus',
+      pathName: 'joinus'
     }
   ],
   // 官网 首页

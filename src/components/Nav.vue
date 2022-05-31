@@ -1,9 +1,9 @@
 <template>
   <div class="doc-nav" :class="{ fixed: fixed }">
-    <ol>
-      <li>
+    <ol v-if="isGuideNav">
+      <!-- <li>
         {{ docs.name }}
-      </li>
+      </li> -->
       <ul>
         <li
           :class="{ active: isActive(_package.name) }"
@@ -11,39 +11,48 @@
           :key="_package"
           v-show="_package.show"
         >
-          <router-link v-if="!_package.isLink" :to="_package.name.toLowerCase()">{{ _package.cName }}</router-link>
+          <router-link v-if="!_package.isLink" :to="{ name: _package.name.toLowerCase() }">{{
+            _package.cName
+          }}</router-link>
           <a v-else :href="_package.name" target="_blank">{{ _package.cName }}</a>
         </li>
       </ul>
     </ol>
-    <ol v-for="_nav in nav" :key="_nav">
-      <li>{{ _nav.name }}</li>
-      <ul>
-        <template
-          :class="{ active: isActive(_package.name) }"
-          v-for="_package in reorder(_nav.packages)"
-          :key="_package"
-        >
-          <li v-if="_package.show">
-            <router-link :to="_package.name.toLowerCase()" :class="{ active: isActive(_package.name) }">
-              {{ _package.name }}&nbsp;&nbsp;<b>{{ _package.cName }}</b>
-            </router-link>
-          </li>
-        </template>
-      </ul>
-    </ol>
+    <template v-else>
+      <ol v-for="_nav in nav" :key="_nav">
+        <li>{{ _nav.name }}</li>
+        <ul>
+          <template
+            :class="{ active: isActive(_package.name) }"
+            v-for="_package in reorder(_nav.packages)"
+            :key="_package"
+          >
+            <li v-if="_package.show">
+              <router-link :to="{ name: _package.name.toLowerCase() }" :class="{ active: isActive(_package.name) }">
+                {{ _package.name }}&nbsp;&nbsp;<b>{{ _package.cName }}</b>
+              </router-link>
+            </li>
+          </template>
+        </ul>
+      </ol>
+    </template>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, computed, onMounted, toRefs } from 'vue';
+import { defineComponent, reactive, computed, onMounted, toRefs, ref } from 'vue';
+import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute, useRouter } from 'vue-router';
 import { RefData } from '@/assets/util/ref';
 import { nav, docs } from '@/config/index';
 export default defineComponent({
   name: 'doc-nav',
-  setup() {
+  setup(props: any) {
+    const route = useRoute();
+    const router = useRouter();
     const state = reactive({
-      fixed: false
+      fixed: false,
+      isGuideNav: false
     });
+
     const isActive = computed(() => {
       return function (name: string) {
         const currentValue = RefData.getInstance().currentRoute.value;
@@ -58,6 +67,8 @@ export default defineComponent({
       });
     };
     onMounted(() => {
+      if (route.name) getIsGuaid(route.path);
+
       document.addEventListener('scroll', scrollNav);
     });
     const scrollNav = () => {
@@ -69,6 +80,21 @@ export default defineComponent({
         state.fixed = false;
       }
     };
+
+    const getIsGuaid = (name: any) => {
+      state.isGuideNav = name.indexOf('guide') > -1 ? true : false;
+    };
+
+    onBeforeRouteUpdate((to: any) => {
+      let name: any = '';
+      console.log('当前路由', to);
+      if (to) {
+        name = to.path;
+      } else {
+        name = route.path;
+      }
+      getIsGuaid(name);
+    });
     return {
       ...toRefs(state),
       isActive,
@@ -95,9 +121,11 @@ export default defineComponent({
     border-right: 1px solid #eee;
     overflow: auto;
     padding-left: 35px;
+    padding-top: 35px;
     &.fixed {
       position: fixed;
       top: 0;
+      padding-top: 15px;
     }
     ol {
       &.introduce {
@@ -127,8 +155,7 @@ export default defineComponent({
             margin-top: -5px;
             height: 10px;
             transform: rotate(90deg);
-            background: url(https://img10.360buyimg.com/imagetools/jfs/t1/136135/19/14659/946/5fa20aa8E33a9aa26/d329fbe669171208.png)
-              no-repeat;
+            background: $doc-smile-curve;
             background-size: 100% 100%;
           }
         }

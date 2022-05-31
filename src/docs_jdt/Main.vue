@@ -13,7 +13,7 @@
 
           <div class="content-button">
             <div class="leftButton">
-              <a class="leftButtonText" href="/jdt/?theme=jdt/#/button">开始使用</a>
+              <a class="leftButtonText" href="#/component/button">开始使用</a>
             </div>
             <div class="rightButton">
               <div class="rightButtonText">扫码体验</div>
@@ -90,7 +90,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 @font-face {
   font-family: JDZhengHT;
-  src: url(//storage.360buyimg.com/qy-base/fonts/JDZhengHT-Blod.ttf);
+  src: url(https://storage.360buyimg.com/qy-base/fonts/JDZhengHT-Blod.ttf);
 }
 
 @keyframes fadeIn {
@@ -320,7 +320,7 @@ export default defineComponent({
         margin: 0 auto;
 
         &.qrcode-vue {
-          background: url(https://img12.360buyimg.com/imagetools/jfs/t1/162421/39/13392/9425/6052ea60E592310a9/264bdff23ef5fe95.png)
+          background: url(https://img11.360buyimg.com/imagetools/jfs/t1/115715/25/28361/11512/628e1be0Ea995cff0/a8d3a6ccccb5bd56.png)
             no-repeat;
           background-size: cover;
         }

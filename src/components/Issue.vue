@@ -1,5 +1,27 @@
 <template>
-  <div class="doc-content-issue">
+  <div class="doc-content-issue" v-if="isShowReact()">
+    <a class="issue-item" href="https://github.com/jdf2e/nutui-react/issues" target="_blank">
+      <Icon name="uploader"></Icon>
+      Issue
+    </a>
+    <a
+      class="issue-item"
+      :href="'https://github.com/jdf2e/nutui-react/issues?q=is:issue+is:open+' + component"
+      target="_blank"
+    >
+      <Icon name="issue"></Icon>
+      Open
+    </a>
+    <a
+      class="issue-item"
+      :href="'https://github.com/jdf2e/nutui-react/issues?q=is:issue+is:closed+' + component"
+      target="_blank"
+    >
+      <Icon name="checklist"></Icon>
+      Closed
+    </a>
+  </div>
+  <div class="doc-content-issue" v-else>
     <a class="issue-item" href="https://github.com/jdf2e/nutui/issues" target="_blank">
       <Icon name="uploader"></Icon>
       Issue
@@ -26,6 +48,7 @@
 import { defineComponent, onMounted, reactive, toRefs, computed } from 'vue';
 import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute, useRouter } from 'vue-router';
 import { RefData } from '@/sites/assets/util/ref';
+import { language } from '@/config/index';
 import { Icon } from '@nutui/nutui';
 export default defineComponent({
   name: 'doc-issue',
@@ -43,6 +66,10 @@ export default defineComponent({
       state.component = router.name;
     };
 
+    const isShowReact = () => {
+      return language === 'react';
+    };
+
     onMounted(() => {
       watchDemoUrl(route);
     });
@@ -52,7 +79,8 @@ export default defineComponent({
     });
 
     return {
-      ...toRefs(state)
+      ...toRefs(state),
+      isShowReact
     };
   }
 });
