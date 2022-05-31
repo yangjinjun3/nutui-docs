@@ -1,13 +1,15 @@
 <template>
   <div class="icon-moudle">
-    <div class="item home" @click="goHome">
+    <!-- <div class="item home" @click="goHome">
       <Icon name="home"></Icon>
-    </div>
+    </div> -->
     <div class="item refresh" @click="refresh">
-      <Icon name="refresh"></Icon>
+      <!-- <Icon name="refresh"></Icon> -->
+      <div class="icon"></div>
     </div>
     <div class="item category" @click="toCategory($event)">
-      <Icon name="category"></Icon>
+      <!-- <Icon name="category"></Icon> -->
+      <div class="icon"></div>
     </div>
     <div class="qrcodepart" v-if="showCode" ref="codeRef" @click="stopClick($event)">
       <div class="qrcode"> </div>
@@ -39,20 +41,15 @@ export default defineComponent({
       document.addEventListener('click', (e: any) => {
         state.showCode = false; // 点击其他区域关闭
       });
-      // console.log('window.top.location', window.top.location)
-      // console.log('window.location', window.location)
-      // console.log('route', route)
     });
 
     // 返回demo 首页页
     const goHome = () => {
-      // router.push('/');
       emit('goHome');
     };
 
     // 刷新
     const refresh = () => {
-      // router.go(0);
       emit('refresh');
     };
 
@@ -97,6 +94,28 @@ export default defineComponent({
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    .icon {
+      width: 20px;
+      height: 20px;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      &.refresh {
+        background-image: url('../assets/images/icon-refresh.jpg');
+      }
+      &.category {
+        background-image: url('../assets/images/icon-code.jpg');
+      }
+    }
+    &.refresh {
+      .icon {
+        background-image: url('../assets/images/icon-refresh.jpg');
+      }
+    }
+    &.category {
+      .icon {
+        background-image: url('../assets/images/icon-code.jpg');
+      }
+    }
   }
 }
 .qrcodepart {

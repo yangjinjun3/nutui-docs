@@ -239,7 +239,7 @@ export default defineComponent({
     };
     // 获得组件名称
     const componentTitle = (to?: any) => {
-      console.log('route.path', route.path);
+      // console.log('route.path', route.path);
       if (to?.name) {
         state.componentName.name = to.name.includes('taro') ? to.name.substr(0, to.name.length - 5) : to.name;
       } else {

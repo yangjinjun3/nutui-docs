@@ -1,11 +1,11 @@
 <template>
   <div class="doc-demo-preview">
-    <iframe :src="url" frameborder="0" ref="demoIframe"></iframe>
-    <!-- <demo-icon @refresh="onRefresh()" @goHome="onGoHome()"></demo-icon> -->
+    <iframe :src="url" v-if="reload" frameborder="0" ref="demoIframe"></iframe>
+    <demo-icon @refresh="onRefresh()" @goHome="onGoHome()"></demo-icon>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, onMounted, reactive, toRefs, nextTick } from 'vue';
 import Icon from '@/components/Icon.vue';
 export default defineComponent({
   name: 'doc-demo-preview',
@@ -17,32 +17,33 @@ export default defineComponent({
   },
   setup(props: any, { emit }: any) {
     const demoIframe = ref(null);
-    const onRefresh = () => {
-      const iframe = demoIframe?.value?.contentWindow;
-      iframe.postMessage(
-        {
-          cmd: 'refresh',
-          params: {
-            state: true
-          }
-        },
-        '*'
-      );
-    };
+
+    const state = reactive({
+      reload: true
+    });
+
+    onMounted(() => {});
+
     const onGoHome = () => {
-      const iframe = demoIframe?.value?.contentWindow;
-      iframe.postMessage(
-        {
-          cmd: 'goHome',
-          params: {
-            state: true
-          }
-        },
-        '*'
-      );
+      console.log('onGoHome');
+      emit('goHome');
     };
 
-    return { demoIframe, onRefresh, onGoHome };
+    const onRefresh = () => {
+      state.reload = false;
+      nextTick(() => {
+        state.reload = true;
+      });
+      console.log('onRefresh');
+      emit('onRefresh');
+    };
+
+    return {
+      ...toRefs(state),
+      demoIframe,
+      onRefresh,
+      onGoHome
+    };
   }
 });
 </script>
