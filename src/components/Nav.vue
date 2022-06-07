@@ -28,7 +28,7 @@
             :key="_package"
           >
             <li v-if="_package.show">
-              <router-link :to="{ name: _package.name.toLowerCase() }" :class="{ active: isActive(_package.name) }">
+              <router-link :to="_package.name.toLowerCase()" :class="{ active: isActive(_package.name) }">
                 {{ _package.name }}&nbsp;&nbsp;<b>{{ _package.cName }}</b>
               </router-link>
             </li>

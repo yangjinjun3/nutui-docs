@@ -10,9 +10,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-a[title='站长统计'] {
-  display: none;
-}
 ::selection {
   background: $doc-default-color;
   color: #fff;

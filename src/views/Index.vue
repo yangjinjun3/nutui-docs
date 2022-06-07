@@ -88,28 +88,6 @@ export default defineComponent({
         cName: ''
       }
     });
-    const excludeTaroVue = [
-      '/guide/intro',
-      '/guide/intro-jdt',
-      '/guide/start-jdt',
-      '/guide/start',
-      '/guide/theme',
-      '/guide/joinus',
-      '/guide/starttaro',
-      '/guide/contributing',
-      '/guide/international',
-      '/guide/ide'
-    ];
-
-    const excludeTaroReact = [
-      '/guide/intro-react',
-      '/guide/start-react',
-      '/guide/theme-react',
-      '/guide/joinus',
-      '/guide/international',
-      '/resource',
-      '/guide/contributing'
-    ];
 
     const data = reactive({
       demoUrl: 'demo.html',
@@ -148,8 +126,7 @@ export default defineComponent({
     };
 
     const isShow = () => {
-      let exclude = language == 'vue' ? excludeTaroVue : excludeTaroReact;
-      return !exclude.includes(route.path);
+      return !route.path.includes('guide');
     };
 
     const isShowTaroDoc = computed(() => {
@@ -228,13 +205,13 @@ export default defineComponent({
     };
     // 获得组件名称
     const componentTitle = (to?: any) => {
-      const routename = route.path.toLocaleLowerCase().split('/').pop() || '';
-      console.log('路径', routename);
+      let routename = '';
       if (to?.name) {
-        state.componentName.name = to.name.includes('taro') ? to.name.substr(0, to.name.length - 5) : to.name;
+        routename = to.path.toLocaleLowerCase().split('/').pop() || '';
       } else {
-        state.componentName.name = routename.includes('taro') ? routename.substr(0, routename.length - 5) : routename;
+        routename = route.path.toLocaleLowerCase().split('/').pop() || '';
       }
+      state.componentName.name = routename;
       nav.forEach((i: any) => {
         i.packages.forEach((item: any) => {
           if (item.name.toLowerCase() == state.componentName.name) {

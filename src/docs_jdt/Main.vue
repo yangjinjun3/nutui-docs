@@ -13,7 +13,7 @@
 
           <div class="content-button">
             <div class="leftButton">
-              <a class="leftButtonText" href="#/component/button">开始使用</a>
+              <a class="leftButtonText" href="#/zh-CN/guide/intro-jdt">开始使用</a>
             </div>
             <div class="rightButton">
               <div class="rightButtonText">扫码体验</div>

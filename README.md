@@ -160,7 +160,7 @@ NutUI 已经投入了我们的生产环境中使用，业界也在广泛地使�
 
 ## 更新日志
 
-本项目遵从 [Contributing](https://nutui.jd.com/#/guide/contributing) ,更新日志请查阅 [Releases](https://github.com/jdf2e/nutui/releases)
+本项目遵从 [Contributing](https://nutui.jd.com/#/zh-CN/guide/contributing) ,更新日志请查阅 [Releases](https://github.com/jdf2e/nutui/releases)
 
 <br/>
 
@@ -173,7 +173,7 @@ NutUI 已经投入了我们的生产环境中使用，业界也在广泛地使�
 
 ## 参与共建
 
-请参考 [贡献指南](https://nutui.jd.com/#/guide/contributing)。
+请参考 [贡献指南](https://nutui.jd.com/#/zh-CN/guide/contributing)。
 
 我们非常欢迎你给我们提 [PR](https://github.com/jdf2e/nutui/pulls) ,参与共建。当然关于 NutUI 建设的方方面面，我们都欢迎和感谢你给我们提供好的建议和想法。
 
