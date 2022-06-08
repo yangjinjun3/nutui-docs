@@ -38,7 +38,7 @@ NutUI-JDT 是京东科技风格的移动端组件库，使用 Vue 语言来编�
 | 版本 | 支持的框架 | 视觉规范 | 支持的应用类型 | 兼容
 | --- | --- | --- | --- | --- |
 | @nutui/nutui  | Vue 3x | 京东 [APP 10.0](https://nutui.jd.com/#/resource) 规范 | H5 | 现代浏览器以 Chrome >= 51、iOS >= 10.0（与 Vue3 一致）
-| @nutui/nutui-taro  | Vue3 + Taro | 京东 [APP 10.0](https://nutui.jd.com/#/resource) 规范 | H5&小程序，可[开发多端](https://nutui.jd.com/#/guide/starttaro) | 现代浏览器及 Chrome >= 51、iOS >= 10.0（与 Vue3 一致）
+| @nutui/nutui-taro  | Vue3 + Taro | 京东 [APP 10.0](https://nutui.jd.com/#/resource) 规范 | H5&小程序，可[开发多端](https://nutui.jd.com/#/zh-CN/guide/starttaro) | 现代浏览器及 Chrome >= 51、iOS >= 10.0（与 Vue3 一致）
 | @nutui/nutui@2  | Vue 2x | 京东 APP 7.0 规范 | H5 | 现代浏览器及 Android >= 4.0、iOS >= 8.0
 | @nutui/nutui-jdl  | Vue 2x | [京东物流视觉规范](https://nutui.jd.com/jdl/#/design) | H5 | 现代浏览器及 Android >= 4.0、iOS >= 8.0
 
@@ -96,7 +96,7 @@ NutUI-JDT 是京东科技风格的移动端组件库，使用 Vue 语言来编�
 
 ## 参与共建
 
-非常欢迎社区开发者为 NutUI 贡献代码，在贡献之前请先阅读 [贡献指南](https://nutui.jd.com/#/guide/contributing)，参与共建提 [PR](https://github.com/jdf2e/nutui/pulls)。
+非常欢迎社区开发者为 NutUI 贡献代码，在贡献之前请先阅读 [贡献指南](https://nutui.jd.com/#/zh-CN/contributing)，参与共建提 [PR](https://github.com/jdf2e/nutui/pulls)。
 
 感谢以下所有给 NutUI 贡献过代码的 [开发者](https://github.com/jdf2e/nutui/graphs/contributors)。
 

@@ -9,7 +9,9 @@ import Guide from '@/views/Guide.vue';
 import Component from '@/views/Component.vue';
 import config from '@/config/env';
 const pagesRouter: Array<RouteRecordRaw> = [];
+const pagesEnRouter: Array<RouteRecordRaw> = [];
 const guideRouters: Array<RouteRecordRaw> = [];
+const guideEnRouters: Array<RouteRecordRaw> = [];
 
 /** vite */
 
@@ -17,9 +19,19 @@ const modulesPage = (import.meta as any).glob('/src/docs_vue/docs/**/doc.md');
 for (const path in modulesPage) {
   let name = (/docs_vue\/docs\/(.*)\/doc.md/.exec(path) as any[])[1];
   pagesRouter.push({
-    path: name,
+    path: `/zh-CN/component/${name}`,
     component: modulesPage[path],
-    name
+    name: `zh-CN/component/${name}`
+  });
+}
+
+const modulesEnPage = (import.meta as any).glob('/src/docs_vue/docs/**/doc.en-US.md');
+for (const path in modulesEnPage) {
+  let name = (/docs_vue\/docs\/(.*)\/doc.en-US.md/.exec(path) as any[])[1];
+  pagesRouter.push({
+    path: `/en-US/component/${name}`,
+    component: modulesEnPage[path],
+    name: `en-US/component/${name}`
   });
 }
 
@@ -39,9 +51,18 @@ const modulesDocs = (import.meta as any).glob('/src/docs/*.md');
 for (const path in modulesDocs) {
   let name = (/docs\/(.*).md/.exec(path) as any[])[1];
   guideRouters.push({
-    path: name,
+    path: `/zh-CN/guide/${name}`,
     component: modulesDocs[path],
     name
+  });
+}
+const modulesEnDocs = (import.meta as any).glob('/src/docs/*.en-US.md');
+for (const path in modulesEnDocs) {
+  let name = (/docs\/(.*).en-US.md/.exec(path) as any[])[1];
+  guideEnRouters.push({
+    path: `/en-US/guide/${name}`,
+    component: modulesEnDocs[path],
+    name: `en-${name}`
   });
 }
 
@@ -52,23 +73,34 @@ const routes: Array<RouteRecordRaw> = [
     component: Main
     // children: pagesRouter
   },
-
   {
     path: '/index',
     name: 'index',
     component: Index,
     children: [
       {
-        path: '/guide',
+        path: '/zh-CN/guide',
         name: 'guide',
         component: Guide,
         children: guideRouters
       },
       {
-        path: '/component',
+        path: '/en-US/guide',
+        name: 'enGuide',
+        component: Guide,
+        children: guideEnRouters
+      },
+      {
+        path: '/zh-CN/component',
         name: 'component',
         component: Component,
         children: pagesRouter
+      },
+      {
+        path: '/en-US/component',
+        name: 'enComponent',
+        component: Component,
+        children: pagesEnRouter
       }
     ]
   },

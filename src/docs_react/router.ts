@@ -19,7 +19,7 @@ for (const path in modulesPage) {
   pagesRouter.push({
     path: name,
     component: modulesPage[path],
-    name
+    name: `component/${name}`
   });
 }
 

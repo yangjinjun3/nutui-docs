@@ -121,10 +121,7 @@ export default defineComponent({
       return function (name: string) {
         const lName = name.toLowerCase();
         if (lName === 'component') {
-          if (value.indexOf('-taro') > -1) {
-            value = value.split('-taro')[0];
-          }
-          return packages.findIndex((item) => item.name.toLowerCase() === value) > -1;
+          return value.includes('component');
         } else {
           return value === lName || lName.includes(value);
         }

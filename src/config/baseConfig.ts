@@ -36,8 +36,8 @@ export const SiteReact = {
     {
       name: 'component',
       cName: '组件',
-      path: '#/button',
-      pathName: 'button'
+      path: '#/component/button',
+      pathName: 'component/button'
     },
     // {
     //   name: 'example',
@@ -154,8 +154,8 @@ export const SiteVue = {
     {
       name: 'component',
       cName: '组件',
-      path: '#/guide/button',
-      pathName: 'button'
+      path: '#/zh-CN/component/button',
+      pathName: 'zh-CN/component/button'
     },
     // {
     //   name: 'example',

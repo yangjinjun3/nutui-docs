@@ -15,8 +15,14 @@
       <h4 class="sub-title">设计资源</h4>
       <!-- <h4 class="sub-title">学习资料</h4> -->
       <p class="sub-desc"
-        >NutUI 3x 基于 JD APP 10.0 视觉规范实现的组件库，在这里可以下载 NutUI 的设计资源。
+        >NutUI 3x 基于 JD APP 10.0 视觉规范实现的组件库，在这里可以下载 sketch 设计资源。
         <a class="download" download href="https://storage.360buyimg.com/nutui-static/NutUI3xStyleGuide.sketch"
+          >点击下载
+        </a>
+      </p>
+      <p class="sub-desc"
+        >NutUI-JDT 京东科技体系移动端设计规范，这里可以下载 sketch 设计资源。
+        <a class="download" download href="https://storage.360buyimg.com/nutui-static/DTDMobileUIkits.sketch"
           >点击下载
         </a>
       </p>
