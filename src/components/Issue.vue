@@ -108,7 +108,7 @@ export default defineComponent({
     transition: all 0.2s ease 0s;
     display: flex;
     align-items: center;
-    padding: 5px 8px;
+    padding: 5px 9px;
     line-height: 22px;
     font-size: 14px;
     color: #333;
@@ -119,19 +119,17 @@ export default defineComponent({
       display: inline-block;
       width: 16px;
       height: 16px;
-      margin-right: 6px;
+      margin-right: 5px;
       background-size: 100% 100%;
       background-repeat: no-repeat;
-      &.open {
-        background-image: url('../assets/images/icon-open.png');
-      }
       &.issue {
-        width: 13px;
-        height: 13px;
-        background-image: url('../assets/images/icon-issue.png');
+        background-image: url('../assets/images/icon-add.svg');
+      }
+      &.open {
+        background-image: url('../assets/images/icon-open.svg');
       }
       &.closed {
-        background-image: url('../assets/images/icon-closed.png');
+        background-image: url('../assets/images/icon-closed.svg');
       }
     }
     .nut-icon {
@@ -140,7 +138,7 @@ export default defineComponent({
     }
     &:hover {
       color: #000;
-      // background: rgba(64, 69, 82, 0.1);
+      background: rgba(64, 69, 82, 0.1);
     }
   }
 }
