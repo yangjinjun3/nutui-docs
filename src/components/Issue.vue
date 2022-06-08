@@ -115,19 +115,6 @@ export default defineComponent({
     cursor: pointer;
     text-decoration: none;
     border-radius: 2px;
-
-    .open,
-    .issue,
-    .closed {
-    }
-    .open,
-    .issue,
-    .closed {
-    }
-    .open,
-    .issue,
-    .closed {
-    }
     .icon {
       display: inline-block;
       width: 16px;
@@ -149,8 +136,6 @@ export default defineComponent({
     }
     .nut-icon {
       font-size: 12px;
-      // width: 16px;
-      // height: 16px;
       margin-right: 5px;
     }
     &:hover {
