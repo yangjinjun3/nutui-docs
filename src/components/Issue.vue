@@ -1,7 +1,7 @@
 <template>
   <div class="doc-content-issue" v-if="isShowReact()">
     <a class="issue-item" href="https://github.com/jdf2e/nutui-react/issues" target="_blank">
-      <Icon name="uploader"></Icon>
+      <i class="icon issue"></i>
       Issue
     </a>
     <a
@@ -9,7 +9,7 @@
       :href="'https://github.com/jdf2e/nutui-react/issues?q=is:issue+is:open+' + component"
       target="_blank"
     >
-      <Icon name="issue"></Icon>
+      <i class="icon open"></i>
       Open
     </a>
     <a
@@ -17,13 +17,13 @@
       :href="'https://github.com/jdf2e/nutui-react/issues?q=is:issue+is:closed+' + component"
       target="_blank"
     >
-      <Icon name="checklist"></Icon>
+      <i class="icon closed"></i>
       Closed
     </a>
   </div>
   <div class="doc-content-issue" v-else>
     <a class="issue-item" href="https://github.com/jdf2e/nutui/issues" target="_blank">
-      <Icon name="uploader"></Icon>
+      <i class="icon issue"></i>
       Issue
     </a>
     <a
@@ -31,7 +31,7 @@
       :href="'https://github.com/jdf2e/nutui/issues?q=is:issue+is:open+' + component"
       target="_blank"
     >
-      <Icon name="issue"></Icon>
+      <i class="icon open"></i>
       Open
     </a>
     <a
@@ -39,7 +39,7 @@
       :href="'https://github.com/jdf2e/nutui/issues?q=is:issue+is:closed+' + component"
       target="_blank"
     >
-      <Icon name="checklist"></Icon>
+      <i class="icon closed"></i>
       Closed
     </a>
   </div>
@@ -110,11 +110,43 @@ export default defineComponent({
     align-items: center;
     padding: 5px 8px;
     line-height: 22px;
-    font-size: 16px;
+    font-size: 14px;
     color: #333;
     cursor: pointer;
     text-decoration: none;
     border-radius: 2px;
+
+    .open,
+    .issue,
+    .closed {
+    }
+    .open,
+    .issue,
+    .closed {
+    }
+    .open,
+    .issue,
+    .closed {
+    }
+    .icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      &.open {
+        background-image: url('../assets/images/icon-open.png');
+      }
+      &.issue {
+        width: 13px;
+        height: 13px;
+        background-image: url('../assets/images/icon-issue.png');
+      }
+      &.closed {
+        background-image: url('../assets/images/icon-closed.png');
+      }
+    }
     .nut-icon {
       font-size: 12px;
       // width: 16px;
@@ -123,7 +155,7 @@ export default defineComponent({
     }
     &:hover {
       color: #000;
-      background: rgba(64, 69, 82, 0.1);
+      // background: rgba(64, 69, 82, 0.1);
     }
   }
 }
