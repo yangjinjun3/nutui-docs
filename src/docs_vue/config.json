@@ -74,6 +74,17 @@
         },
         {
           "version": "3.0.0",
+          "name": "ConfigProvider",
+          "cType": "基础组件",
+          "cName": "全局配置",
+          "desc": "用于配置NutUI组件全局",
+          "show": true,
+          "tarodoc": false,
+          "type": "component",
+          "author": "richard1015"
+        },
+        {
+          "version": "3.0.0",
           "name": "Image",
           "cType": "基础组件",
           "cName": "图片",
