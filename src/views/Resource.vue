@@ -148,7 +148,7 @@ export default defineComponent({
         }
       });
 
-      // 视频列表接口
+      // 视频列表接口1
       apiService.getVideo().then((res) => {
         if (res?.state == 0) {
           data.videoList = res.value.data.arrays;
