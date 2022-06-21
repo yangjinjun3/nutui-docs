@@ -37,8 +37,8 @@
       </div>
       <div class="tab-box" v-else>
         <h4 class="sub-title">视频</h4>
-        <div class="tab-bd" v-for="(vItem, i) in videoList" v-show="activeIndex === 0" :key="i">
-          <div class="design-item" @click="toVideoLink(vItem.link)">
+        <div class="tab-bd" >
+          <div class="design-item" v-for="(vItem, i) in videoList" v-show="activeIndex === 0" :key="i" @click="toVideoLink(vItem.link)">
             <img class="img-design" :src="vItem.cover_image" />
             <p class="design-title" v-hover>{{ vItem.title }}</p>
             <div class="play"><img src="@/assets/images/play-start.png" alt="" /></div>
