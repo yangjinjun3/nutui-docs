@@ -2,7 +2,7 @@
 
 ## 介绍
 
-为了给开发者提供更好的开发体验，组件库提供了针对 `vscode` 的组件高亮能力，通过插件可以获得 `代码自动补全`，`快速查看文档`，`文档props说明`。官方特意为 `vscode` 提供了辅助插件，开发者可以下载安装使用。
+为了给开发者提供更好的开发体验，组件库提供了针对 `vscode` 和 `webstorm` 的组件高亮能力，通过插件可以获得 `代码自动补全`，`快速查看文档`，`文档props说明`。官方还特意为 `vscode` 提供了辅助插件，开发者可以下载安装使用。
 
 
 ## VSCode
@@ -37,3 +37,13 @@
 <img width="80%" src="https://img14.360buyimg.com/imagetools/jfs/t1/118540/18/21049/172147/6268fc36E2c78bca3/e0d5731a5a425c71.png" />
 <br />
 <br />
+
+## WebStorm
+
+此功能依赖版本 `v3.1.22` 及以上，为开发者提供了组件快速查看其属性以及默认值、说明的功能，来方便开发者进行开发使用。
+<br />
+<br />
+<img width="80%" src="https://img13.360buyimg.com/imagetools/jfs/t1/53098/8/20565/137323/62b47408E6c82eb60/baf676ab30cd1e9a.png" />
+<br />
+<br />
+<img width="80%" src="https://img10.360buyimg.com/imagetools/jfs/t1/185923/22/25524/244204/62b47408E4e77f756/1de9f0bbd0a418e9.png" />
