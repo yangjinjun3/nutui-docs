@@ -100,15 +100,9 @@ export default defineComponent({
       isShowGuid: false
     });
     let { currentLang, isZh, isEn } = useLocale();
-    const awaitIframe = async () => {
-      while (!window.frames[0] || !window.frames[0].document.querySelector('#nav')) {
-        await new Promise((r) => setTimeout(r, 100));
-      }
-    };
+
     const translate = async () => {
       let location = window.location;
-      await awaitIframe();
-      const iframe = window.frames[0] as any;
 
       if (currentLang.value == 'zh-CN') {
         location.href = location.href.replace('zh-CN', 'en-US');
