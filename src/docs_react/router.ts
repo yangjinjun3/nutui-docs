@@ -66,12 +66,12 @@ const routes: Array<RouteRecordRaw> = [
     component: Case
   },
   {
-    path: '/resource',
+    path: '/guide/resource',
     name: 'resource',
     component: Resource
   },
   {
-    path: '/notice',
+    path: '/guide/notice',
     name: 'notice',
     component: Notice
   }

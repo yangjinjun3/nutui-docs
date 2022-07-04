@@ -1,4 +1,4 @@
-# NutUI 3.0 en
+# NutUI 3.0
 
 <!-- NutUI 是京东风格的 Vue 移动端组件库，开发和服务于移动Web界面的企业级产品。 -->
 NutUI is a JD-style mobile component library. Use Vue language to write applications that can be used on H5, applet platform, NutUI improve development efficiency and experience.

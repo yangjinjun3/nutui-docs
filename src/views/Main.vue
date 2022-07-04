@@ -175,6 +175,7 @@ import Swiper from 'swiper/swiper-bundle.min.js';
 import { useRouter } from 'vue-router';
 import { language, homePage } from '@/config/index';
 import { arrayGroup } from '@/assets/util/index';
+import { useLocale } from '@/assets/util/locale';
 export default defineComponent({
   name: 'main',
   components: {
@@ -183,6 +184,7 @@ export default defineComponent({
   },
   setup() {
     const router = useRouter();
+    const { currentLang } = useLocale();
     const data = reactive({
       // theme: 'white',
       articleList: [],
@@ -314,7 +316,7 @@ export default defineComponent({
       if (language == 'react') {
         router.push({ name: 'intro-react' });
       } else {
-        router.push({ name: 'intro' });
+        router.push({ path: `/${currentLang.value}/guide/intro` });
       }
     }
     const toDetail = () => {
