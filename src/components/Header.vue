@@ -132,7 +132,6 @@ export default defineComponent({
     };
 
     const toLink = (item: any) => {
-      debugger;
       if (item) {
         if (isEn.value) {
           item.path = item.path.replace('zh-CN', 'en-US');
