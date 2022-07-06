@@ -368,7 +368,7 @@ $doc-title-height: 137px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 40px;
+      padding: 24px 40px;
       // line-height: 56px;
       border-bottom: 1px solid #eee;
       background: #fff;

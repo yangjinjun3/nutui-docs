@@ -51,13 +51,13 @@ export default defineComponent({
 <style lang="scss">
 .doc {
   &-demo-preview {
-    height: 667px;
-    // height: 637px;
+    // height: 667px;
+    height: calc(100vh - 161px);
     width: 375px;
     position: absolute;
     right: 30px;
-    top: 240px;
-    // top: 135px;
+    // top: 240px;
+    top: 200px;
     box-shadow: #ebedf0 0 4px 12px;
     border-radius: 12px;
     overflow: hidden;
@@ -67,8 +67,8 @@ export default defineComponent({
     }
 
     iframe {
-      // height: calc(100% - 40px); // 先隐藏底部栏
-      height: 100%;
+      height: calc(100% - 40px);
+      // height: 100%;
       width: 100%;
     }
   }
