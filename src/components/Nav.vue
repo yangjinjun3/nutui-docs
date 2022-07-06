@@ -11,16 +11,16 @@
           :key="_package"
           v-show="_package.show"
         >
-          <router-link v-if="!_package.isLink" :to="{ name: _package.name.toLowerCase() }">{{
-            _package.cName
+          <router-link v-if="!_package.isLink" :to="_package.name.toLowerCase()">{{
+            isZh ? _package.cName : _package.eName
           }}</router-link>
-          <a v-else :href="_package.name" target="_blank">{{ _package.cName }}</a>
+          <a v-else :href="_package.name" target="_blank">{{ isZh ? _package.cName : _package.eName }}</a>
         </li>
       </ul>
     </ol>
     <template v-else>
       <ol v-for="_nav in nav" :key="_nav">
-        <li>{{ _nav.name }}</li>
+        <li>{{ isZh ? _nav.name : _nav.enName }}</li>
         <ul>
           <template
             :class="{ active: isActive(_package.name) }"
@@ -29,7 +29,7 @@
           >
             <li v-if="_package.show">
               <router-link :to="_package.name.toLowerCase()" :class="{ active: isActive(_package.name) }">
-                {{ _package.name }}&nbsp;&nbsp;<b>{{ _package.cName }}</b>
+                {{ _package.name }}&nbsp;&nbsp;<b v-if="isZh">{{ _package.cName }}</b>
               </router-link>
             </li>
           </template>
@@ -42,12 +42,14 @@
 import { defineComponent, reactive, computed, onMounted, toRefs, ref } from 'vue';
 import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute, useRouter } from 'vue-router';
 import { RefData } from '@/assets/util/ref';
+import { useLocale } from '@/assets/util/locale';
 import { nav, docs } from '@/config/index';
 export default defineComponent({
   name: 'doc-nav',
   setup(props: any) {
     const route = useRoute();
     const router = useRouter();
+    const { isZh } = useLocale();
     const state = reactive({
       fixed: false,
       isGuideNav: false
@@ -101,7 +103,8 @@ export default defineComponent({
       nav: reactive(nav),
       docs: reactive(docs),
       currentRoute: RefData.getInstance().currentRoute,
-      reorder
+      reorder,
+      isZh
     };
   }
 });

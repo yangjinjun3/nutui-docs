@@ -15,7 +15,7 @@
         <ul class="nav-list">
           <li class="nav-item" v-for="item in header" :key="item.name" :class="{ active: isActive(item.name) }">
             <a @click="toLink(item)">
-              {{ item.cName }}
+              {{ isZh ? item.cName : item.eName }}
             </a>
           </li>
           <li class="nav-item">
@@ -64,6 +64,7 @@
               </transition>
             </div>
           </li>
+          <li v-if="language == 'vue'" class="nav-item" @click="translate">En/中</li>
           <li class="nav-item">
             <a class="user-link" target="_blank" v-if="repository.git" :href="repository.git"></a>
             <a class="user-link gitee" target="_blank" v-if="repository.gitee" :href="repository.gitee"></a>
@@ -79,6 +80,7 @@ import Search from './Search.vue';
 import { header, versions, version, nav, repository, language, guide } from '@/config/index';
 import { RefData } from '@/assets/util/ref';
 import { useRouter } from 'vue-router';
+import { useLocale } from '@/assets/util/locale';
 export default defineComponent({
   name: 'doc-header',
   components: {
@@ -97,6 +99,21 @@ export default defineComponent({
       activeIndex: 2,
       isShowGuid: false
     });
+    let { currentLang, isZh, isEn } = useLocale();
+
+    const translate = async () => {
+      let location = window.location;
+
+      if (currentLang.value == 'zh-CN') {
+        location.href = location.href.replace('zh-CN', 'en-US');
+        currentLang.value = 'en-US';
+        // postmessage
+      } else {
+        location.href = location.href.replace('en-US', 'zh-CN');
+        currentLang.value = 'zh-CN';
+        // postmessage
+      }
+    };
 
     const handleFocus = () => {
       console.log(1);
@@ -116,7 +133,12 @@ export default defineComponent({
 
     const toLink = (item: any) => {
       if (item) {
-        router.push({ name: item.pathName });
+        if (isEn.value) {
+          item.path = item.path.replace('zh-CN', 'en-US');
+        } else {
+          item.path = item.path.replace('en-US', 'zh-CN');
+        }
+        router.push({ path: item.path });
       } else {
         router.push({ name: '/' });
       }
@@ -157,7 +179,9 @@ export default defineComponent({
       handleGuidFocusOut,
       onMouseHover,
       guide,
-      toLink
+      toLink,
+      translate,
+      isZh
     };
   }
 });

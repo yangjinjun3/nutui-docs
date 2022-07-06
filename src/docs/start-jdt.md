@@ -13,10 +13,10 @@
 # Vue2 项目 需要参考 2.x 文档 https://nutui.jd.com/2x
 npm i @nutui/nutui@2
 
-# Vue3 项目
+# Vue3 H5 项目
 npm i @nutui/nutui
 
-# taro 小程序项目
+# Taro + Vue3 多端小程序项目
 npm i @nutui/nutui-taro
 ```
 
@@ -30,6 +30,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 // 注意：这种方式将会导入所有组件
 import NutUI from "@nutui/nutui";
+// 采用按需加载时  此全局css样式，需要删除
 import "@nutui/nutui/dist/style.css";
 createApp(App).use(NutUI).mount("#app");
 ```

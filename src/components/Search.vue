@@ -16,7 +16,7 @@
         v-for="(item, index) in data.searchList"
         :key="index"
       >
-        <router-link :to="{ name: item.name.toLowerCase() }">
+        <router-link :to="item._name">
           {{ item.name }}
           <span>{{ item.cName }}</span>
         </router-link>
@@ -28,6 +28,7 @@
 import { defineComponent, reactive, onMounted, watch } from 'vue';
 import { nav } from '@/config/index';
 import { useRouter } from 'vue-router';
+
 export default defineComponent({
   name: 'search',
   setup() {
@@ -57,10 +58,15 @@ export default defineComponent({
           data.searchList = data.navList.filter((item) => {
             if (item.show === false) return false;
             // console.log('item', item);
+            if (location.href.includes('react')) {
+              item._name = `/component/${item.name.toLowerCase()}`;
+            } else {
+              item._name = `/zh-CN/component/${item.name.toLowerCase()}`;
+            }
             const rx = new RegExp(sVal, 'gi');
             return rx.test(item.name + ' ' + item.cName + '' + item.desc);
           });
-          // console.log('rx2', data.searchList.length, data.searchList);
+          console.log('rx2', data.searchList.length, data.searchList);
         } else {
           data.searchCName = '';
           data.searchIndex = 0;
@@ -73,10 +79,10 @@ export default defineComponent({
       // e.target.select();
     };
     const onblur = (e) => {
-      setTimeout(() => {
-        data.searchList = [];
-        data.searchVal = '';
-      }, 200);
+      // setTimeout(() => {
+      //   data.searchList = [];
+      //   data.searchVal = '';
+      // }, 200);
     };
     const checklist = () => {
       data.searchVal = '';
@@ -102,7 +108,7 @@ export default defineComponent({
           data.searchIndex = searchIndex;
           if (e.keyCode == 13) {
             router.push({
-              path: '/' + searchList[searchIndex].name
+              path: '/zh-CN/component/' + searchList[searchIndex].name
             });
             data.searchCurName = '';
             data.searchIndex = 0;
