@@ -38,6 +38,7 @@ export default defineConfig({
         additionalData: `
         $doc-default-color: #2c68ff !default;
         $doc-smile-curve: url("https://img14.360buyimg.com/imagetools/jfs/t1/217538/34/19232/3215/62872c85Ecce2deda/6549417387fc413f.png") !default;
+        $doc-footer-theme-icon: url('@/assets/images/icon-color-blue.png') no-repeat center/100% !default;
         @import "@/assets/styles/variables.scss";`
       }
     },

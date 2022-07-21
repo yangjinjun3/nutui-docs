@@ -1,7 +1,7 @@
 // doc
 $doc-default-color: #fa2c19 !default;
 $doc-smile-curve: url('https://img10.360buyimg.com/imagetools/jfs/t1/136135/19/14659/946/5fa20aa8E33a9aa26/d329fbe669171208.png') !default;
-
+$doc-footer-theme-icon: url('@/assets/images/icon-color.png') no-repeat center/100% !default;
 $doc-default-primary-bg: linear-gradient(
   135deg,
   rgba(250, 25, 44, 1) 0%,
@@ -81,7 +81,7 @@ $theme-black-footer-word1: #fff;
 $theme-black-footer-word2: #f5f5f5;
 $theme-black-footer-word3: #f5f5f5;
 $theme-black-footer-word4: #808080;
-$theme-black-footer-hover: #fa2c19;
+$theme-black-footer-hover: $doc-default-color;
 $theme-black-footer-bg: #1d1d21;
 $theme-black-footer-border: transparent;
 $theme-black-theme-border: #666;

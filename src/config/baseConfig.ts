@@ -242,14 +242,14 @@ export const SiteVue = {
     // 应用案例
     cases: {
       show: true,
-      moreRouter: '#/case'
+      moreRouter: '#/zh-CN/guide/case'
     },
     //是否展示二维码
     qrcodeShow: true,
     // 学习资源
     article: {
       show: true,
-      moreRouter: '#/resource'
+      moreRouter: '#/zh-CN/guide/resource'
     }
   },
   language: 'vue'

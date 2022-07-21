@@ -2,7 +2,12 @@
   <div class="doc-footer" :class="`doc-footer-${themeColor}`">
     <div class="doc-footer-content" :class="!showLogo ? 'minisize' : ''">
       <div class="doc-footer-list" v-if="showLogo">
-        <img class="doc-footer-logo" v-if="language.toLowerCase() == 'vue'" src="@/assets/images/logo-header-red.png" />
+        <img class="doc-footer-logo" v-if="isJDT()" src="@/assets/images/logo-blue-footer.png" />
+        <img
+          class="doc-footer-logo"
+          v-else-if="language.toLowerCase() == 'vue'"
+          src="@/assets/images/logo-header-red.png"
+        />
         <img class="doc-footer-logo" v-else src="@/assets/images/logo-header-red-react.png" />
       </div>
       <div class="doc-footer-list">
@@ -101,13 +106,16 @@
         </div>
       </div>
     </div>
-    <!-- <p class="doc-footer-desc">2021 京东零售 - 平台产品部 - 基础业务体验部.&nbsp;All Rights Reserved.</p> -->
+    <p class="doc-footer-desc" v-if="isJDT()"
+      >Copyright © 2018~2022 京东零售 - 平台产品部 - 主站体验设计部 & 京东科技企业金融研发部</p
+    >
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
 import { repository, language } from '@/config/index';
 import { RefData } from '@/assets/util/ref';
+import { isJDT } from '@/assets/util';
 export default defineComponent({
   name: 'doc-footer',
   props: {
@@ -159,7 +167,8 @@ export default defineComponent({
       language,
       data,
       clickOut,
-      checkTheme
+      checkTheme,
+      isJDT
     };
   }
 });
@@ -248,7 +257,7 @@ export default defineComponent({
       width: 12px;
       height: 10px;
       margin-right: 10px;
-      background: url('@/assets/images/icon-color.png') no-repeat center/100%;
+      background: $doc-footer-theme-icon;
     }
     .circle-red,
     .circle-black,
