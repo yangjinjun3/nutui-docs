@@ -1,4 +1,5 @@
 import { HttpClient } from './HttpClient';
+import axios from 'axios';
 export class ApiService {
   private httpClient: HttpClient;
 
@@ -49,6 +50,17 @@ export class ApiService {
     return this.httpClient.request('/openapi/contributors', 'get', {
       name
     });
+  }
+
+  getReactContributors(name: string) {
+    return Promise.all([
+      axios.get(
+        `https://api.github.com/repos/jdf2e/nutui-react/commits?path=src/packages/${name.toLowerCase()}/doc.md`
+      ),
+      axios.get(
+        `https://api.github.com/repos/jdf2e/nutui-react/commits?path=src/packages/${name.toLowerCase()}/${name.toLowerCase()}.tsx`
+      )
+    ]);
   }
 
   /**
