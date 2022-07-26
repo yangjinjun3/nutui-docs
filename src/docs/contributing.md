@@ -47,7 +47,7 @@ releas
 
 ## Pull Request 指南
 
-1. 务必保证 `npm run build`  `npm run build:site` `npm run build:taro:vue` 能够编译成功；
+1. 务必保证 `npm run build` `npm run build:taro:vue` 能够编译成功；
 2. 当相关包的 `package.json` 含有 `npm test` 命令时，必须保证所有测试用例都需要通过；
 3. 当相关包有测试用例时，请给你提交的代码也添加相应的测试用例；
 4. 提交代码 commit 时，commit 信息需要遵循 [Angular Style Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)。

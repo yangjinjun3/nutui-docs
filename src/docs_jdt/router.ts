@@ -28,7 +28,7 @@ for (const path in modulesPage) {
 const modulesEnPage = (import.meta as any).glob('/src/docs_vue/docs/**/doc.en-US.md');
 for (const path in modulesEnPage) {
   let name = (/docs_vue\/docs\/(.*)\/doc.en-US.md/.exec(path) as any[])[1];
-  pagesRouter.push({
+  pagesEnRouter.push({
     path: `/en-US/component/${name}`,
     component: modulesEnPage[path],
     name: `en-US/component/${name}`
@@ -40,9 +40,13 @@ const modulesPageTaro = (import.meta as any).glob('/src/docs_vue/docs/**/*.taro.
 for (const path in modulesPageTaro) {
   let name = (/docs_vue\/docs\/(.*)\/doc.taro.md/.exec(path) as any[])[1];
   pagesRouter.push({
-    path: `${name}-taro`,
-    component: modulesPageTaro[path],
-    name: `${name}-taro`
+    path: `/zh-CN/component/${name}-taro`,
+    component: modulesPageTaro[path]
+    // name: `${name}-taro`
+  });
+  pagesEnRouter.push({
+    path: `/en-US/component/${name}-taro`,
+    component: modulesPageTaro[path]
   });
 }
 
@@ -105,18 +109,33 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
-    path: '/case',
-    name: 'case',
+    path: '/zh-CN/guide/case',
+    name: '/zh-CN/guide/case',
     component: Case
   },
   {
-    path: '/resource',
-    name: 'resource',
+    path: '/zh-CN/guide/resource',
+    name: '/zh-CN/guide/resource',
     component: Resource
   },
   {
-    path: '/notice',
-    name: 'notice',
+    path: '/zh-CN/guide/notice',
+    name: '/zh-CN/guide/notice',
+    component: Notice
+  },
+  {
+    path: '/en-US/guide/case',
+    name: '/en-US/guide/case',
+    component: Case
+  },
+  {
+    path: '/en-US/guide/resource',
+    name: '/en-US/guide/resource',
+    component: Resource
+  },
+  {
+    path: '/en-US/guide/notice',
+    name: '/en-US/guide/notice',
     component: Notice
   }
 ];
