@@ -139,11 +139,15 @@ export default defineComponent({
     };
 
     const isActive = computed(() => {
-      let value = RefData.getInstance().currentRoute.value;
+      const route = RefData.getInstance().currentRoute.value;
+      const values = route.split('/');
+      let value = values[values.length - 1];
       return function (name: string) {
-        const lName = name.toLowerCase();
+        const lNames = name.toLowerCase().split('/');
+        const lName = lNames[lNames.length - 1];
+        if (!value) return false;
         if (lName === 'component') {
-          return value.includes('component');
+          return route.includes('component');
         } else {
           return value === lName || lName.includes(value);
         }
