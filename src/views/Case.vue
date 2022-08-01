@@ -252,7 +252,7 @@ $mainRed: #fa685d;
     z-index: 9999;
     width: 100%;
     min-width: 1300px;
-    height: calc(100% - 64px);
+    height: 100%;
     background: rgba(0, 0, 0, 0.9);
 
     &-main {
