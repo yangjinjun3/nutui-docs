@@ -47,7 +47,7 @@ releas
 
 ## Pull Request Guide
 
-1. Make sure `npm run build`  `npm run build:site` `npm run build:taro:vue` run correctly;
+1. Make sure `npm run build` `npm run build:taro:vue` run correctly;
 2. Make sure all test cases successfull when relative package `package.json` contains `npm test`;
 3. If relative package has test case, please add test case for your commit code also;
 4. Commited message must follow [Angular Style Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153);

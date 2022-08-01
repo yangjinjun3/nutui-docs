@@ -41,12 +41,13 @@ for (const path in modulesPageTaro) {
   let name = (/docs_vue\/docs\/(.*)\/doc.taro.md/.exec(path) as any[])[1];
   pagesRouter.push({
     path: `/zh-CN/component/${name}-taro`,
-    component: modulesPageTaro[path]
-    // name: `${name}-taro`
+    component: modulesPageTaro[path],
+    name: `zh-CN/component/${name}-taro`
   });
   pagesEnRouter.push({
     path: `/en-US/component/${name}-taro`,
-    component: modulesPageTaro[path]
+    component: modulesPageTaro[path],
+    name: `en-US/component/${name}-taro`
   });
 }
 

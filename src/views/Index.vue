@@ -151,11 +151,29 @@ export default defineComponent({
       // 贡献者列表接口
       const apiService = new ApiService();
       let routename = router.path.toLocaleLowerCase().split('/').pop() || '';
-      apiService.getContributors(routename.split('-')[0]).then((res) => {
-        if (res && res.state == 0) {
-          contributorsData.value = res.value.data;
-        }
-      });
+
+      if (window.location.href.indexOf('react') != -1) {
+        // apiService.getReactContributors(routename.split('-')[0]).then((resList) => {
+        //   const githubContributors: { [key: string]: any } = {};
+        //   resList.forEach((res) => {
+        //     if (!res.data.message && res.status == 200 && Array.isArray(res?.data)) {
+        //       res.data.forEach((i) => {
+        //         const author = i.author;
+        //         if (author && author.login) {
+        //           githubContributors[author.login] = { username: author.login, url: author.avatar_url };
+        //         }
+        //       });
+        //     }
+        //   });
+        //   contributorsData.value = Object.keys(githubContributors).map((k) => githubContributors[k]) as any;
+        // });
+      } else {
+        apiService.getContributors(routename.split('-')[0]).then((res) => {
+          if (res && res.state == 0) {
+            contributorsData.value = res.value.data;
+          }
+        });
+      }
     };
 
     const watchDemoUrl = (router: RouteLocationNormalized) => {

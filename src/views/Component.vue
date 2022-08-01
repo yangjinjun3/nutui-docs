@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="docs-component-page">
     <router-view></router-view>
   </div>
 </template>
@@ -14,3 +14,9 @@ export default defineComponent({
   }
 });
 </script>
+
+<style>
+.docs-component-page {
+  margin-bottom: 20px;
+}
+</style>

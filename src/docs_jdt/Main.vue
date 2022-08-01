@@ -73,6 +73,9 @@
       <div class="doc-ball ball7"><div></div></div>
     </div>
   </div>
+  <div class="footer-jdt">
+    <p>Copyright © 2018~2022 京东零售平台产品主站体验设计部 & 京东科技企业金融研发部</p>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -81,13 +84,20 @@ import Footer from '@/components/Footer.vue';
 export default defineComponent({
   name: 'main',
   components: {
-    [Header.name]: Header,
-    [Footer.name]: Footer
+    [Header.name]: Header
   }
 });
 </script>
 
 <style lang="scss" scoped>
+.footer-jdt {
+  text-align: center;
+  font-size: 12px;
+  background-color: #1d1d21;
+  padding: 20px;
+  color: #fff;
+}
+
 @font-face {
   font-family: JDZhengHT;
   src: url(https://storage.360buyimg.com/qy-base/fonts/JDZhengHT-Blod.ttf);

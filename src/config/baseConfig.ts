@@ -30,14 +30,14 @@ export const SiteReact = {
     {
       name: 'intro-react,theme-react,start-react',
       cName: '指南',
-      path: '/guide/intro-react',
+      path: '/zh-CN/guide/intro-react',
       pathName: 'intro-react'
     },
     {
       name: 'component',
       cName: '组件',
-      path: '/component/button',
-      pathName: '/component/button'
+      path: '/zh-CN/component/button',
+      pathName: '/zh-CN/component/button'
     },
     // {
     //   name: 'example',
@@ -47,20 +47,20 @@ export const SiteReact = {
     {
       name: 'resource',
       cName: '资源',
-      path: '/guide/resource',
-      pathName: 'resource'
+      path: '/zh-CN/guide/resource',
+      pathName: '/zh-CN/guide/resource'
     },
     {
       name: 'notice',
       cName: '通知',
-      path: '/guide/notice',
-      pathName: 'notice'
+      path: '/zh-CN/guide/notice',
+      pathName: '/zh-CN/guide/notice'
     },
     {
       name: 'joinus',
       cName: '加入我们',
-      path: '/guide/joinus',
-      pathName: 'joinus'
+      path: '/zh-CN/guide/joinus',
+      pathName: '/zh-CN/guide/joinus'
     }
   ],
   homePage: {
@@ -242,14 +242,14 @@ export const SiteVue = {
     // 应用案例
     cases: {
       show: true,
-      moreRouter: '#/case'
+      moreRouter: '#/zh-CN/guide/case'
     },
     //是否展示二维码
     qrcodeShow: true,
     // 学习资源
     article: {
       show: true,
-      moreRouter: '#/resource'
+      moreRouter: '#/zh-CN/guide/resource'
     }
   },
   language: 'vue'

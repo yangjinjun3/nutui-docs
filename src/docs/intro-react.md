@@ -14,14 +14,17 @@ NutUI 是京东风格的 React 移动端组件库，开发和服务于移动 Web
 
 ## 特性
 
-* 40+ 高质量组件（1.0 持续开发中）
-* 基于京东 APP 10.0 视觉规范
-* 支持按需引用
-* 支持定制主题
-* 支持 TypeScript
-* 详尽的文档和示例
-* 支持服务端渲染（测试阶段）
-* 单元测试覆盖（1.0 开发中）
+* 🚀 70+ 高质量组件，覆盖移动端主流场景
+* 💪 支持一套代码同时开发多端小程序+H5(Taro版本规划中)
+* 📖 基于京东APP 10.0 视觉规范
+* 🍭 支持按需引用
+* 📖 详尽的文档和示例
+* 💪 支持 TypeScript
+* 💪 支持服务端渲染（测试阶段）
+* 🍭 支持定制主题
+* 🌍 国际化支持
+* 🍭 单元测试覆盖率超过 80%，保障稳定性
+* 📖 提供 Sketch 设计资源
 
 ## 示例 H5 
 
@@ -55,6 +58,29 @@ NutUI 是京东风格的 React 移动端组件库，开发和服务于移动 Web
 ## 版本号规则
 
 NutUI-React 遵循 [语义化版本semver](https://semver.org/) 原则。([中文文档](https://semver.org/lang/zh-CN/))
+
+
+## 贡献者们
+
+感谢以下小伙伴们为 NutUI 发展做出的贡献：
+
+<a href="https://github.com/jdf2e/nutui-react/graphs/contributors">
+  <img src="https://opencollective.com/nutui-react/contributors.svg?width=890&button=false" alt="contributors">
+</a>
+
+## 参与共建
+
+非常欢迎社区开发者为 NutUI 贡献代码，在贡献之前请先阅读 [贡献指南](https://nutui.jd.com/#/zh-CN/guide/contributing)，参与共建提 [PR](https://github.com/jdf2e/nutui-react/pulls)。
+
+感谢以下所有给 NutUI 贡献过代码的 [开发者](https://github.com/jdf2e/nutui-react/graphs/contributors)。
+
+## 开发计划
+
+[Milestones](https://github.com/jdf2e/nutui-react/projects)
+
+## 更新日志
+
+本项目遵从 [Angular Style Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)，更新日志请查阅 [Release](https://github.com/jdf2e/nutui-react/releases)。
 
 ## 开源协议
 
