@@ -80,6 +80,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Header from './Header.vue';
+import 'swiper/swiper.min.css';
 import Footer from '@/components/Footer.vue';
 export default defineComponent({
   name: 'main',
