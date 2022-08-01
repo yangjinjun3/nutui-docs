@@ -48,6 +48,7 @@
 .online-code {
   position: relative;
   .expand {
+    display: none;
     &.fixed {
       position: absolute;
       top: 8px;
@@ -68,7 +69,15 @@
     }
   }
   .language-html {
-    max-height: 400px;
+    max-height: none;
+  }
+  &.scroll {
+    .language-html {
+      max-height: 400px;
+    }
+    .expand {
+      display: block;
+    }
   }
   &.isExpand {
     .language-html {
