@@ -45,3 +45,34 @@
     }
   }
 }
+.online-code {
+  position: relative;
+  .expand {
+    &.fixed {
+      position: absolute;
+      top: 8px;
+      right: 18px;
+      z-index: 1;
+    }
+    .icon-expand,
+    .icon-unexpand {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .icon-expand {
+      display: none;
+    }
+    .icon-unexpand {
+      display: block;
+    }
+  }
+  .language-html {
+    max-height: 400px;
+  }
+  &.isExpand {
+    .language-html {
+      max-height: none;
+    }
+  }
+}

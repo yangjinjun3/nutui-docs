@@ -1,5 +1,17 @@
 <template>
-  <div class="online-code" ref="onlineCode">
+  <div class="online-code" ref="onlineCode" :class="{ isExpand: expand }">
+    <div class="expand fixed" @click="expand = !expand">
+      <img
+        class="icon-expand"
+        :style="{ display: expand ? 'block' : 'none' }"
+        src="../../assets/images/icon-expand.svg"
+      />
+      <img
+        class="icon-unexpand"
+        :style="{ display: expand ? 'none' : 'block' }"
+        src="../../assets/images/icon-unexpand.svg"
+      />
+    </div>
     <slot></slot>
     <div class="online-part">
       <template v-if="codeType === 'vue'">
@@ -25,6 +37,18 @@
         />
         <div class="online-tips">复制代码</div>
       </div>
+      <!-- <div class="list expand" @click="expand = !expand">
+        <img
+          class="icon-expand"
+          :style="{ 'display': expand ? 'block' : 'none' }"
+          src="../../assets/images/icon-expand.svg"
+        />
+        <img
+          class="icon-unexpand"
+          :style="{ 'display': expand ? 'none' : 'block' }"
+          src="../../assets/images/icon-unexpand.svg"
+        />
+      </div> -->
     </div>
   </div>
 </template>
@@ -87,6 +111,7 @@ export default defineConfig({
   plugins: [vue()]
 });`;
 
+    const expand = ref(false); // 展开收起态
     const onlineCode = ref(null);
     const codeType = ref(``);
     const sourceMainJs = compressText(sourceMainJsStr);
@@ -148,7 +173,8 @@ export default defineConfig({
       jumpHref1,
       onlineCode,
       copyCode,
-      codeType
+      codeType,
+      expand
     };
   }
 };

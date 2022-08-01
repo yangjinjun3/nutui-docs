@@ -61,6 +61,7 @@ export default defineComponent({
     box-shadow: #ebedf0 0 4px 12px;
     border-radius: 12px;
     overflow: hidden;
+    z-index: 2;
     &.fixed {
       position: fixed;
       top: 120px;
