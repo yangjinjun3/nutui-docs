@@ -1,8 +1,8 @@
 import vueConfig from '../docs_vue/config.json';
 import reactConfig from '../docs_react/config.json';
 
-import { SiteReact, SiteVue } from './baseConfig';
-import { isJDT } from '@/assets/util';
+import { SiteReact, SiteVue, SiteJDB } from './baseConfig';
+import { isJDT, isJDB } from '@/assets/util';
 
 let config: any = {};
 
@@ -72,9 +72,10 @@ if ((import.meta as any).env.BASE_URL.includes('react')) {
 
     vueConfig.demoUrl = 'https://nutui.jd.com/jdt/demo.html#';
   }
+  let siteconfig = isJDB() ? SiteJDB : SiteVue;
   config = {
     ...vueConfig,
-    ...SiteVue
+    ...siteconfig
   };
 }
 
