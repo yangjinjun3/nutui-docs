@@ -14,17 +14,18 @@
         <h4 class="doc-footer-title">相关产品</h4>
 
         <div class="doc-footer-item"
+          ><a class="sub-link" target="_blank" href="https://taro.jd.com" v-hover>Taro</a>
+        </div>
+        <div class="doc-footer-item"
           ><a class="sub-link" target="_blank" href="https://nutui.jd.com/cat/#/" v-hover>Cat</a>
         </div>
         <div class="doc-footer-item"
           ><a class="sub-link" target="_blank" href="https://nutui.jd.com/bingo/#/" v-hover>Bingo</a>
         </div>
-        <div class="doc-footer-item"
-          ><a class="sub-link" target="_blank" href="https://taro.jd.com" v-hover>Taro</a>
-        </div>
-        <div class="doc-footer-item"
+
+        <!-- <div class="doc-footer-item"
           ><a class="sub-link" target="_blank" href="http://deco.jd.com/" v-hover>Deco</a>
-        </div>
+        </div> -->
         <div class="doc-footer-item"
           ><a class="sub-link" target="_blank" href="https://relay.jd.com" v-hover>Relay</a>
         </div>
