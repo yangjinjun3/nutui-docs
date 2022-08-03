@@ -102,6 +102,11 @@
         <h4 class="doc-content-title">应用案例</h4>
         <a class="sub-more" :href="homePage.cases.moreRouter" v-if="homePage.cases.moreRouter">More</a>
       </div>
+
+      <div class="doc-content-desc"
+        >京东集团（京东零售、京东科技、京东物流、京东工业、京东健康）累计应用项目 400+，外部累计应用项目 2,200+</div
+      >
+
       <div class="doc-content-cases-content">
         <div class="doc-content-cases-content__main">
           <div class="doc-content-cases-content__main-lefticon" @click="onLeft"></div>
@@ -405,6 +410,13 @@ export default defineComponent({
       font-size: 14px;
       color: $theme-red;
     }
+  }
+
+  &-desc {
+    transform: translateY(-35px);
+    font-size: 14px;
+    text-align: center;
+    color: #f2f2f2;
   }
   &-title {
     display: inline-block;

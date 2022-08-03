@@ -11,4 +11,7 @@ const arrayGroup = (arr: any[], num: number): any[] => {
 const isJDT = () => {
   return location.href.includes('jdt');
 };
-export { isMobile, arrayGroup, isJDT };
+const isJDB = () => {
+  return location.href.includes('jdb');
+};
+export { isMobile, arrayGroup, isJDT, isJDB };

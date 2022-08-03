@@ -7,8 +7,8 @@ NutUI support multiple UI themes by default. And in order to meet diffrent visua
 NutUI support some official themes, welcome to use. if they are not enough, recommended to use <a target="_blank" href="https://nutui.jd.com/theme/#/base" >Online Theme Preview Generator</a>
 
 * JD APP 10.0 Design Specification（default）
-* JDT Design(Vue3) <a target="_blank" href="https://nutui.jd.com/jdt/" >preview</a>
-* JD ToB Mall Design(Vue3) <a target="_blank" href="https://nutui.jd.com/?jdb#/component/button" >preview</a>
+* JDT Design(Vue3) <a target="_blank" href="https://nutui.jd.com/jdt/#/zh-CN/component/button" >preview</a>
+* JD ToB Mall Design(Vue3) <a target="_blank" href="https://nutui.jd.com/?jdb#/zh-CN/component/button" >preview</a>
 * JDL Design(Vue2)<a target="_blank" href="https://nutui.jd.com/jdl/" >preview</a>
 
 <br/>

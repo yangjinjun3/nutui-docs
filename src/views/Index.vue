@@ -151,7 +151,8 @@ export default defineComponent({
       // 贡献者列表接口
       const apiService = new ApiService();
       let routename = router.path.toLocaleLowerCase().split('/').pop() || '';
-      if (window.location.href.indexOf('react')) {
+
+      if (window.location.href.indexOf('react') != -1) {
         // apiService.getReactContributors(routename.split('-')[0]).then((resList) => {
         //   const githubContributors: { [key: string]: any } = {};
         //   resList.forEach((res) => {
