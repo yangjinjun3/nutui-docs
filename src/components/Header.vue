@@ -5,9 +5,9 @@
   </div> -->
   <div class="doc-header" :class="themeName()">
     <div class="header-logo">
-      <a class="logo-link" :class="{ [language]: language }" href="#" @click="toHome"></a>
+      <a class="logo-link" :class="{ [language]: language, jdb: isJDB() }" @click="toHome"></a>
       <span class="logo-border"></span>
-      <span class="version" v-if="language == 'vue'">{{ version }}</span>
+      <span class="version" v-if="language == 'vue' && isJDB() == false">{{ version }}</span>
     </div>
     <div class="header-nav">
       <Search />
@@ -81,6 +81,7 @@ import { header, versions, version, nav, repository, language, guide } from '@/c
 import { RefData } from '@/assets/util/ref';
 import { useRouter } from 'vue-router';
 import { useLocale } from '@/assets/util/locale';
+import { isJDB } from '@/assets/util/index';
 export default defineComponent({
   name: 'doc-header',
   components: {
@@ -128,7 +129,11 @@ export default defineComponent({
     };
 
     const toHome = () => {
+      if (isJDB()) {
+        return;
+      }
       RefData.getInstance().currentRoute.value = '/';
+      window.location.href = '#';
     };
 
     const toLink = (item: any) => {
@@ -175,6 +180,7 @@ export default defineComponent({
       repository,
       data,
       language,
+      isJDB,
       toHome,
       isActive,
       checkGuidTheme,
@@ -244,9 +250,13 @@ export default defineComponent({
       position: absolute;
       top: 50%;
       margin-top: -23px;
+      cursor: pointer;
 
       &.react {
         width: 197px;
+      }
+      &.jdb {
+        width: 180px;
       }
     }
     .logo-border {
@@ -278,7 +288,7 @@ export default defineComponent({
         display: flex;
         list-style: none;
         align-items: center;
-        justify-content: space-around;
+        justify-content: flex-end;
       }
       .nav-item {
         position: relative;
@@ -382,6 +392,9 @@ export default defineComponent({
           background: url('@/assets/images/logo-header-white.png') no-repeat center/100%;
           &.react {
             background: url('@/assets/images/logo-header-white-react.png') no-repeat center/100%;
+          }
+          &.jdb {
+            background: url('@/assets/images/logo-header-white-jdb.png') no-repeat center/100%;
           }
         }
         .logo-border {
@@ -573,6 +586,9 @@ export default defineComponent({
           &.react {
             background: url('@/assets/images/logo-header-red-react.png') no-repeat center/100%;
           }
+          &.jdb {
+            background: url('@/assets/images/logo-header-red-jdb.png') no-repeat center/100%;
+          }
         }
         .logo-border {
           background: $theme-white-border;
@@ -762,6 +778,9 @@ export default defineComponent({
           background: url('@/assets/images/logo-header-red.png') no-repeat center/100%;
           &.react {
             background: url('@/assets/images/logo-header-red-react.png') no-repeat center/100%;
+          }
+          &.jdb {
+            background: url('@/assets/images/logo-header-red-jdb.png') no-repeat center/100%;
           }
         }
         .logo-border {
