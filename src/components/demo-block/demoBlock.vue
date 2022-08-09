@@ -1,5 +1,5 @@
 <template>
-  <div class="online-code" ref="onlineCode" :class="{ scroll: scroll, isExpand: expand }">
+  <div class="online-code" ref="onlineCode" :class="{ scroll: scroll, isExpand: expand, win: win }">
     <div class="expand fixed" @click="expand = !expand">
       <img
         class="icon-expand"
@@ -113,6 +113,7 @@ export default defineConfig({
 
     const expand = ref(false); // 展开收起态
     const scroll = ref(false); // 代码块是否滚动
+    const win = ref(false); // 判断是否是windows系统
     const onlineCode = ref(null);
     const codeType = ref(``);
     const sourceMainJs = compressText(sourceMainJsStr);
@@ -124,6 +125,7 @@ export default defineConfig({
     const jumpHref = ref(``);
     const jumpHref1 = ref(``);
     onMounted(() => {
+      OSnow();
       const sourceValue = decompressText(onlineCode.value.dataset.value);
       codeType.value = onlineCode.value.dataset.type;
       // console.log('onlineCode', onlineCode)
@@ -177,6 +179,13 @@ export default defineConfig({
         alert('复制成功');
       });
     };
+    /* 判断系统类型 */
+    const OSnow = () => {
+      var isMac = /macintosh|mac os x/i.test(navigator.userAgent);
+      if (!isMac) {
+        win.value = true;
+      }
+    };
     return {
       jumpHref,
       jumpHref1,
@@ -184,7 +193,8 @@ export default defineConfig({
       copyCode,
       codeType,
       expand,
-      scroll
+      scroll,
+      win
     };
   }
 };
