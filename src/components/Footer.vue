@@ -92,7 +92,7 @@
           ><a class="sub-link" target="_blank" href="http://fe.jd.com" v-hover>京东前端</a></div
         >
       </div>
-      <div class="doc-footer-list" @click.stop="data.isShowSelect = !data.isShowSelect">
+      <div :class="themeDocfooterList" @click.stop="data.isShowSelect = !data.isShowSelect">
         <div class="doc-footer-select-hd"><i class="icon-color"></i>主题换肤</div>
         <div class="doc-footer-select-bd" v-show="data.isShowSelect">
           <div
@@ -113,7 +113,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { computed, defineComponent, reactive } from 'vue';
 import { repository, language } from '@/config/index';
 import { RefData } from '@/assets/util/ref';
 import { isJDT } from '@/assets/util';
@@ -162,6 +162,11 @@ export default defineComponent({
       RefData.getInstance().themeColor.value = color;
       localStorage.setItem('nutui-theme-color', color);
     };
+    const themeDocfooterList = computed(() => {
+      let docContentIndexClass = `doc-footer-list ${location.hash.includes('jagile') ? 'jagile' : ''}`;
+
+      return docContentIndexClass;
+    });
     return {
       themeColor: RefData.getInstance().themeColor,
       repository,
@@ -169,7 +174,8 @@ export default defineComponent({
       data,
       clickOut,
       checkTheme,
-      isJDT
+      isJDT,
+      themeDocfooterList
     };
   }
 });
@@ -190,6 +196,11 @@ export default defineComponent({
 
     &-list {
       position: relative;
+
+      &.jagile {
+        display: none;
+      }
+
       &:first-child {
         margin-right: 65px;
       }

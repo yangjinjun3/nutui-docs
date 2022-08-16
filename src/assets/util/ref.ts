@@ -9,7 +9,7 @@ export class RefData {
   public static getInstance(): RefData {
     if (this.instance == null) {
       this.instance = new RefData();
-      let localTheme = localStorage.getItem('nutui-theme-color');
+      let localTheme = location.hash.includes('jagile') ? 'white' : localStorage.getItem('nutui-theme-color');
       if (localTheme) {
         this.instance.themeColor.value = localTheme;
       }
@@ -19,7 +19,7 @@ export class RefData {
 
   public currentRoute: Ref<string> = ref('/');
 
-  private _themeColor: Ref<string> = ref('black');
+  private _themeColor: Ref<string> = ref(`${location.hash.includes('jagile') ? 'white' : 'black'}`);
   public get themeColor(): Ref<string> {
     return this._themeColor;
   }

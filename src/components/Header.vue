@@ -173,6 +173,11 @@ export default defineComponent({
       data.isShowGuid = false;
       window.open(item.link);
     };
+
+    if (location.hash.includes('jagile')) {
+      header.splice(-1, 1);
+    }
+
     return {
       header,
       versions,
